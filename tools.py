@@ -1,9 +1,81 @@
 import os
 import pandas
+import rasterio
+import rasterio.mask
 import geopandas
 import itertools
 import numpy as np
+import dask.bag as dbag
 from numba import njit
+
+def bag_of_chips(chip_bbs, specs, npartitions):
+    '''
+    Load imagery for `chip_bbs` using a Dask bag
+    ...
+    
+    Arguments
+    ---------
+    chip_bbs : GeoDataFrame
+               Geo-table with bounding boxes of the chips to load
+    specs : dict
+            Metadata dict, including, at least:
+            - `bands`: band index of each band of interest
+            - `chip_size`: size of each chip size expressed in pixels
+            - `mosaic_p`: path to the mosaic/file of imagery
+    npartitions : int
+                  No. of partitions to split `chip_bbs` before sending to
+                  Dask for distributed computation
+    Returns
+    -------
+    chips : ndarray
+            Numpy tensor of (N, chip_size, chip_size, n_bands) dimension 
+            with imagery data   
+    '''
+    # Split chip_bbs
+    thr = np.linspace(0, chip_bbs.shape[0], npartitions+1, dtype=int)
+    chunks = [
+        (chip_bbs.iloc[thr[i]:thr[i+1], :], specs) for i in range(len(thr)-1)
+    ]
+    # Set up the bag
+    bag = dbag.from_sequence(
+        chunks, npartitions=npartitions
+    ).map(chip_loader)
+    # Compute
+    chips = np.concatenate(bag.compute())
+    return chips
+
+def chip_loader(pars):
+    '''
+    Load imagery for `chip_bbs`
+    ...
+    
+    Arguments (wrapped in `pars`)
+    -----------------------------
+    chip_bbs : GeoDataFrame
+               Geo-table with bounding boxes of the chips to load
+    specs : dict
+            Metadata dict, including, at least:
+            - `bands`: band index of each band of interest
+            - `chip_size`: size of each chip size expressed in pixels
+            - `mosaic_p`: path to the mosaic/file of imagery
+    Returns
+    -------
+    chips : ndarray
+            Numpy tensor of (N, chip_size, chip_size, n_bands) dimension 
+            with imagery data
+    '''
+    chip_bbs, specs = pars
+    b = len(specs['bands'])
+    s = specs['chip_size']
+    chips = np.zeros((chip_bbs.shape[0], b, s, s))
+    with rasterio.open(specs['mosaic_p']) as src:
+        for i, tup in enumerate(chip_bbs.itertuples()):
+            img, transform = rasterio.mask.mask(
+                src, [tup.geometry], crop=True
+            )
+            chips[i, :, :, :] = img[:b, :s, :s]
+    chips = np.moveaxis(chips, 1, -1)
+    return chips
 
 def dask_map_seq(f, items, client, njobs=None):
     '''
@@ -62,18 +134,24 @@ def build_grid(x_coords, y_coords, chip_res, crs=None):
     
     Returns
     -------
-    grid : GeoSeries
+    grid : GeoDataFrame
     '''
     chip_xys, chip_len = coords2xys(
         x_coords, y_coords, chip_res
     )
-
     grid = geopandas.GeoSeries(
         geopandas.points_from_xy(
             chip_xys[:, 0], chip_xys[:, 1]
         ),
         crs=crs
     ).buffer(chip_len/2, cap_style=3)
+    grid = geopandas.GeoDataFrame(
+        {
+            'geometry': grid,
+            'X': chip_xys[:, 0],
+            'Y': chip_xys[:, 1]
+        }, crs=crs
+    )
     return grid
 
 def coords2xys(x_coords, y_coords, chip_res):
