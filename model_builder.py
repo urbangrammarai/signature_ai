@@ -81,7 +81,11 @@ def model_builder(
     # add softmax classfier
     predictions = layers.Dense(n_labels, activation="softmax")(x)
     
-    model = keras.Model(inputs, predictions, name=f"{model_name}_{bridge}_{top_layer_neurons}_{n_labels}")
+    model = keras.Model(
+            inputs,
+            predictions,
+            name=f"{model_name}_{bridge}_{top_layer_neurons}_{n_labels}"
+    )
     
     # compile
     model.compile(
