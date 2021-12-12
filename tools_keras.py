@@ -155,34 +155,65 @@ def build_meta_json(model, specs, xy_train, xy_val, xy_secret, xy_all):
         'meta_class_map': specs['meta_class_map'],
         'meta_class_names': specs['meta_class_names'],
         'meta_chip_size': specs['meta_chip_size'],
-        'meta_runtime': specs['runtime'], 
         # Model
         'model_name': model.name,
         'model_bridge': bridge,
         'model_toplayer': toplayer,
     }
+    if 'runtime' in specs:
+        meta['meta_runtime']: specs['runtime']
     subsets = {
         'train': xy_train, 'val': xy_val, 'secret': xy_secret, 'all': xy_all
     }
     # Performance
     for subset in ['train', 'val', 'secret', 'all']:
         x, y = subsets[subset]
-        y_pred_probs = model.predict(x)
+        y_probs = model.predict(x)
         y_pred = np.argmax(y_pred_probs, axis=1)
+        top_prob, wc_accuracy, wc_top_prob = within_class_metrics(
+                y, y_pred, y_probs
+        )
         # Accuracy
         meta[f'perf_model_accuracy_{subset}'] = accuracy(y, y_pred)
         # Prob for top class
-        meta[f'perf_avg_prob_top_{subset}'] = None
+        meta[f'perf_avg_prob_top_{subset}'] = top_prob
         # Within-class accuracy
-        meta[f'perf_within_class_accuracy_{subset}'] = None
+        meta[f'perf_within_class_accuracy_{subset}'] = wc_accuracy
         # Within-class avg. prob for top class
-        meta[f'perf_within_class_avg_prob_top_{subset}'] = None
+        meta[f'perf_within_class_avg_prob_top_{subset}'] = wc_top_prob
         # Full confusion matrix
-        meta[f'perf_confusion_{subset}'] = None
+        meta[f'perf_confusion_{subset}'] = confusion_matrix(
+                y, y_pred, n_class
+        )
     return meta
 
 def accuracy(y, y_pred):
     a = tf.keras.metrics.Accuracy()
     a.update_state(y, y_pred)
     return a.result().numpy()
+
+def within_class_metrics(y, y_pred, y_probs):
+    top_prob = np.zeros(y_pred.shape)
+    wc_accuracy = np.zeros(y_probs.shape[1]).tolist()
+    wc_top_prob = np.zeros(y_probs.shape[1]).tolist()
+    for c in range(y_probs.shape[1]):
+        c_id = y_pred == c
+        # Top prob
+        top_prob[c_id] = y_probs[c_id, c]
+        # WC accuracy
+        wc_accuracy[c] = accuracy(y[c_id], y_pred[c_id])
+        # WC top prob
+        wc_top_prob[c] = y_probs[c_id, c].mean()
+    top_prob = top_prob.mean()
+    return top_prob, wc_accuracy, wc_top_prob
+
+def confusion_matrix(y, y_pred, n_classes):
+    cm = np.zeros((n_classes, n_classes), dtype=int)
+    pairs = np.vstack((y, y_pred)).T
+    for c1 in range(n_classes):
+        for c2 in range(n_classes):
+            cm[c1, c2] = (
+                    (pairs[:, 0] == c1) * (pairs[:, 1] == c2)
+            ).sum()
+    return cm
 
