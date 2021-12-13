@@ -1,45 +1,52 @@
 """
 Tools to work within a
-nvcr.io/nvidia/tensorflow:21.03-tf2-py3 Keras container
+nvcr.io/nvidia/tensorflow:21.11-tf2-py3 Keras container
 """
 
-import os, json, time
+import os, json, time, shutil
 import numpy as np
 import tensorflow as tf
-from tensorflow.keras.callbacks import TensorBoard
+from tensorflow.keras.callbacks import TensorBoard, EarlyStopping
 
-def flush():
-    return None
+
+def flush(folder, subfolders=["json", "logs", "model", "pred"]):
+    for f in subfolders:
+        shutil.rmtree(folder + f)
+        os.mkdir(folder + f)
+
 
 def fit_phase(
-        model,
-        xy_train,
-        xy_val,
-        log_folder=None,
-        pred_folder=None,
-        model_folder=None,
-        json_folder=None,
-        specs=None,
-        x_all=None,
-        epochs=250,
-        batch_size=512,
-        verbose=False
+    model,
+    train_dataset,
+    validation_dataset,
+    secret_dataset,
+    log_folder=None,
+    pred_folder=None,
+    model_folder=None,
+    json_folder=None,
+    specs=None,
+    chips_all=None,
+    epochs=250,
+    early_stopping_delta=0.01,
+    patience=3,
+    verbose=False,
 ):
-    '''
+    """
     Train model with logging, write predicted labels,
     serialise model, and save metadata
     ...
-    
+
     Arguments
     ---------
     model : keras.Model
             Model to fit
-    xy_train : tuple
-               Pair of arrays with features and labels to fit on training
-               stage
-    xy_val  : tuple
-              Pair of arrays with features and labels to fit on validation
+    train_dataset : tensorflow.Dataset
+               Tensorflow Dataset with (chips, labels) to train on.
+    validation_dataset  : tensorflow.Dataset
+              Tensorflow Dataset with (chips, labels) to fit on validation
               stage
+    secret_dataset  : tensorflow.Dataset
+               Tensorflow Dataset with (chips, labels) for final validation
     log_folder : None/str
                  [Optional. Default=None] Path to folder to store log files.
                  A new subfolder will be created with the model name to store
@@ -58,13 +65,18 @@ def fit_phase(
     specs : dict
             [Optional. Default=None] Specs about the run to store as JSON with
             performance
-    x_all : None/ndarray
+    chips_all : None/ndarray/tf.Dataset
             [Optional. Default=None] Array with full set of features to use
             to obtain predicted labels from
     epochs : int
              [Optional. Default=250] Epochs for fitting
-    batch_size : int
-             [Optional. Default=512] Batch size
+    early_stopping_delta : float
+        [Optional. Default=0.01]
+        Minimum change in the monitored quantity to qualify as an improvement, 
+        i.e. an absolute change of less than min_delta, will count as no improvement.
+    patience : int
+        [Optional. Default=3]
+        Number of epochs with no improvement after which training will be stopped.
     verbose : Boolean
              [Optional. Default=False] If True, print model summary and
              fitting progress
@@ -73,52 +85,58 @@ def fit_phase(
     -------
     meta : dict
            Metadata object (which has also been saved as a json file
-    '''
+    """
     if verbose:
         print(model.summary())
-    x_train, y_train = xy_train
-    x_val, y_val = xy_val
-    callbacks = None
+    callbacks = [EarlyStopping(monitor="loss", patience=patience, min_delta=early_stopping_delta, verbose=verbose)]
     if log_folder is not None:
-        callbacks = [TensorBoard(
-            log_dir=os.path.join(log_folder, model.name),
-            histogram_freq=1
-        )]
+        callbacks.append(
+            TensorBoard(log_dir=os.path.join(log_folder, model.name), histogram_freq=1)
+        )
     t0 = time.time()
     h = model.fit(
-        x_train, 
-        y_train,
+        train_dataset,
         epochs=epochs,
-        batch_size=epochs,
         shuffle=True,
-        validation_data=(x_test, y_test),
+        validation_data=validation_dataset,
         verbose=verbose,
         callbacks=callbacks,
     )
     t1 = time.time()
     if specs is not None:
-        specs['runtime'] = t1 - t0
-    if x_all is None:
-        x_all = np.vstack((x_train, x_test))
+        specs["runtime"] = t1 - t0
+        if verbose:
+            print(f"time elapsed: {(t1 - t0):9.1f}s")
+    if chips_all is None:
+        chips_all = train_dataset.concatenate(validation_dataset)
     if pred_folder:
-        y_pred = model.predict(x_all)
-        np.save(
-            os.path.join(pred_folder, model.name+'.npy'), y_pred
-        )
+        y_pred = model.predict(chips_all)
+        np.save(os.path.join(pred_folder, model.name + ".npy"), y_pred)
+        if verbose:
+            print(f"prediction saved")
+
     if model_folder:
         model.save(os.path.join(model_folder, model.name))
     if json_folder:
-        meta = build_meta_json(model)
+        meta = build_meta_json(
+            model,
+            specs,
+            train_dataset,
+            validation_dataset,
+            secret_dataset,
+            verbose=True,
+        )
         with open(
-            os.path.join(json_folder, model.name+'.json'), 
-            'w',
-            encoding="utf-8"
+            os.path.join(json_folder, model.name + ".json"), "w", encoding="utf-8"
         ) as f:
-            json.dump(meta, f, indent=4)
+            f.write(json.dumps(meta, indent=4, cls=NumpyEncoder).replace("NaN", "null"))
     return h
 
-def build_meta_json(model, specs, xy_train, xy_val, xy_secret, xy_all):
-    '''
+
+def build_meta_json(
+    model, specs, train_dataset, validation_dataset, secret_dataset, verbose=False
+):
+    """
     Compile metadata about model, training specs, and performance
     metrics
     ...
@@ -132,65 +150,74 @@ def build_meta_json(model, specs, xy_train, xy_val, xy_secret, xy_all):
                 - `meta_class_map`: mapping of aggregated classes
                 - `meta_class_names`: class names
                 - `meta_chip_size`: chip size, expressed in pixels
-    xy_train : tuple
-               Pair of arrays with features and labels to fit on training
+    train_dataset : tensorflow.Dataset
+               Tensorflow Dataset with (chips, labels) to fit on training
                stage
-    xy_val  : tuple
-              Pair of arrays with features and labels for validation
-    xy_secret  : tuple
-                 Pair of arrays with features and labels for final validation
-    xy_all  : tuple
-              Pair of arrays with all features and labels in order for final
-              predictions
+    validation_dataset  : tensorflow.Dataset
+               Tensorflow Dataset with (chips, labels) for validation
+    secret_dataset  : tensorflow.Dataset
+               Tensorflow Dataset with (chips, labels) for final validation
 
     Returns
     -------
     meta : dict
            Metadata object (which has also been saved as a json file
-    '''
-    nn, bridge, toplayer, n_class = model.name.split('_')
+    """
+    nn, bridge, toplayer, n_class = model.name.split("_")
+
     meta = {
         # Metadata about run
-        'meta_n_class': n_class,
-        'meta_class_map': specs['meta_class_map'],
-        'meta_class_names': specs['meta_class_names'],
-        'meta_chip_size': specs['meta_chip_size'],
+        "meta_n_class": n_class,
+        "meta_class_map": specs["meta_class_map"],
+        "meta_class_names": specs["meta_class_names"],
+        "meta_chip_size": specs["meta_chip_size"],
         # Model
-        'model_name': model.name,
-        'model_bridge': bridge,
-        'model_toplayer': toplayer,
+        "model_name": model.name,
+        "model_bridge": bridge,
+        "model_toplayer": toplayer,
     }
-    if 'runtime' in specs:
-        meta['meta_runtime']: specs['runtime']
+
+    if "runtime" in specs:
+        meta["meta_runtime"]: specs["runtime"]
+
     subsets = {
-        'train': xy_train, 'val': xy_val, 'secret': xy_secret, 'all': xy_all
+        "train": train_dataset,
+        "val": validation_dataset,
+        "secret": secret_dataset,
     }
+
     # Performance
-    for subset in ['train', 'val', 'secret', 'all']:
-        x, y = subsets[subset]
-        y_probs = model.predict(x)
+    for subset in subsets:
+        dataset = subsets[subset]
+        y_pred_probs = model.predict(dataset)
         y_pred = np.argmax(y_pred_probs, axis=1)
+        y = np.concatenate([y for x, y in dataset], axis=0).flatten()
         top_prob, wc_accuracy, wc_top_prob = within_class_metrics(
-                y, y_pred, y_probs
+            y, y_pred, y_pred_probs
         )
         # Accuracy
-        meta[f'perf_model_accuracy_{subset}'] = accuracy(y, y_pred)
+        meta[f"perf_model_accuracy_{subset}"] = accuracy(y, y_pred)
         # Prob for top class
-        meta[f'perf_avg_prob_top_{subset}'] = top_prob
+        meta[f"perf_avg_prob_top_{subset}"] = top_prob
         # Within-class accuracy
-        meta[f'perf_within_class_accuracy_{subset}'] = wc_accuracy
+        meta[f"perf_within_class_accuracy_{subset}"] = wc_accuracy
         # Within-class avg. prob for top class
-        meta[f'perf_within_class_avg_prob_top_{subset}'] = wc_top_prob
+        meta[f"perf_within_class_avg_prob_top_{subset}"] = wc_top_prob
         # Full confusion matrix
-        meta[f'perf_confusion_{subset}'] = confusion_matrix(
-                y, y_pred, n_class
-        )
+        meta[f"perf_confusion_{subset}"] = confusion_matrix(y, y_pred, int(n_class))
+        if verbose:
+            print(
+                f"perf_model_accuracy for {subset}: {meta[f'perf_model_accuracy_{subset}']}"
+            )
+
     return meta
+
 
 def accuracy(y, y_pred):
     a = tf.keras.metrics.Accuracy()
     a.update_state(y, y_pred)
     return a.result().numpy()
+
 
 def within_class_metrics(y, y_pred, y_probs):
     top_prob = np.zeros(y_pred.shape)
@@ -207,13 +234,23 @@ def within_class_metrics(y, y_pred, y_probs):
     top_prob = top_prob.mean()
     return top_prob, wc_accuracy, wc_top_prob
 
+
 def confusion_matrix(y, y_pred, n_classes):
     cm = np.zeros((n_classes, n_classes), dtype=int)
     pairs = np.vstack((y, y_pred)).T
     for c1 in range(n_classes):
         for c2 in range(n_classes):
-            cm[c1, c2] = (
-                    (pairs[:, 0] == c1) * (pairs[:, 1] == c2)
-            ).sum()
+            cm[c1, c2] = ((pairs[:, 0] == c1) * (pairs[:, 1] == c2)).sum()
     return cm
 
+
+class NumpyEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, np.integer):
+            return int(obj)
+        elif isinstance(obj, np.floating):
+            return float(obj)
+        elif isinstance(obj, np.ndarray):
+            return obj.tolist()
+        else:
+            return super().default(obj)
