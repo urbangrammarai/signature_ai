@@ -8,6 +8,7 @@ import numpy as np
 import dask.bag as dbag
 from numba import njit
 
+
 def bag_of_chips(chip_bbs, specs, npartitions):
     '''
     Load imagery for `chip_bbs` using a Dask bag
@@ -44,6 +45,7 @@ def bag_of_chips(chip_bbs, specs, npartitions):
     chips = np.concatenate(bag.compute())
     return chips
 
+
 def chip_loader(pars):
     '''
     Load imagery for `chip_bbs`
@@ -76,6 +78,75 @@ def chip_loader(pars):
             chips[i, :, :, :] = img[:b, :s, :s]
     chips = np.moveaxis(chips, 1, -1)
     return chips
+
+
+def spilled_bag_of_chips(chip_bbs, specs, npartitions):
+    '''
+    Load imagery for `chip_bbs` using a Dask bag and spill then to disk
+    ...
+    
+    Arguments
+    ---------
+    chip_bbs : GeoDataFrame
+               Geo-table with bounding boxes of the chips to load
+    specs : dict
+            Metadata dict, including, at least:
+            - `bands`: band index of each band of interest
+            - `chip_size`: size of each chip size expressed in pixels
+            - `mosaic_p`: path to the mosaic/file of imagery
+    npartitions : int
+                  No. of partitions to split `chip_bbs` before sending to
+                  Dask for distributed computation
+ 
+    '''
+    # Split chip_bbs
+    thr = np.linspace(0, chip_bbs.shape[0], npartitions+1, dtype=int)
+    chunks = [
+        (chip_bbs.iloc[thr[i]:thr[i+1], :], specs) for i in range(len(thr)-1)
+    ]
+    # create folders
+    for t in chip_bbs.signature_type.unique():
+        os.makedirs(f"{specs['folder']}{t}", exist_ok=True)
+    # Set up the bag
+    bag = dbag.from_sequence(
+        chunks, npartitions=npartitions
+    ).map(spill_chips_to_disk)
+    
+    bag.compute()
+
+    
+def spill_chips_to_disk(pars):
+    '''
+    Get individual chips and spill then to disk, one chip per file.
+    '''
+
+    chip_bbs, specs = pars
+    b = len(specs['bands'])
+    s = specs['chip_size']
+    
+    with rasterio.open(specs['mosaic_p']) as src:
+        profile = src.profile
+        profile.update(
+            count=b,
+            width=s,
+            height=s,
+            tiled=False,
+            driver="GTiff",
+            dtype=rasterio.uint8,
+        )
+        for tup in chip_bbs.itertuples():
+            img, transform = rasterio.mask.mask(
+                src, [tup.geometry], crop=True, all_touched=True
+            )
+            img = img[:b, :s, :s]
+            img[img>specs['max']] = specs['max']
+            img = img / (specs['max'] / 255.0)
+            path = f"{specs['folder']}{tup.signature_type}/{tup.X}_{tup.Y}.tif"
+            with rasterio.open(path, 'w', **profile) as dst:
+                dst.write(img[:b, :s, :s].astype(rasterio.uint8))
+            
+            
+            
 
 def dask_map_seq(f, items, client, njobs=None):
     '''
@@ -113,6 +184,7 @@ def dask_map_seq(f, items, client, njobs=None):
         except StopIteration:
             pass
     return None
+
 
 def build_grid(x_coords, y_coords, chip_res, crs=None):
     '''
@@ -154,6 +226,7 @@ def build_grid(x_coords, y_coords, chip_res, crs=None):
     )
     return grid
 
+
 def coords2xys(x_coords, y_coords, chip_res):
     '''
     Build set of centroid coordinates of the chip grid resulting from
@@ -186,6 +259,7 @@ def coords2xys(x_coords, y_coords, chip_res):
     chip_len = float(chip_xs[1] - chip_xs[0])
     chip_xys = cartesian((chip_xs.values, chip_ys.values))
     return chip_xys, chip_len
+
 
 def coords2xys_parquet(
     out_p, npartitions, x_coords, y_coords, chip_res
@@ -270,6 +344,7 @@ def coords2xys_parquet(
     '''
     return out_p, chip_len
 
+
 def _build_xys_write(pars):
     out_p, start, x_coords, y_coords = pars
     xys = cartesian((x_coords, y_coords))
@@ -280,6 +355,7 @@ def _build_xys_write(pars):
     )
     xys.to_parquet(out_p)
     return out_p
+
 
 @njit(parallel=True)
 def cartesian(arrays):
@@ -303,6 +379,7 @@ def cartesian(arrays):
         for j in range(1, arrays[k].size):
             out[j*m:(j+1)*m,k+1:] = out[0:m,k+1:]
     return out
+
 
 #-------------------------------------------------
 #              DEPRECATED

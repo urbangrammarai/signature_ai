@@ -30,6 +30,7 @@ def fit_phase(
     early_stopping_delta=0.01,
     patience=3,
     verbose=False,
+    **kwargs
 ):
     """
     Train model with logging, write predicted labels,
@@ -101,6 +102,7 @@ def fit_phase(
         validation_data=validation_dataset,
         verbose=verbose,
         callbacks=callbacks,
+        **kwargs
     )
     t1 = time.time()
     if specs is not None:
