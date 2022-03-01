@@ -139,8 +139,11 @@ def spill_chips_to_disk(pars):
                 src, [tup.geometry], crop=True, all_touched=True
             )
             img = img[:b, :s, :s]
-            img[img>specs['max']] = specs['max']
-            img = img / (specs['max'] / 255.0)
+            for i, (l_min, l_max) in enumerate([(350, 1600), (500, 1600), (600, 1800)]):
+                img[i][img[i] > l_max] = l_max
+                img[i][img[i] < l_min] = l_min
+                a_std = (img[i] - l_min) / (l_max - l_min)
+                img[i] = a_std * 255
             path = f"{specs['folder']}{tup.signature_type}/{tup.X}_{tup.Y}.tif"
             with rasterio.open(path, 'w', **profile) as dst:
                 dst.write(img[:b, :s, :s].astype(rasterio.uint8))

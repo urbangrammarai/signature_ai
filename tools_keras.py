@@ -6,7 +6,7 @@ nvcr.io/nvidia/tensorflow:21.11-tf2-py3 Keras container
 import os, json, time, shutil
 import numpy as np
 import tensorflow as tf
-from tensorflow.keras.callbacks import TensorBoard, EarlyStopping
+from tensorflow.keras.callbacks import TensorBoard, EarlyStopping, ModelCheckpoint
 
 
 def flush(folder, subfolders=["json", "logs", "model", "pred"]):
@@ -29,6 +29,7 @@ def fit_phase(
     epochs=250,
     early_stopping_delta=0.01,
     patience=3,
+    batch_size=32,
     verbose=False,
     **kwargs
 ):
@@ -41,13 +42,12 @@ def fit_phase(
     ---------
     model : keras.Model
             Model to fit
-    train_dataset : tensorflow.Dataset
-               Tensorflow Dataset with (chips, labels) to train on.
-    validation_dataset  : tensorflow.Dataset
-              Tensorflow Dataset with (chips, labels) to fit on validation
-              stage
-    secret_dataset  : tensorflow.Dataset
-               Tensorflow Dataset with (chips, labels) for final validation
+    train_dataset : str
+               Path to a folder with train data
+    validation_dataset  : str
+              Path to a folder with validation data
+    secret_dataset  : str
+               Path to a folder with secret data
     log_folder : None/str
                  [Optional. Default=None] Path to folder to store log files.
                  A new subfolder will be created with the model name to store
@@ -78,6 +78,8 @@ def fit_phase(
     patience : int
         [Optional. Default=3]
         Number of epochs with no improvement after which training will be stopped.
+    batch_sizie : int
+        batch size of ImageDataGenerator
     verbose : Boolean
              [Optional. Default=False] If True, print model summary and
              fitting progress
@@ -89,17 +91,43 @@ def fit_phase(
     """
     if verbose:
         print(model.summary())
-    callbacks = [EarlyStopping(monitor="loss", patience=patience, min_delta=early_stopping_delta, verbose=verbose)]
+    callbacks = [EarlyStopping(monitor="val_loss", patience=patience, min_delta=early_stopping_delta, verbose=verbose)]
     if log_folder is not None:
         callbacks.append(
             TensorBoard(log_dir=os.path.join(log_folder, model.name), histogram_freq=1)
         )
+    if model_folder is not None:
+        callbacks.append(
+            ModelCheckpoint(
+                filepath=f"{model_folder}/{model.name}.keras",
+                monitor="val_accuracy",
+                save_best_only=True,
+            )
+        )
+    if verbose:
+        print(f"creating ImageDataGenerators...")
+    train_datagen = tf.keras.preprocessing.image.ImageDataGenerator()
+    train_generator = train_datagen.flow_from_directory(
+        train_dataset,
+        target_size=(224, 224),
+        batch_size=batch_size,
+        class_mode='sparse')
+    
+    validation_datagen = tf.keras.preprocessing.image.ImageDataGenerator()
+    validation_generator = validation_datagen.flow_from_directory(
+        validation_dataset,
+        target_size=(224, 224),
+        batch_size=batch_size,
+        class_mode='sparse')
+    
+    if verbose:
+        print(f"training...")
     t0 = time.time()
     h = model.fit(
-        train_dataset,
+        train_generator,
         epochs=epochs,
         shuffle=True,
-        validation_data=validation_dataset,
+        validation_data=validation_generator,
         verbose=verbose,
         callbacks=callbacks,
         **kwargs
@@ -109,16 +137,10 @@ def fit_phase(
         specs["runtime"] = t1 - t0
         if verbose:
             print(f"time elapsed: {(t1 - t0):9.1f}s")
-    if chips_all is None:
-        chips_all = train_dataset.concatenate(validation_dataset)
-    if pred_folder:
-        y_pred = model.predict(chips_all)
-        np.save(os.path.join(pred_folder, model.name + ".npy"), y_pred)
-        if verbose:
-            print(f"prediction saved")
 
-    if model_folder:
-        model.save(os.path.join(model_folder, model.name))
+    if pred_folder:
+        specs["pred_folder"] = pred_folder
+
     if json_folder:
         meta = build_meta_json(
             model,
@@ -126,8 +148,10 @@ def fit_phase(
             train_dataset,
             validation_dataset,
             secret_dataset,
+            batch_size,
             verbose=True,
         )
+        os.makedirs(json_folder, exist_ok=True)
         with open(
             os.path.join(json_folder, model.name + ".json"), "w", encoding="utf-8"
         ) as f:
@@ -136,7 +160,7 @@ def fit_phase(
 
 
 def build_meta_json(
-    model, specs, train_dataset, validation_dataset, secret_dataset, verbose=False
+    model, specs, train_dataset, validation_dataset, secret_dataset, batch_size, verbose=False
 ):
     """
     Compile metadata about model, training specs, and performance
@@ -180,20 +204,54 @@ def build_meta_json(
     }
 
     if "runtime" in specs:
-        meta["meta_runtime"]: specs["runtime"]
+        meta["meta_runtime"] = specs["runtime"]
+    
+    if verbose:
+        print(f"creating ImageDataGenerators")
+    train_datagen = tf.keras.preprocessing.image.ImageDataGenerator()
+    train_generator = train_datagen.flow_from_directory(
+        train_dataset,
+        target_size=(224, 224),
+        batch_size=batch_size,
+        class_mode='sparse',
+        shuffle=False,
+    )
+    
+    validation_datagen = tf.keras.preprocessing.image.ImageDataGenerator()
+    validation_generator = validation_datagen.flow_from_directory(
+        validation_dataset,
+        target_size=(224, 224),
+        batch_size=batch_size,
+        class_mode='sparse',
+        shuffle=False
+    )
+    secret_datagen = tf.keras.preprocessing.image.ImageDataGenerator()
+    secret_generator = validation_datagen.flow_from_directory(
+        secret_dataset,
+        target_size=(224, 224),
+        batch_size=batch_size,
+        class_mode='sparse',
+        shuffle=False
+    )
 
     subsets = {
-        "train": train_dataset,
-        "val": validation_dataset,
-        "secret": secret_dataset,
+        "train": train_generator,
+        "val": validation_generator,
+        "secret": secret_generator,
     }
-
     # Performance
     for subset in subsets:
+        if verbose:
+            print(f"assessing performance of {subset} dataset")
         dataset = subsets[subset]
         y_pred_probs = model.predict(dataset)
+        if "pred_folder" in specs:
+            os.makedirs(specs['pred_folder'], exist_ok=True)
+            np.save(os.path.join(specs["pred_folder"], model.name + f"_{subset}.npy"), y_pred_probs)
+            if verbose:
+                print(f"prediction of {subset} saved")
         y_pred = np.argmax(y_pred_probs, axis=1)
-        y = np.concatenate([y for x, y in dataset], axis=0).flatten()
+        y = dataset.labels
         top_prob, wc_accuracy, wc_top_prob = within_class_metrics(
             y, y_pred, y_pred_probs
         )
@@ -226,7 +284,7 @@ def within_class_metrics(y, y_pred, y_probs):
     wc_accuracy = np.zeros(y_probs.shape[1]).tolist()
     wc_top_prob = np.zeros(y_probs.shape[1]).tolist()
     for c in range(y_probs.shape[1]):
-        c_id = y_pred == c
+        c_id = y == c
         # Top prob
         top_prob[c_id] = y_probs[c_id, c]
         # WC accuracy

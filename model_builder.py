@@ -14,6 +14,7 @@ def model_builder(
     optimizer="adam", 
     loss="sparse_categorical_crossentropy", 
     metrics=["accuracy"],
+    resize=True,
 ):
     """Return a Keras model according to specification
 
@@ -69,9 +70,12 @@ def model_builder(
     # create input
     inputs = keras.Input(shape=input_shape)
     # resize
-    x = layers.Resizing(224, 224, crop_to_aspect_ratio=True)(inputs)
-    # preprocess using model preprocessing
-    x = preprocessing[model_name](x)
+    if resize:
+        x = layers.Resizing(224, 224, crop_to_aspect_ratio=True)(inputs)
+        # preprocess using model preprocessing
+        x = preprocessing[model_name](x)
+    else:
+        x = preprocessing[model_name](inputs)
     # add base
     x = base(x, training=False)
     # add bridge
