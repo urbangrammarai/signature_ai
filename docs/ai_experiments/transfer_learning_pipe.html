@@ -1,0 +1,595 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>&lt;no title&gt; &#8212; Urban Grammar AI | WP2 - Spatial Signatures</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      <img src="../_static/logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Urban Grammar AI | WP2 - Spatial Signatures</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p class="caption">
+ <span class="caption-text">
+  Project
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="http://urbangrammarai.xyz">
+   Project homepage
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="http://urbangrammarai.xyz/data_processing">
+   WP1 - Data processing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="http://urbangrammarai.xyz/spatial_signatures">
+   WP2 - Spatial Signatures
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Create chips
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../create_chips/chip_making_gb.html">
+   Create chips for the majority of GB
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  AI experiments
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="tl_from_disk.html">
+   AI pipeline from disk
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/ai_experiments/transfer_learning_pipe.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/urbangrammarai/spatial_signatures"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/urbangrammarai/spatial_signatures/master?urlpath=tree/ai_experiments/transfer_learning_pipe.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+<span class="kn">from</span> <span class="nn">model_builder</span> <span class="kn">import</span> <span class="n">model_builder</span><span class="p">,</span> <span class="n">relabel</span><span class="p">,</span> <span class="n">class_merger</span><span class="p">,</span> <span class="n">balancer</span>
+
+<span class="kn">import</span> <span class="nn">model_builder</span>
+<span class="kn">import</span> <span class="nn">tools_keras</span>
+
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Load chips</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">specs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;tensor&#39;</span><span class="p">:</span> <span class="p">(</span>
+        <span class="s1">&#39;../urbangrammar_samba/&#39;</span>
+        <span class="s1">&#39;spatial_signatures/chips/sample.npz&#39;</span>
+    <span class="p">),</span>
+    <span class="s1">&#39;folder&#39;</span><span class="p">:</span> <span class="s2">&quot;../urbangrammar_samba/spatial_signatures/ai/nw_32/&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">specs</span><span class="p">[</span><span class="s2">&quot;tensor&quot;</span><span class="p">],</span> <span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chips</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;chips&quot;</span><span class="p">]</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;labels&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Shuffle data to ensure full randomness before splitting to test, validation and secret.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">shuffled_idx</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">chips</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">shuffled_idx</span><span class="p">)</span>
+
+<span class="n">chips</span> <span class="o">=</span> <span class="n">chips</span><span class="p">[</span><span class="n">shuffled_idx</span><span class="p">]</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">shuffled_idx</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numpy</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([&#39;0_0&#39;, &#39;1_0&#39;, &#39;2_0&#39;, &#39;2_1&#39;, &#39;2_2&#39;, &#39;3_0&#39;, &#39;4_0&#39;, &#39;5_0&#39;, &#39;6_0&#39;,
+        &#39;7_0&#39;, &#39;8_0&#39;, &#39;9_0&#39;, &#39;9_2&#39;, &#39;9_4&#39;], dtype=object),
+ array([25571,  1576,   379,   243,   255,  4827,  3090,  2114,   271,
+        26610,    76,    18,    11,     1]))
+</pre></div>
+</div>
+</div>
+</div>
+<p>Merge groups</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">group_mapping</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s1">&#39;9_0&#39;</span><span class="p">,</span> <span class="s1">&#39;9_1&#39;</span><span class="p">,</span> <span class="s1">&#39;9_2&#39;</span><span class="p">,</span> <span class="s1">&#39;9_4&#39;</span><span class="p">,</span> <span class="s1">&#39;9_5&#39;</span><span class="p">,</span> <span class="s1">&#39;2_0&#39;</span><span class="p">,</span> <span class="s1">&#39;2_1&#39;</span><span class="p">,</span> <span class="s1">&#39;2_2&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;1_0&#39;</span><span class="p">,</span> <span class="s1">&#39;3_0&#39;</span><span class="p">,</span> <span class="s1">&#39;5_0&#39;</span><span class="p">,</span> <span class="s1">&#39;6_0&#39;</span><span class="p">,</span> <span class="s1">&#39;8_0&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;0_0&#39;</span><span class="p">,</span> <span class="s1">&#39;4_0&#39;</span><span class="p">,</span> <span class="s1">&#39;7_0&#39;</span><span class="p">]</span>
+<span class="p">]</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">class_merger</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">group_mapping</span><span class="p">)</span>
+
+<span class="c1"># If you don&#39;t want to merge groups, use `relabel` to ensure your labels are in the proper format</span>
+<span class="c1"># labels = relabel(labels)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Drop chips from excessive classes</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="n">balancer</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">max_ratio</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total number of selected chips: 18841 out of 65042
+Counts:
+ {0: 907, 1: 8864, 2: 9070}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+<span class="n">chips</span> <span class="o">=</span> <span class="n">chips</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Rescale</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chips</span> <span class="o">=</span> <span class="n">chips</span> <span class="o">/</span> <span class="p">(</span><span class="n">chips</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">/</span> <span class="mf">255.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Split data into train and validation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="n">split_1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">chips</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.6</span><span class="p">)</span>
+<span class="n">split_2</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">chips</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.8</span><span class="p">)</span>
+
+
+<span class="c1"># assert that all labels are present in train and validation datasets</span>
+<span class="k">assert</span> <span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">labels</span><span class="p">[:</span><span class="n">split_1</span><span class="p">])</span> <span class="o">==</span> <span class="n">numpy</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="n">split_1</span><span class="p">:</span><span class="n">split_2</span><span class="p">]))</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+<span class="k">assert</span> <span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">labels</span><span class="p">[:</span><span class="n">split_1</span><span class="p">])</span> <span class="o">==</span> <span class="n">numpy</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="n">split_2</span><span class="p">:]))</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+
+
+<span class="n">train_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="o">.</span><span class="n">from_tensor_slices</span><span class="p">((</span><span class="n">chips</span><span class="p">[:</span><span class="n">split_1</span><span class="p">],</span> <span class="n">labels</span><span class="p">[:</span><span class="n">split_1</span><span class="p">]))</span>
+<span class="n">validation_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="o">.</span><span class="n">from_tensor_slices</span><span class="p">((</span><span class="n">chips</span><span class="p">[</span><span class="n">split_1</span><span class="p">:</span><span class="n">split_2</span><span class="p">],</span> <span class="n">labels</span><span class="p">[</span><span class="n">split_1</span><span class="p">:</span><span class="n">split_2</span><span class="p">]))</span>
+<span class="n">secret_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="o">.</span><span class="n">from_tensor_slices</span><span class="p">((</span><span class="n">chips</span><span class="p">[</span><span class="n">split_2</span><span class="p">:],</span> <span class="n">labels</span><span class="p">[</span><span class="n">split_2</span><span class="p">:]))</span>
+
+
+<span class="n">train_dataset</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">)</span>
+<span class="n">validation_dataset</span> <span class="o">=</span> <span class="n">validation_dataset</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">)</span>
+<span class="n">secret_dataset</span> <span class="o">=</span> <span class="n">secret_dataset</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Create model and fit in a loop over options.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_specs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;meta_class_map&#39;</span><span class="p">:</span> <span class="n">group_mapping</span><span class="p">,</span>
+    <span class="s1">&#39;meta_class_names&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;centres&quot;</span><span class="p">,</span> <span class="s2">&quot;periphery&quot;</span><span class="p">,</span> <span class="s2">&quot;countryside&quot;</span><span class="p">],</span>
+    <span class="s1">&#39;meta_chip_size&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="n">model_name</span><span class="p">,</span> <span class="n">bridge</span><span class="p">,</span> <span class="n">neurons</span> <span class="ow">in</span> <span class="n">product</span><span class="p">([</span><span class="s2">&quot;vgg19&quot;</span><span class="p">,</span> <span class="s2">&quot;efficientnet&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;pooling&quot;</span><span class="p">],</span> <span class="p">[</span><span class="mi">256</span><span class="p">]):</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">model_builder</span><span class="o">.</span><span class="n">model_builder</span><span class="p">(</span>
+        <span class="n">model_name</span><span class="o">=</span><span class="n">model_name</span><span class="p">,</span> 
+        <span class="n">bridge</span><span class="o">=</span><span class="n">bridge</span><span class="p">,</span> 
+        <span class="n">top_layer_neurons</span><span class="o">=</span><span class="n">neurons</span><span class="p">,</span>
+        <span class="n">n_labels</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+        <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+    <span class="p">)</span>
+
+    <span class="n">h</span> <span class="o">=</span> <span class="n">tools_keras</span><span class="o">.</span><span class="n">fit_phase</span><span class="p">(</span>
+        <span class="n">model</span><span class="p">,</span>
+        <span class="n">train_dataset</span><span class="p">,</span>
+        <span class="n">validation_dataset</span><span class="p">,</span>
+        <span class="n">secret_dataset</span><span class="p">,</span>
+        <span class="n">log_folder</span><span class="o">=</span><span class="n">specs</span><span class="p">[</span><span class="s2">&quot;folder&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;logs&quot;</span><span class="p">,</span>
+        <span class="n">pred_folder</span><span class="o">=</span><span class="n">specs</span><span class="p">[</span><span class="s2">&quot;folder&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;pred&quot;</span><span class="p">,</span>
+        <span class="n">model_folder</span><span class="o">=</span><span class="n">specs</span><span class="p">[</span><span class="s2">&quot;folder&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;model&quot;</span><span class="p">,</span>
+        <span class="n">json_folder</span><span class="o">=</span><span class="n">specs</span><span class="p">[</span><span class="s2">&quot;folder&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;json&quot;</span><span class="p">,</span>
+        <span class="n">specs</span><span class="o">=</span><span class="n">model_specs</span><span class="p">,</span>
+        <span class="n">epochs</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span>
+        <span class="n">patience</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+        <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+
+    <span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="n">bridge</span><span class="p">,</span> <span class="n">neurons</span><span class="p">,</span> <span class="s2">&quot;done&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;vgg19_pooling_256_3&quot;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+input_14 (InputLayer)        [(None, 8, 8, 3)]         0         
+_________________________________________________________________
+resizing_6 (Resizing)        (None, 224, 224, 3)       0         
+_________________________________________________________________
+tf.__operators__.getitem_2 ( (None, 224, 224, 3)       0         
+_________________________________________________________________
+tf.nn.bias_add_2 (TFOpLambda (None, 224, 224, 3)       0         
+_________________________________________________________________
+vgg19 (Functional)           (None, 7, 7, 512)         20024384  
+_________________________________________________________________
+global_average_pooling2d_6 ( (None, 512)               0         
+_________________________________________________________________
+dense_12 (Dense)             (None, 256)               131328    
+_________________________________________________________________
+dense_13 (Dense)             (None, 3)                 771       
+=================================================================
+Total params: 20,156,483
+Trainable params: 132,099
+Non-trainable params: 20,024,384
+_________________________________________________________________
+None
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2021-12-17 16:12:36.273098: I tensorflow/core/profiler/lib/profiler_session.cc:131] Profiler session initializing.
+2021-12-17 16:12:36.273153: I tensorflow/core/profiler/lib/profiler_session.cc:146] Profiler session started.
+2021-12-17 16:12:36.482919: I tensorflow/core/profiler/lib/profiler_session.cc:164] Profiler session tear down.
+2021-12-17 16:12:36.483057: I tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1749] CUPTI activity buffer flushed
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/250
+   1/2565 [..............................] - ETA: 32:20 - loss: 1.7970 - accuracy: 0.2500
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2021-12-17 16:12:37.487387: I tensorflow/core/profiler/lib/profiler_session.cc:131] Profiler session initializing.
+2021-12-17 16:12:37.487419: I tensorflow/core/profiler/lib/profiler_session.cc:146] Profiler session started.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   2/2565 [..............................] - ETA: 17:08 - loss: 1.4709 - accuracy: 0.3438
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2021-12-17 16:12:38.528309: I tensorflow/core/profiler/lib/profiler_session.cc:66] Profiler session collecting data.
+2021-12-17 16:12:38.533468: I tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1749] CUPTI activity buffer flushed
+2021-12-17 16:12:38.623424: I tensorflow/core/profiler/internal/gpu/cupti_collector.cc:673]  GpuTracer has collected 176 callback api events and 173 activity events. 
+2021-12-17 16:12:38.635550: I tensorflow/core/profiler/lib/profiler_session.cc:164] Profiler session tear down.
+2021-12-17 16:12:38.696224: I tensorflow/core/profiler/rpc/client/save_profile.cc:136] Creating directory: ../urbangrammar_samba/spatial_signatures/ai/nw_8/logs/vgg19_pooling_256_3/train/plugins/profile/2021_12_17_16_12_38
+
+2021-12-17 16:12:38.715968: I tensorflow/core/profiler/rpc/client/save_profile.cc:142] Dumped gzipped tool data for trace.json.gz to ../urbangrammar_samba/spatial_signatures/ai/nw_8/logs/vgg19_pooling_256_3/train/plugins/profile/2021_12_17_16_12_38/985b7fd52aa6.trace.json.gz
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   3/2565 [..............................] - ETA: 31:25 - loss: 1.3250 - accuracy: 0.3854
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2021-12-17 16:12:38.738771: I tensorflow/core/profiler/rpc/client/save_profile.cc:136] Creating directory: ../urbangrammar_samba/spatial_signatures/ai/nw_8/logs/vgg19_pooling_256_3/train/plugins/profile/2021_12_17_16_12_38
+
+2021-12-17 16:12:38.753362: I tensorflow/core/profiler/rpc/client/save_profile.cc:142] Dumped gzipped tool data for memory_profile.json.gz to ../urbangrammar_samba/spatial_signatures/ai/nw_8/logs/vgg19_pooling_256_3/train/plugins/profile/2021_12_17_16_12_38/985b7fd52aa6.memory_profile.json.gz
+2021-12-17 16:12:38.796317: I tensorflow/core/profiler/rpc/client/capture_profile.cc:251] Creating directory: ../urbangrammar_samba/spatial_signatures/ai/nw_8/logs/vgg19_pooling_256_3/train/plugins/profile/2021_12_17_16_12_38
+Dumped tool data for xplane.pb to ../urbangrammar_samba/spatial_signatures/ai/nw_8/logs/vgg19_pooling_256_3/train/plugins/profile/2021_12_17_16_12_38/985b7fd52aa6.xplane.pb
+Dumped tool data for overview_page.pb to ../urbangrammar_samba/spatial_signatures/ai/nw_8/logs/vgg19_pooling_256_3/train/plugins/profile/2021_12_17_16_12_38/985b7fd52aa6.overview_page.pb
+Dumped tool data for input_pipeline.pb to ../urbangrammar_samba/spatial_signatures/ai/nw_8/logs/vgg19_pooling_256_3/train/plugins/profile/2021_12_17_16_12_38/985b7fd52aa6.input_pipeline.pb
+Dumped tool data for tensorflow_stats.pb to ../urbangrammar_samba/spatial_signatures/ai/nw_8/logs/vgg19_pooling_256_3/train/plugins/profile/2021_12_17_16_12_38/985b7fd52aa6.tensorflow_stats.pb
+Dumped tool data for kernel_stats.pb to ../urbangrammar_samba/spatial_signatures/ai/nw_8/logs/vgg19_pooling_256_3/train/plugins/profile/2021_12_17_16_12_38/985b7fd52aa6.kernel_stats.pb
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2565/2565 [==============================] - 333s 129ms/step - loss: 0.8870 - accuracy: 0.5651 - val_loss: 0.8614 - val_accuracy: 0.5747
+Epoch 2/250
+2565/2565 [==============================] - 334s 130ms/step - loss: 0.8590 - accuracy: 0.5799 - val_loss: 0.8534 - val_accuracy: 0.5758
+Epoch 3/250
+2565/2565 [==============================] - 334s 130ms/step - loss: 0.8506 - accuracy: 0.5838 - val_loss: 0.8486 - val_accuracy: 0.5765
+Epoch 4/250
+2565/2565 [==============================] - 334s 130ms/step - loss: 0.8461 - accuracy: 0.5851 - val_loss: 0.8454 - val_accuracy: 0.5801
+Epoch 5/250
+2565/2565 [==============================] - 334s 130ms/step - loss: 0.8432 - accuracy: 0.5866 - val_loss: 0.8424 - val_accuracy: 0.5848
+Epoch 6/250
+2565/2565 [==============================] - 334s 130ms/step - loss: 0.8400 - accuracy: 0.5878 - val_loss: 0.8415 - val_accuracy: 0.5837
+Epoch 7/250
+2565/2565 [==============================] - 334s 130ms/step - loss: 0.8382 - accuracy: 0.5891 - val_loss: 0.8422 - val_accuracy: 0.5842
+Epoch 8/250
+2565/2565 [==============================] - 334s 130ms/step - loss: 0.8363 - accuracy: 0.5896 - val_loss: 0.8401 - val_accuracy: 0.5836
+Epoch 9/250
+2565/2565 [==============================] - 334s 130ms/step - loss: 0.8341 - accuracy: 0.5910 - val_loss: 0.8395 - val_accuracy: 0.5849
+Epoch 10/250
+2565/2565 [==============================] - 334s 130ms/step - loss: 0.8325 - accuracy: 0.5916 - val_loss: 0.8390 - val_accuracy: 0.5842
+Epoch 11/250
+2565/2565 [==============================] - 334s 130ms/step - loss: 0.8309 - accuracy: 0.5918 - val_loss: 0.8398 - val_accuracy: 0.5821
+Epoch 12/250
+2565/2565 [==============================] - 334s 130ms/step - loss: 0.8295 - accuracy: 0.5934 - val_loss: 0.8389 - val_accuracy: 0.5841
+Epoch 13/250
+2565/2565 [==============================] - 334s 130ms/step - loss: 0.8281 - accuracy: 0.5931 - val_loss: 0.8386 - val_accuracy: 0.5861
+Epoch 14/250
+2565/2565 [==============================] - 334s 130ms/step - loss: 0.8265 - accuracy: 0.5943 - val_loss: 0.8384 - val_accuracy: 0.5864
+Epoch 00014: early stopping
+time elapsed:    4698.6s
+prediction saved
+INFO:tensorflow:Assets written to: ../urbangrammar_samba/spatial_signatures/ai/nw_8/model/vgg19_pooling_256_3/assets
+perf_model_accuracy for train: 0.5947611927986145
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tools_keras.flush(specs[&quot;folder&quot;])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chips</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(102234, 15, 15, 3)
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./ai_experiments"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Dani Arribas-Bel, Martin Fleischmann<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
