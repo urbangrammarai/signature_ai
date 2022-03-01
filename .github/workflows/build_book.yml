@@ -2,7 +2,7 @@ name: Build Jupyter book
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   build-html-and-deploy:
     runs-on: ubuntu-latest
