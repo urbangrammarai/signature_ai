@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>regression &#8212; Urban Grammar AI | WP3 - Signature AI</title>
+    <title>Evaluation of models trained on NW &#8212; Urban Grammar AI | WP3 - Signature AI</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -50,6 +50,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="AI pipeline from disk" href="tl_from_disk.html" />
+    <link rel="prev" title="Model testing" href="transfer_learning_pipe.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -108,8 +110,33 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../create_chips/chip_making_a.html">
+   Chip making
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../create_chips/chip_making_b.html">
+   Chip making - Pt. B
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../create_chips/chip_making_subset.html">
+   Chip making for a subset of GB
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../create_chips/chip_making_gb.html">
    Create chips for the majority of GB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../create_chips/chip_making_temporal.html">
+   Create chips from a temporal set of Sentinel 2 snapshots
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../create_chips/check_temporal_tiles.html">
+   Plot temporal tiles
   </a>
  </li>
 </ul>
@@ -118,10 +145,25 @@
   AI experiments
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="transfer_learning_pipe.html">
+   Model testing
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Evaluation of models trained on NW
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="tl_from_disk.html">
    AI pipeline from disk
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chip_size_eval.html">
+   Evaluation of the effect of chip size and origin
   </a>
  </li>
 </ul>
@@ -216,6 +258,19 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regression">
+   regression
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -224,7 +279,10 @@
         
               <div>
                 
-  <div class="cell docutils container">
+  <div class="section" id="evaluation-of-models-trained-on-nw">
+<h1>Evaluation of models trained on NW<a class="headerlink" href="#evaluation-of-models-trained-on-nw" title="Permalink to this headline">¶</a></h1>
+<p>Evaluation of models trained on NW sample of chips</p>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">glob</span>
@@ -470,7 +528,7 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;train&#39;}&gt;
 </pre></div>
 </div>
-<img alt="../_images/transfer_learning_evaluation_11_1.png" src="../_images/transfer_learning_evaluation_11_1.png" />
+<img alt="../_images/transfer_learning_evaluation_12_1.png" src="../_images/transfer_learning_evaluation_12_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -483,7 +541,7 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;validation&#39;}&gt;
 </pre></div>
 </div>
-<img alt="../_images/transfer_learning_evaluation_12_1.png" src="../_images/transfer_learning_evaluation_12_1.png" />
+<img alt="../_images/transfer_learning_evaluation_13_1.png" src="../_images/transfer_learning_evaluation_13_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -496,11 +554,11 @@
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;secret&#39;}&gt;
 </pre></div>
 </div>
-<img alt="../_images/transfer_learning_evaluation_13_1.png" src="../_images/transfer_learning_evaluation_13_1.png" />
+<img alt="../_images/transfer_learning_evaluation_14_1.png" src="../_images/transfer_learning_evaluation_14_1.png" />
 </div>
 </div>
 <div class="section" id="regression">
-<h1>regression<a class="headerlink" href="#regression" title="Permalink to this headline">¶</a></h1>
+<h2>regression<a class="headerlink" href="#regression" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regr_input</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;global_validation_acc&quot;</span><span class="p">,</span> <span class="s2">&quot;global_secret_acc&quot;</span><span class="p">,</span> <span class="s2">&quot;architecture&quot;</span><span class="p">,</span> <span class="s2">&quot;top_layer&quot;</span><span class="p">,</span> <span class="s2">&quot;neurons&quot;</span><span class="p">,</span> <span class="s2">&quot;chip_size&quot;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">names</span><span class="p">)</span>
@@ -867,6 +925,7 @@
 </table><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</div></div>
 </div>
 </div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -897,6 +956,24 @@
 
 <div class='prev-next-bottom'>
     
+    <div id="prev">
+        <a class="left-prev" href="transfer_learning_pipe.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Model testing</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="tl_from_disk.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">AI pipeline from disk</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
 
 </div>
         

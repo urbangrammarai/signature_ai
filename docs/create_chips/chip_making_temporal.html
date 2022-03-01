@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>&lt;no title&gt; &#8212; Urban Grammar AI | WP3 - Signature AI</title>
+    <title>Create chips from a temporal set of Sentinel 2 snapshots &#8212; Urban Grammar AI | WP3 - Signature AI</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -50,6 +50,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Plot temporal tiles" href="check_temporal_tiles.html" />
+    <link rel="prev" title="Create chips for the majority of GB" href="chip_making_gb.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -106,10 +108,35 @@
   Create chips
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="chip_making_a.html">
+   Chip making
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chip_making_b.html">
+   Chip making - Pt. B
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chip_making_subset.html">
+   Chip making for a subset of GB
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="chip_making_gb.html">
    Create chips for the majority of GB
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Create chips from a temporal set of Sentinel 2 snapshots
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="check_temporal_tiles.html">
+   Plot temporal tiles
   </a>
  </li>
 </ul>
@@ -120,8 +147,23 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../ai_experiments/transfer_learning_pipe.html">
+   Model testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ai_experiments/transfer_learning_evaluation.html">
+   Evaluation of models trained on NW
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../ai_experiments/tl_from_disk.html">
    AI pipeline from disk
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ai_experiments/chip_size_eval.html">
+   Evaluation of the effect of chip size and origin
   </a>
  </li>
 </ul>
@@ -216,14 +258,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -232,8 +266,10 @@
         
               <div>
                 
-  <ul class="simple">
-<li><p>[x] create chip bounds augmented by sliding</p></li>
+  <div class="section" id="create-chips-from-a-temporal-set-of-sentinel-2-snapshots">
+<h1>Create chips from a temporal set of Sentinel 2 snapshots<a class="headerlink" href="#create-chips-from-a-temporal-set-of-sentinel-2-snapshots" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>create chip bounds augmented by sliding</p></li>
 <li><p>sample S2</p>
 <ul>
 <li><p>loop over tiles</p>
@@ -2143,6 +2179,7 @@ Tile 30UXB processed sucessfully.
     </div>
 </div></div></div>
 </div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -2173,6 +2210,24 @@ Tile 30UXB processed sucessfully.
 
 <div class='prev-next-bottom'>
     
+    <div id="prev">
+        <a class="left-prev" href="chip_making_gb.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Create chips for the majority of GB</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="check_temporal_tiles.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Plot temporal tiles</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
 
 </div>
         

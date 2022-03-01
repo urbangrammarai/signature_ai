@@ -50,6 +50,8 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Chip making - Pt. B" href="chip_making_b.html" />
+    <link rel="prev" title="WP3 - Signature AI" href="../intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -106,10 +108,35 @@
   Create chips
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Chip making
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chip_making_b.html">
+   Chip making - Pt. B
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chip_making_subset.html">
+   Chip making for a subset of GB
+  </a>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="chip_making_gb.html">
    Create chips for the majority of GB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chip_making_temporal.html">
+   Create chips from a temporal set of Sentinel 2 snapshots
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="check_temporal_tiles.html">
+   Plot temporal tiles
   </a>
  </li>
 </ul>
@@ -120,8 +147,23 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../ai_experiments/transfer_learning_pipe.html">
+   Model testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ai_experiments/transfer_learning_evaluation.html">
+   Evaluation of models trained on NW
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../ai_experiments/tl_from_disk.html">
    AI pipeline from disk
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ai_experiments/chip_size_eval.html">
+   Evaluation of the effect of chip size and origin
   </a>
  </li>
 </ul>
@@ -259,18 +301,9 @@
         
               <div>
                 
-  <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker run --rm -ti <span class="se">\</span>
-           -p <span class="m">8888</span>:8888 <span class="se">\</span>
-           -p <span class="m">8787</span>:8787 <span class="se">\</span>
-           -p <span class="m">4000</span>:4000 <span class="se">\</span>
-           -v <span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>:/home/jovyan/work <span class="se">\</span>
-           -v /media/dani/DataStore/data/:/home/jovyan/data <span class="se">\</span>
-           darribas/gds_dev:6.1
-</pre></div>
-</div>
-<div class="section" id="chip-making">
+  <div class="section" id="chip-making">
 <h1>Chip making<a class="headerlink" href="#chip-making" title="Permalink to this headline">¶</a></h1>
-<p>This document shows how we flexibly generate a grid of pixel patches (or chips) and select those that fully fall within a given signature class.</p>
+<p>This document shows how we flexibly generate a grid of pixel patches (or chips) and select those that fully fall within a given signature class. The result needs to fit in memory.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">time</span>
@@ -691,7 +724,7 @@ Hosting the HTTP server on port 38187 instead
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/chip_making_a_11_0.png" src="../_images/chip_making_a_11_0.png" />
+<img alt="../_images/chip_making_a_10_0.png" src="../_images/chip_making_a_10_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -704,7 +737,7 @@ Hosting the HTTP server on port 38187 instead
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
 </pre></div>
 </div>
-<img alt="../_images/chip_making_a_12_1.png" src="../_images/chip_making_a_12_1.png" />
+<img alt="../_images/chip_making_a_11_1.png" src="../_images/chip_making_a_11_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -750,7 +783,7 @@ Hosting the HTTP server on port 38187 instead
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fbc40780bb0&gt;
 </pre></div>
 </div>
-<img alt="../_images/chip_making_a_16_1.png" src="../_images/chip_making_a_16_1.png" />
+<img alt="../_images/chip_making_a_15_1.png" src="../_images/chip_making_a_15_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -925,6 +958,24 @@ Wall time: 573 ms
 
 <div class='prev-next-bottom'>
     
+    <div id="prev">
+        <a class="left-prev" href="../intro.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">WP3 - Signature AI</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="chip_making_b.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Chip making - Pt. B</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
 
 </div>
         

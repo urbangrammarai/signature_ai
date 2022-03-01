@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Get range of coordinates from the mosaic &#8212; Urban Grammar AI | WP3 - Signature AI</title>
+    <title>Create chips for a continous stretch of land &#8212; Urban Grammar AI | WP3 - Signature AI</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -108,8 +108,33 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="chip_making_a.html">
+   Chip making
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chip_making_b.html">
+   Chip making - Pt. B
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chip_making_subset.html">
+   Chip making for a subset of GB
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="chip_making_gb.html">
    Create chips for the majority of GB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chip_making_temporal.html">
+   Create chips from a temporal set of Sentinel 2 snapshots
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="check_temporal_tiles.html">
+   Plot temporal tiles
   </a>
  </li>
 </ul>
@@ -120,8 +145,23 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../ai_experiments/transfer_learning_pipe.html">
+   Model testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ai_experiments/transfer_learning_evaluation.html">
+   Evaluation of models trained on NW
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../ai_experiments/tl_from_disk.html">
    AI pipeline from disk
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ai_experiments/chip_size_eval.html">
+   Evaluation of the effect of chip size and origin
   </a>
  </li>
 </ul>
@@ -216,6 +256,19 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#get-range-of-coordinates-from-the-mosaic">
+   Get range of coordinates from the mosaic
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -224,7 +277,10 @@
         
               <div>
                 
-  <div class="cell docutils container">
+  <div class="section" id="create-chips-for-a-continous-stretch-of-land">
+<h1>Create chips for a continous stretch of land<a class="headerlink" href="#create-chips-for-a-continous-stretch-of-land" title="Permalink to this headline">¶</a></h1>
+<p>This notebook creates chips completely covering set bbox.</p>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">glob</span>
 <span class="kn">import</span> <span class="nn">os</span>
@@ -1139,7 +1195,7 @@
 </div>
 </div>
 <div class="section" id="get-range-of-coordinates-from-the-mosaic">
-<h1>Get range of coordinates from the mosaic<a class="headerlink" href="#get-range-of-coordinates-from-the-mosaic" title="Permalink to this headline">¶</a></h1>
+<h2>Get range of coordinates from the mosaic<a class="headerlink" href="#get-range-of-coordinates-from-the-mosaic" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">start_x</span> <span class="o">=</span> <span class="mi">240000</span>
@@ -43224,7 +43280,7 @@ import warnings; warnings.filterwarnings(&#39;ignore&#39;, message=&#39;.*initia
 <span class="ne">ValueError</span>: The dataframe and given column have different number of rows.
 </pre></div>
 </div>
-<img alt="../_images/chips_glasgow_25_1.png" src="../_images/chips_glasgow_25_1.png" />
+<img alt="../_images/chips_glasgow_26_1.png" src="../_images/chips_glasgow_26_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -43277,7 +43333,7 @@ import warnings; warnings.filterwarnings(&#39;ignore&#39;, message=&#39;.*initia
 <span class="ne">TypeError</span>: Invalid shape (11750,) for image data
 </pre></div>
 </div>
-<img alt="../_images/chips_glasgow_27_1.png" src="../_images/chips_glasgow_27_1.png" />
+<img alt="../_images/chips_glasgow_28_1.png" src="../_images/chips_glasgow_28_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -43290,6 +43346,7 @@ import warnings; warnings.filterwarnings(&#39;ignore&#39;, message=&#39;.*initia
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.00570888, 0.01290561, 0.06529924, ..., 0.20325065, 0.35793984,
        0.47191107], dtype=float32)
 </pre></div>
+</div>
 </div>
 </div>
 </div>
