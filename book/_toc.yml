@@ -1,0 +1,21 @@
+- file: intro
+
+- chapter: Project
+  sections:
+    - url: http://urbangrammarai.xyz
+      title: Project homepage
+    - url: http://urbangrammarai.xyz/data_processing
+      title: WP1 - Data processing
+    - url: http://urbangrammarai.xyz/spatial_signatures
+      title: WP2 - Spatial Signatures
+
+- chapter: Create chips
+  sections:
+    - file: create_chips/chip_making_gb
+
+
+- chapter: AI experiments
+  sections:
+    - file: ai_experiments/tl_from_disk
+
+
