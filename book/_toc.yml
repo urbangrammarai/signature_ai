@@ -11,11 +11,20 @@
 
 - chapter: Create chips
   sections:
+    - file: create_chips/chip_making_a
+    - file: create_chips/chip_making_b
+    - file: create_chips/chip_making_subset
     - file: create_chips/chip_making_gb
+    - file: create_chips/chip_making_glasgow
+    - file: create_chips/chip_making_temporal
+    - file: create_chips/check_temporal_tiles
 
 
 - chapter: AI experiments
   sections:
+    - file: ai_experiments/transfer_learning_pipe
+    - file: ai_experiments/transfer_learning_evaluation
     - file: ai_experiments/tl_from_disk
+    - file: ai_experiments/chip_size_eval
 
 
