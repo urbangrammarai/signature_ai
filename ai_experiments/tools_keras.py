@@ -99,9 +99,10 @@ def fit_phase(
     if model_folder is not None:
         callbacks.append(
             ModelCheckpoint(
-                filepath=f"{model_folder}/{model.name}.keras",
+                filepath=f"{model_folder}/{model.name}_best",
                 monitor="val_accuracy",
                 save_best_only=True,
+                mode="max",
             )
         )
     if verbose:
@@ -132,12 +133,16 @@ def fit_phase(
         callbacks=callbacks,
         **kwargs
     )
+    if "class_weights" in kwargs:
+        specs["class_weights"] = kwargs["class_weights"]
     t1 = time.time()
     if specs is not None:
         specs["runtime"] = t1 - t0
         if verbose:
             print(f"time elapsed: {(t1 - t0):9.1f}s")
 
+    if model_folder is not None:
+        model.save(f"{model_folder}/{model.name}", save_format="tf")
     if pred_folder:
         specs["pred_folder"] = pred_folder
 
