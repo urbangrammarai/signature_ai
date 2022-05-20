@@ -1,6 +1,7 @@
 '''
 Tools for modelling chip probabilities
 '''
+
 import os, json
 import pandas
 import numpy as np
@@ -9,7 +10,7 @@ from time import time
 
 import statsmodels.api as sm
 from sklearn.metrics import (
-    confusion_matrix, accuracy_score
+    confusion_matrix, accuracy_score, f1_score, cohen_kappa_score
 )
 from sklearn.preprocessing import scale
 from sklearn.model_selection import train_test_split
@@ -107,9 +108,19 @@ def build_perf(
         meta['meta_trainval_counts'].append([int(t_vc[c]), int(v_vc[c])])
     for (y_true, y_pred), subset in zip(splits, ['train', 'val']):
         meta[f'perf_model_accuracy_{subset}'] = accuracy_score(y_true, y_pred)
+        meta[f'perf_f1_{subset}'] = f1_score(
+            y_true, y_pred, average=None
+        ).tolist()
+        meta[f'perf_macro_f1_w_{subset}'] = f1_score(
+            y_true, y_pred, average='weighted'
+        )       
+        meta[f'perf_macro_f1_avg_{subset}'] = f1_score(
+            y_true, y_pred, average='macro'
+        )
         meta[f'perf_confusion_{subset}'] = confusion_matrix(
             y_true, y_pred, labels=class_names
         ).tolist()
+        meta[f'perf_kappa_{subset}'] = cohen_kappa_score(y_true, y_pred)
         meta[f'perf_within_class_accuracy_{subset}'] = []
         for c in class_names:
             cids = y_true == c
