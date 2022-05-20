@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>&lt;no title&gt; &#8212; Urban Grammar AI | WP3 - Signature AI</title>
+    <title>Predict signature types from a numpy array of chips &#8212; Urban Grammar AI | WP3 - Signature AI</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -149,7 +149,7 @@
   AI experiments
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="transfer_learning_pipe.html">
    Model testing
@@ -168,6 +168,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="chip_size_eval.html">
    Evaluation of the effect of chip size and origin
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Predict signature types from a numpy array of chips
   </a>
  </li>
 </ul>
@@ -262,14 +267,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -278,13 +275,8 @@
         
               <div>
                 
-  <div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Predict </span>
-</pre></div>
-</div>
-</div>
-</div>
+  <div class="section" id="predict-signature-types-from-a-numpy-array-of-chips">
+<h1>Predict signature types from a numpy array of chips<a class="headerlink" href="#predict-signature-types-from-a-numpy-array-of-chips" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tensorflow</span> <span class="kn">import</span> <span class="n">keras</span>
@@ -401,6 +393,7 @@
  &#39;8&#39;: 10,
  &#39;9&#39;: 11}
 </pre></div>
+</div>
 </div>
 </div>
 </div>
