@@ -15,6 +15,8 @@ from sklearn.metrics import (
 from sklearn.preprocessing import scale
 from sklearn.model_selection import train_test_split
 
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 TRAIN_FRAC = 0.7
                     #################
@@ -96,57 +98,6 @@ def interact_vars(db, vars_a, vars_b, auto_drop=False):
                     #################
                     ### Modelling ###
                     #################
-    
-def build_perf(
-    y_true_train, y_pred_train, y_true_val, y_pred_val, class_names, meta={}
-):
-    splits = (y_true_train, y_pred_train), (y_true_val, y_pred_val)
-    t_vc = y_true_train.value_counts()
-    v_vc = y_true_val.value_counts()
-    meta['meta_trainval_counts'] = []
-    for c in class_names:
-        meta['meta_trainval_counts'].append([int(t_vc[c]), int(v_vc[c])])
-    for (y_true, y_pred), subset in zip(splits, ['train', 'val']):
-        meta[f'perf_model_accuracy_{subset}'] = accuracy_score(y_true, y_pred)
-        meta[f'perf_f1_{subset}'] = f1_score(
-            y_true, y_pred, average=None
-        ).tolist()
-        meta[f'perf_macro_f1_w_{subset}'] = f1_score(
-            y_true, y_pred, average='weighted'
-        )       
-        meta[f'perf_macro_f1_avg_{subset}'] = f1_score(
-            y_true, y_pred, average='macro'
-        )
-        meta[f'perf_confusion_{subset}'] = confusion_matrix(
-            y_true, y_pred, labels=class_names
-        ).tolist()
-        meta[f'perf_kappa_{subset}'] = cohen_kappa_score(y_true, y_pred)
-        meta[f'perf_within_class_accuracy_{subset}'] = []
-        for c in class_names:
-            cids = y_true == c
-            meta[f'perf_within_class_accuracy_{subset}'].append(
-                accuracy_score(y_true[cids], y_pred[cids])
-            )
-    if 'meta_class_names' not in meta:
-        meta['meta_class_names'] = class_names
-    if 'meta_n_class' not in meta:
-        meta['meta_n_class'] = len(class_names)
-    return meta
-
-def write_json(res, res_path):
-    if res_path is not None:
-        with open(
-            os.path.join(res_path, res['model_name'].replace(' ', '_') + '.json'), 'w'
-        ) as fo:
-            json.dump(res, fo, indent=4)
-        return None
-    return None
-
-def build_model_name(base_name, model_name_xtra):
-    model_name = base_name
-    if model_name_xtra is not None:
-        model_name += '_' + model_name_xtra
-    return model_name
 
 def run_tree(
     x_name, 
@@ -163,10 +114,10 @@ def run_tree(
     t0 = time()
     model.fit(X_train, db.loc[train_ids, y_name])
     t1 = time()
-    rf_pred_train = model.predict(X_train)
+    rf_pred_train = pandas.Series(model.predict(X_train), train_ids)
     # Validation
     X_val = db.loc[val_ids, x_name]
-    rf_pred_val = model.predict(X_val)
+    rf_pred_val = pandas.Series(model.predict(X_val), val_ids)
     # Results
     model_name = build_model_name(type(model).__name__, model_name_xtra)
     rf_res = build_perf(
@@ -179,7 +130,8 @@ def run_tree(
             'model_name': model_name,
             'meta_runtime': t1-t0,
             'model_params': model.get_params()
-        }
+        },
+        res_path
     )
     write_json(rf_res, res_path)
     return rf_res
@@ -192,15 +144,16 @@ def run_maxprob(
     t1 = time()
     model_name = build_model_name('maxprob', model_name_xtra)
     mp_res = build_perf(
-        db[y_name], 
-        mp_pred, 
-        db[y_name], 
-        mp_pred, 
+        db.loc[train_ids, y_name], 
+        mp_pred.loc[train_ids], 
+        db.loc[val_ids, y_name], 
+        mp_pred.loc[val_ids], 
         x_name, 
         {
             'model_name': model_name,
             'meta_runtime': t1-t0,
-        }
+        },
+        res_path
     )
     write_json(mp_res, res_path)
     return mp_res
@@ -269,7 +222,8 @@ def run_logite(
         {
             'model_name': model_name,
             'meta_runtime': t1-t0,
-        }
+        },
+        res_path
     )
     logite_res['model_params'] = {
         'coefs': [], 'scale_x': scale_x, 'log_x': log_x
@@ -316,3 +270,91 @@ def run_mlogit(
     )
     write_json(mlogit_res, res_path)
     return mlogit_res
+    
+                    #################
+                    #  Performance  #
+                    #################
+    
+def build_perf(
+    y_true_train, 
+    y_pred_train, 
+    y_true_val,
+    y_pred_val,
+    class_names,
+    meta={},
+    preds_path=None
+):
+    splits = (y_true_train, y_pred_train), (y_true_val, y_pred_val)
+    t_vc = y_true_train.value_counts()
+    v_vc = y_true_val.value_counts()
+    meta['meta_trainval_counts'] = []
+    for c in class_names:
+        meta['meta_trainval_counts'].append([int(t_vc[c]), int(v_vc[c])])
+    for (y_true, y_pred), subset in zip(splits, ['train', 'val']):
+        meta[f'perf_model_accuracy_{subset}'] = accuracy_score(y_true, y_pred)
+        meta[f'perf_f1_{subset}'] = f1_score(
+            y_true, y_pred, average=None
+        ).tolist()
+        meta[f'perf_macro_f1_w_{subset}'] = f1_score(
+            y_true, y_pred, average='weighted'
+        )       
+        meta[f'perf_macro_f1_avg_{subset}'] = f1_score(
+            y_true, y_pred, average='macro'
+        )
+        meta[f'perf_confusion_{subset}'] = confusion_matrix(
+            y_true, y_pred, labels=class_names
+        ).tolist()
+        meta[f'perf_kappa_{subset}'] = cohen_kappa_score(y_true, y_pred)
+        meta[f'perf_within_class_accuracy_{subset}'] = []
+        for c in class_names:
+            cids = y_true == c
+            meta[f'perf_within_class_accuracy_{subset}'].append(
+                accuracy_score(y_true[cids], y_pred[cids])
+            )
+    if 'meta_class_names' not in meta:
+        meta['meta_class_names'] = class_names
+    if 'meta_n_class' not in meta:
+        meta['meta_n_class'] = len(class_names)
+    if preds_path is not None:
+        pandas.concat([
+            pandas.DataFrame({
+                'id': y_pred_train.index, 'y_pred': y_pred_train, 'Validation': False
+            }),
+            pandas.DataFrame({
+                'id': y_pred_val.index, 'y_pred': y_pred_val, 'Validation': True
+            })
+        ]).to_parquet(
+            os.path.join(preds_path, meta['model_name'].replace(' ', '_') + '_y_pred.pq')
+        )
+        meta['meta_preds_path'] = preds_path
+    return meta
+
+def write_json(res, res_path):
+    if res_path is not None:
+        with open(
+            os.path.join(res_path, res['model_name'].replace(' ', '_') + '.json'), 'w'
+        ) as fo:
+            json.dump(res, fo, indent=4)
+        return None
+    return None
+
+def build_model_name(base_name, model_name_xtra):
+    model_name = base_name
+    if model_name_xtra is not None:
+        model_name += '_' + model_name_xtra
+    return model_name
+
+def build_cm_plot(cm, maxcount=None, std=False, ax=None):
+    cm = pandas.DataFrame(
+        cm, class_names, class_names
+    )
+    if ax is None:
+        f, ax = plt.subplots(1)
+    if std is not False:
+        cm = cm.div(cm.sum(axis=1), axis='index')
+        maxcount = 1
+    sns.heatmap(
+        cm, vmin=0, vmax=maxcount, cmap='viridis', ax=ax
+    )
+    ax.set_axis_off()
+    return ax
