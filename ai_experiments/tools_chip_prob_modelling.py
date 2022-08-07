@@ -5,7 +5,6 @@ Tools for modelling chip probabilities
 import os, json
 import pandas
 import numpy as np
-from libpysal import weights
 from time import time
 
 import statsmodels.api as sm
@@ -17,6 +16,10 @@ from sklearn.model_selection import train_test_split
 
 import seaborn as sns
 import matplotlib.pyplot as plt
+
+import esda
+import pointpats
+from libpysal import weights
 
 TRAIN_FRAC = 0.7
                     #################
@@ -284,6 +287,26 @@ def build_perf(
     meta={},
     preds_path=None
 ):
+    '''
+    Compute performance scores for a set of predictions and labels, with a train/val split
+    ...
+    
+    Arguments
+    ---------
+    y_true_train : pandas.Series
+                   Train set of labels
+    y_pred_train : pandas.Series
+                   Train set of predictions
+    y_true_val : pandas.Series
+                 Validation set of labels
+    y_pred_val : pandas.Series
+                 Validation set of predictions
+    
+    Returns
+    -------
+    meta : dict
+           Set of scores as a dict
+    '''
     splits = (y_true_train, y_pred_train), (y_true_val, y_pred_val)
     t_vc = y_true_train.value_counts()
     v_vc = y_true_val.value_counts()
@@ -358,3 +381,51 @@ def build_cm_plot(cm, maxcount=None, std=False, ax=None):
     )
     ax.set_axis_off()
     return ax
+                    #################
+                    #    Spatial    #
+                    #################
+            
+def spatial_perf(params):
+    y, wd, xys, name = params
+    sp_res = {
+        'quadrat': {},
+        'ripley_g': {},
+        'ripley_f': {}
+    }
+    for w in wd:
+        sp_res[f'moran_{w}'] = {}
+        sp_res[f'jc_{w}'] = {}
+    for c in y.unique():
+        b = (y == c).astype(float)
+        c_xys = xys[(y == c).values, :]
+        for w in wd:
+            # Moran
+            sp_res[f'moran_{w}'][c] = esda.Moran(b, wd[w], permutations=1).I
+            # Join counts
+            wd[w].transform = 'O'
+            sp_res[f'jc_{w}'][c] = esda.Join_Counts(b, wd[w], permutations=1).bb
+        # Quadrat
+        sp_res['quadrat'][c] = pointpats.QStatistic(
+            c_xys, shape='hexagon', lh=10000
+        ).chi2
+        # Ripley's G
+        try:
+            stat = pointpats.g_test(
+                c_xys, n_simulations=1
+            ).statistic
+        except:
+            stat = None
+        sp_res['ripley_g'][c] = stat
+        # Ripley's F
+        try:
+            stat = pointpats.f_test(
+                c_xys, n_simulations=1
+            ).statistic 
+        except:
+            stat = None
+        sp_res['ripley_f'][c] = stat
+    sp_res = pandas.DataFrame(sp_res).stack().reset_index().rename(
+        columns={'level_0': 'signature', 'level_1': 'metric', 0: 'value'}
+    ).assign(model=name)
+    return sp_res
+
