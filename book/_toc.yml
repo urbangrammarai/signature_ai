@@ -27,5 +27,7 @@
     - file: ai_experiments/tl_from_disk
     - file: ai_experiments/chip_size_eval
     - file: ai_experiments/predict_from_numpy
+    - file: ai_experiments/sp_model_chip_probabilities
+    - file: ai_experiments/explore_model_performance
 
 
