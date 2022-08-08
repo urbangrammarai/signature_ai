@@ -1,37 +1,24 @@
 
+
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>&lt;no title&gt; &#8212; Urban Grammar AI | WP3 - Signature AI</title>
-    
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
-
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
-    
-      
-
-    
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
-
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -39,9 +26,13 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@latest/lib/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
@@ -50,14 +41,14 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
-
     
 
     <div class="container-xl">
@@ -66,38 +57,47 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
-      
-      <img src="../_static/logo.svg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Urban Grammar AI | WP3 - Signature AI</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.svg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Urban Grammar AI | WP3 - Signature AI</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <p class="caption">
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
  <span class="caption-text">
   Project
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference external" href="http://urbangrammarai.xyz">
    Project homepage
+   <i class="fas fa-external-link-alt">
+   </i>
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference external" href="http://urbangrammarai.xyz/data_processing">
    WP1 - Data processing
+   <i class="fas fa-external-link-alt">
+   </i>
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference external" href="http://urbangrammarai.xyz/spatial_signatures">
    WP2 - Spatial Signatures
+   <i class="fas fa-external-link-alt">
+   </i>
   </a>
  </li>
 </ul>
@@ -106,7 +106,7 @@
   Create chips
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../create_chips/chip_making_a.html">
    Chip making
@@ -123,13 +123,13 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../create_chips/chip_making_gb.html">
-   Create chips for the majority of GB
+  <a class="reference internal" href="../create_chips/chip_making_subset.html#spill-chips-to-disk-for-out-of-core-computation">
+   Spill chips to disk for out-of-core computation
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../create_chips/chips_glasgow.html">
-   Create chips for a continous stretch of land
+  <a class="reference internal" href="../create_chips/chip_making_gb.html">
+   Create chips for the majority of GB
   </a>
  </li>
  <li class="toctree-l1">
@@ -148,7 +148,7 @@
   AI experiments
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="transfer_learning_pipe.html">
    Model testing
@@ -174,10 +174,21 @@
    Predict signature types from a numpy array of chips
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sp_model_chip_probabilities.html">
+   Modelling of chip probabilities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="explore_model_performance.html">
+   Explore model performances
+  </a>
+ </li>
 </ul>
 
-    </div>
-</nav> <!-- To handle the deprecated key -->
+</nav>
+
+ <!-- To handle the deprecated key -->
 
 </div>
 
@@ -188,25 +199,25 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
+    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -218,9 +229,9 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
+    
 </div>
-
-            <!-- Source interaction buttons -->
+        <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -235,14 +246,13 @@
     </div>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
+        <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -261,20 +271,16 @@
     </div>
 </div>
 
-        </div>
+    </div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-            </nav>
-        </div>
+        </nav>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -284,7 +290,7 @@
                 
   <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
 <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
 
 <span class="kn">from</span> <span class="nn">tensorflow</span> <span class="kn">import</span> <span class="n">keras</span>
@@ -304,7 +310,7 @@
 <p>Load chips</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">specs</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">specs</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;chips&#39;</span><span class="p">:</span> <span class="s2">&quot;../chips_gb/32_shuffled_balanced_12/&quot;</span><span class="p">,</span>
     <span class="s1">&#39;folder&#39;</span><span class="p">:</span> <span class="s2">&quot;../urbangrammar_samba/spatial_signatures/ai/gb_32_shuffled/&quot;</span><span class="p">,</span>
 <span class="p">}</span>
@@ -314,7 +320,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">group_mapping</span> <span class="o">=</span> <span class="p">[</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">group_mapping</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">[</span><span class="s1">&#39;9_0&#39;</span><span class="p">,</span> <span class="s1">&#39;9_1&#39;</span><span class="p">,</span> <span class="s1">&#39;9_2&#39;</span><span class="p">,</span> <span class="s1">&#39;9_4&#39;</span><span class="p">,</span> <span class="s1">&#39;9_5&#39;</span><span class="p">],</span>
     <span class="p">[</span><span class="s1">&#39;2_0&#39;</span><span class="p">],</span> 
     <span class="p">[</span><span class="s1">&#39;2_1&#39;</span><span class="p">],</span> 
@@ -334,7 +340,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_specs</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">model_specs</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;meta_class_map&#39;</span><span class="p">:</span> <span class="n">group_mapping</span><span class="p">,</span>
     <span class="s1">&#39;meta_class_names&#39;</span><span class="p">:</span> <span class="p">[</span>
         <span class="s2">&quot;Urbanity&quot;</span><span class="p">,</span> 
@@ -358,7 +364,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">inputs</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">inputs</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Resizing</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="n">crop_to_aspect_ratio</span><span class="o">=</span><span class="kc">True</span><span class="p">)(</span><span class="n">inputs</span><span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">vgg16</span><span class="o">.</span><span class="n">preprocess_input</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">m</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">applications</span><span class="o">.</span><span class="n">VGG16</span><span class="p">(</span>
@@ -406,7 +412,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h</span> <span class="o">=</span> <span class="n">tools_keras</span><span class="o">.</span><span class="n">fit_phase</span><span class="p">(</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">h</span> <span class="o">=</span> <span class="n">tools_keras</span><span class="o">.</span><span class="n">fit_phase</span><span class="p">(</span>
         <span class="n">model</span><span class="p">,</span>
         <span class="n">specs</span><span class="p">[</span><span class="s1">&#39;chips&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;train&#39;</span><span class="p">,</span>
         <span class="n">specs</span><span class="p">[</span><span class="s1">&#39;chips&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;validation&#39;</span><span class="p">,</span>
@@ -426,12 +432,13 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-02-14 09:46:19.146840: I tensorflow/core/profiler/lib/profiler_session.cc:131] Profiler session initializing.
+<div class="stderr docutils container">
+<pre class="stderr literal-block">2022-02-14 09:46:19.146840: I tensorflow/core/profiler/lib/profiler_session.cc:131] Profiler session initializing.
 2022-02-14 09:46:19.146872: I tensorflow/core/profiler/lib/profiler_session.cc:146] Profiler session started.
 2022-02-14 09:46:19.146897: I tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1614] Profiler found 1 GPUs
-</pre></div>
+</pre>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;VGG16Scratch_none_none_3&quot;
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Model: &quot;VGG16Scratch_none_none_3&quot;
 _________________________________________________________________
 Layer (type)                 Output Shape              Param #   
 =================================================================
@@ -453,37 +460,42 @@ None
 creating ImageDataGenerators...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-02-14 09:46:19.203204: I tensorflow/core/profiler/lib/profiler_session.cc:164] Profiler session tear down.
+<div class="stderr docutils container">
+<pre class="stderr literal-block">2022-02-14 09:46:19.203204: I tensorflow/core/profiler/lib/profiler_session.cc:164] Profiler session tear down.
 2022-02-14 09:46:19.203366: I tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1749] CUPTI activity buffer flushed
-</pre></div>
+</pre>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Found 105616 images belonging to 12 classes.
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Found 105616 images belonging to 12 classes.
 Found 22630 images belonging to 12 classes.
 training...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-02-14 09:46:26.293800: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:185] None of the MLIR Optimization Passes are enabled (registered 2)
+<div class="stderr docutils container">
+<pre class="stderr literal-block">2022-02-14 09:46:26.293800: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:185] None of the MLIR Optimization Passes are enabled (registered 2)
+</pre>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Epoch 1/250
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/250
+<div class="stderr docutils container">
+<pre class="stderr literal-block">2022-02-14 09:46:27.443355: I tensorflow/stream_executor/cuda/cuda_dnn.cc:381] Loaded cuDNN version 8300
+</pre>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>   1/3301 [..............................] - ETA: 19:59:40 - loss: 2.5197 - accuracy: 0.0625
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-02-14 09:46:27.443355: I tensorflow/stream_executor/cuda/cuda_dnn.cc:381] Loaded cuDNN version 8300
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   1/3301 [..............................] - ETA: 19:59:40 - loss: 2.5197 - accuracy: 0.0625
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-02-14 09:46:48.164117: I tensorflow/core/profiler/lib/profiler_session.cc:131] Profiler session initializing.
+<div class="stderr docutils container">
+<pre class="stderr literal-block">2022-02-14 09:46:48.164117: I tensorflow/core/profiler/lib/profiler_session.cc:131] Profiler session initializing.
 2022-02-14 09:46:48.164145: I tensorflow/core/profiler/lib/profiler_session.cc:146] Profiler session started.
 2022-02-14 09:46:49.074264: W tensorflow/core/common_runtime/bfc_allocator.cc:275] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.04GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
 2022-02-14 09:46:49.206754: W tensorflow/core/common_runtime/bfc_allocator.cc:275] Allocator (GPU_0_bfc) ran out of memory trying to allocate 3.04GiB with freed_by_count=0. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory were available.
+</pre>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>   2/3301 [..............................] - ETA: 11:32:04 - loss: 1008.5718 - accuracy: 0.0781
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   2/3301 [..............................] - ETA: 11:32:04 - loss: 1008.5718 - accuracy: 0.0781
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-02-14 09:47:00.735893: I tensorflow/core/profiler/lib/profiler_session.cc:66] Profiler session collecting data.
+<div class="stderr docutils container">
+<pre class="stderr literal-block">2022-02-14 09:47:00.735893: I tensorflow/core/profiler/lib/profiler_session.cc:66] Profiler session collecting data.
 2022-02-14 09:47:00.742303: I tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1749] CUPTI activity buffer flushed
 2022-02-14 09:47:00.787102: I tensorflow/core/profiler/internal/gpu/cupti_collector.cc:673]  GpuTracer has collected 106475 callback api events and 105223 activity events. 
 2022-02-14 09:47:01.826425: I tensorflow/core/profiler/lib/profiler_session.cc:164] Profiler session tear down.
@@ -499,29 +511,33 @@ Dumped tool data for overview_page.pb to ../urbangrammar_samba/spatial_signature
 Dumped tool data for input_pipeline.pb to ../urbangrammar_samba/spatial_signatures/ai/gb_32_shuffled/logs/VGG16Scratch_none_none_3/train/plugins/profile/2022_02_14_09_47_01/85c0885614ed.input_pipeline.pb
 Dumped tool data for tensorflow_stats.pb to ../urbangrammar_samba/spatial_signatures/ai/gb_32_shuffled/logs/VGG16Scratch_none_none_3/train/plugins/profile/2022_02_14_09_47_01/85c0885614ed.tensorflow_stats.pb
 Dumped tool data for kernel_stats.pb to ../urbangrammar_samba/spatial_signatures/ai/gb_32_shuffled/logs/VGG16Scratch_none_none_3/train/plugins/profile/2022_02_14_09_47_01/85c0885614ed.kernel_stats.pb
+
+</pre>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>3301/3301 [==============================] - 1023s 303ms/step - loss: 3.0666 - accuracy: 0.0955 - val_loss: 2.4876 - val_accuracy: 0.0884
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3301/3301 [==============================] - 1023s 303ms/step - loss: 3.0666 - accuracy: 0.0955 - val_loss: 2.4876 - val_accuracy: 0.0884
-</pre></div>
+<div class="stderr docutils container">
+<pre class="stderr literal-block">2022-02-14 10:03:30.963382: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 12331253760 exceeds 10% of free system memory.
+</pre>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-02-14 10:03:30.963382: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 12331253760 exceeds 10% of free system memory.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 2/250
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Epoch 2/250
 3301/3301 [==============================] - 959s 290ms/step - loss: 2.4551 - accuracy: 0.0946 - val_loss: 2.4844 - val_accuracy: 0.0884
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-02-14 10:19:58.135801: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 12331253760 exceeds 10% of free system memory.
-</pre></div>
+<div class="stderr docutils container">
+<pre class="stderr literal-block">2022-02-14 10:19:58.135801: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 12331253760 exceeds 10% of free system memory.
+</pre>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 3/250
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Epoch 3/250
 3301/3301 [==============================] - 953s 289ms/step - loss: 2.4550 - accuracy: 0.0952 - val_loss: 2.4864 - val_accuracy: 0.0884
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-02-14 10:35:58.640809: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 12331253760 exceeds 10% of free system memory.
-</pre></div>
+<div class="stderr docutils container">
+<pre class="stderr literal-block">2022-02-14 10:35:58.640809: W tensorflow/core/framework/cpu_allocator_impl.cc:80] Allocation of 12331253760 exceeds 10% of free system memory.
+</pre>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 4/250
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Epoch 4/250
 2155/3301 [==================&gt;...........] - ETA: 5:10 - loss: 2.4544 - accuracy: 0.0965
 </pre></div>
 </div>
@@ -660,17 +676,13 @@ Dumped tool data for kernel_stats.pb to ../urbangrammar_samba/spatial_signatures
 
               </div>
               
-        
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-
-</div>
-        
         </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -687,9 +699,8 @@ Dumped tool data for kernel_stats.pb to ../urbangrammar_samba/spatial_signatures
 
       </div>
     </div>
-  
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-  
+    <script src="../_static/js/index.js"></script>
+    
   </body>
 </html>

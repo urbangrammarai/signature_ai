@@ -1,0 +1,613 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>&lt;no title&gt; &#8212; Urban Grammar AI | WP3 - Signature AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.svg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Urban Grammar AI | WP3 - Signature AI</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
+ <span class="caption-text">
+  Project
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference external" href="http://urbangrammarai.xyz">
+   Project homepage
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="http://urbangrammarai.xyz/data_processing">
+   WP1 - Data processing
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="http://urbangrammarai.xyz/spatial_signatures">
+   WP2 - Spatial Signatures
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Create chips
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../create_chips/chip_making_a.html">
+   Chip making
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../create_chips/chip_making_b.html">
+   Chip making - Pt. B
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../create_chips/chip_making_subset.html">
+   Chip making for a subset of GB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../create_chips/chip_making_subset.html#spill-chips-to-disk-for-out-of-core-computation">
+   Spill chips to disk for out-of-core computation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../create_chips/chip_making_gb.html">
+   Create chips for the majority of GB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../create_chips/chip_making_temporal.html">
+   Create chips from a temporal set of Sentinel 2 snapshots
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../create_chips/check_temporal_tiles.html">
+   Plot temporal tiles
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  AI experiments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../transfer_learning_pipe.html">
+   Model testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../transfer_learning_evaluation.html">
+   Evaluation of models trained on NW
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tl_from_disk.html">
+   AI pipeline from disk
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chip_size_eval.html">
+   Evaluation of the effect of chip size and origin
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../predict_from_numpy.html">
+   Predict signature types from a numpy array of chips
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sp_model_chip_probabilities.html">
+   Modelling of chip probabilities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../explore_model_performance.html">
+   Explore model performances
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/ai_experiments/ai_experiments/_transfer_learning.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/urbangrammarai/signature_ai"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/urbangrammarai/signature_ai/master?urlpath=tree/ai_experiments/ai_experiments/_transfer_learning.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+<span class="kn">from</span> <span class="nn">tensorflow</span> <span class="kn">import</span> <span class="n">keras</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">layers</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.applications.resnet50</span> <span class="kn">import</span> <span class="n">preprocess_input</span><span class="p">,</span> <span class="n">decode_predictions</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">specs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;tensor&#39;</span><span class="p">:</span> <span class="p">(</span>
+        <span class="s1">&#39;../urbangrammar_samba/&#39;</span>
+        <span class="s1">&#39;spatial_signatures/chips/sample.npz&#39;</span>
+    <span class="p">),</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">specs</span><span class="p">[</span><span class="s2">&quot;tensor&quot;</span><span class="p">],</span> <span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">start</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">stop</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">30000</span>
+<span class="n">chips</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;chips&quot;</span><span class="p">]</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;labels&quot;</span><span class="p">]</span>
+
+<span class="n">n_classes</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">assert</span> <span class="n">n_classes</span> <span class="o">==</span> <span class="n">numpy</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1"># no label can be missing</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">32</span>
+<span class="n">split</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">chips</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.8</span><span class="p">)</span>
+
+<span class="n">train_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="o">.</span><span class="n">from_tensor_slices</span><span class="p">((</span><span class="n">chips</span><span class="p">[:</span><span class="n">split</span><span class="p">],</span> <span class="n">labels</span><span class="p">[:</span><span class="n">split</span><span class="p">]))</span>
+<span class="n">test_dataset</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="o">.</span><span class="n">from_tensor_slices</span><span class="p">((</span><span class="n">chips</span><span class="p">[</span><span class="n">split</span><span class="p">:],</span> <span class="n">labels</span><span class="p">[</span><span class="n">split</span><span class="p">:]))</span>
+
+<span class="n">train_dataset</span> <span class="o">=</span> <span class="n">train_dataset</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">)</span>
+<span class="n">test_dataset</span> <span class="o">=</span> <span class="n">test_dataset</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="stderr docutils container">
+<pre class="stderr literal-block">2021-11-26 15:11:47.775607: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1510] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 6684 MB memory:  -&gt; device: 0, name: Quadro RTX 4000, pci bus id: 0000:21:00.0, compute capability: 7.5
+</pre>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">preprocessing_and_augmentation</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="n">layers</span><span class="o">.</span><span class="n">Resizing</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="n">crop_to_aspect_ratio</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+        <span class="n">layers</span><span class="o">.</span><span class="n">Rescaling</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">32</span><span class="p">)</span>
+<span class="c1">#         layers.RandomFlip(&quot;horizontal&quot;)</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">base_model</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">applications</span><span class="o">.</span><span class="n">ResNet50</span><span class="p">(</span>
+    <span class="n">weights</span><span class="o">=</span><span class="s2">&quot;imagenet&quot;</span><span class="p">,</span>  <span class="c1"># Load weights pre-trained on ImageNet.</span>
+    <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+    <span class="n">include_top</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="c1"># Do not include the ImageNet classifier at the top.</span>
+<span class="p">)</span>
+
+<span class="c1"># Freeze the base_model</span>
+<span class="n">base_model</span><span class="o">.</span><span class="n">trainable</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="c1"># Create new model on top</span>
+<span class="n">inputs</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">preprocessing_and_augmentation</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">preprocess_input</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># The base model contains batchnorm layers. We want to keep them in inference mode</span>
+<span class="c1"># when we unfreeze the base model for fine-tuning, so we make sure that the</span>
+<span class="c1"># base_model is running in inference mode here.</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">base_model</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">training</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">GlobalAveragePooling2D</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span> 
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="n">n_classes</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">predictions</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Model: &quot;model&quot;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+input_2 (InputLayer)         [(None, 32, 32, 3)]       0         
+_________________________________________________________________
+sequential (Sequential)      (None, 224, 224, 3)       0         
+_________________________________________________________________
+tf.__operators__.getitem (Sl (None, 224, 224, 3)       0         
+_________________________________________________________________
+tf.nn.bias_add (TFOpLambda)  (None, 224, 224, 3)       0         
+_________________________________________________________________
+resnet50 (Functional)        (None, 7, 7, 2048)        23587712  
+_________________________________________________________________
+global_average_pooling2d (Gl (None, 2048)              0         
+_________________________________________________________________
+dense (Dense)                (None, 128)               262272    
+_________________________________________________________________
+dense_1 (Dense)              (None, 14)                1806      
+=================================================================
+Total params: 23,851,790
+Trainable params: 264,078
+Non-trainable params: 23,587,712
+_________________________________________________________________
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+    <span class="n">optimizer</span><span class="o">=</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adam</span><span class="p">(),</span>
+    <span class="n">loss</span><span class="o">=</span><span class="n">keras</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">SparseCategoricalCrossentropy</span><span class="p">(),</span>
+    <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">SparseCategoricalAccuracy</span><span class="p">()],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">time</span>
+
+<span class="n">epochs</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_dataset</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="n">epochs</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="n">test_dataset</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Epoch 1/10
+</pre></div>
+</div>
+<div class="stderr docutils container">
+<pre class="stderr literal-block">2021-11-26 15:11:52.868752: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:185] None of the MLIR Optimization Passes are enabled (registered 2)
+2021-11-26 15:11:53.703997: I tensorflow/stream_executor/cuda/cuda_dnn.cc:381] Loaded cuDNN version 8300
+</pre>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>1627/1627 [==============================] - 138s 81ms/step - loss: 1.1607 - sparse_categorical_accuracy: 0.4913 - val_loss: 1.1341 - val_sparse_categorical_accuracy: 0.4754
+Epoch 2/10
+1627/1627 [==============================] - 131s 80ms/step - loss: 1.0986 - sparse_categorical_accuracy: 0.5155 - val_loss: 1.1225 - val_sparse_categorical_accuracy: 0.4734
+Epoch 3/10
+1627/1627 [==============================] - 131s 81ms/step - loss: 1.0733 - sparse_categorical_accuracy: 0.5278 - val_loss: 1.1166 - val_sparse_categorical_accuracy: 0.4752
+Epoch 4/10
+1627/1627 [==============================] - 131s 81ms/step - loss: 1.0538 - sparse_categorical_accuracy: 0.5355 - val_loss: 1.1160 - val_sparse_categorical_accuracy: 0.4808
+Epoch 5/10
+1627/1627 [==============================] - 131s 81ms/step - loss: 1.0357 - sparse_categorical_accuracy: 0.5438 - val_loss: 1.1199 - val_sparse_categorical_accuracy: 0.4798
+Epoch 6/10
+1627/1627 [==============================] - 131s 81ms/step - loss: 1.0190 - sparse_categorical_accuracy: 0.5521 - val_loss: 1.1170 - val_sparse_categorical_accuracy: 0.4859
+Epoch 7/10
+1627/1627 [==============================] - 131s 81ms/step - loss: 1.0035 - sparse_categorical_accuracy: 0.5599 - val_loss: 1.1232 - val_sparse_categorical_accuracy: 0.4841
+Epoch 8/10
+1627/1627 [==============================] - 131s 81ms/step - loss: 0.9879 - sparse_categorical_accuracy: 0.5665 - val_loss: 1.1288 - val_sparse_categorical_accuracy: 0.4889
+Epoch 9/10
+1627/1627 [==============================] - 131s 81ms/step - loss: 0.9726 - sparse_categorical_accuracy: 0.5730 - val_loss: 1.1286 - val_sparse_categorical_accuracy: 0.4927
+Epoch 10/10
+1627/1627 [==============================] - 131s 81ms/step - loss: 0.9579 - sparse_categorical_accuracy: 0.5801 - val_loss: 1.1399 - val_sparse_categorical_accuracy: 0.4970
+CPU times: user 8min 36s, sys: 59.1 s, total: 9min 35s
+Wall time: 22min 2s
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">time</span>
+<span class="n">pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">chips</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">:])</span>
+<span class="n">pred</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.43 s, sys: 0 ns, total: 1.43 s
+Wall time: 1.41 s
+</pre></div>
+</div>
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([[5.08274615e-01, 1.17278344e-03, 2.25971016e-04, 1.58391667e-05,
+        2.30911319e-05, 2.91605983e-02, 2.07503736e-02, 2.02414487e-03,
+        1.37885145e-05, 4.38326538e-01, 1.22393385e-05, 2.77678271e-12,
+        7.05190507e-12, 4.80482376e-10],
+       [2.06201062e-01, 1.87824294e-03, 5.91045537e-05, 1.19773958e-05,
+        2.30076103e-06, 3.72314900e-02, 2.65959352e-02, 5.99628501e-03,
+        2.89296386e-05, 7.21963108e-01, 3.15322322e-05, 1.40392564e-09,
+        4.73208972e-11, 1.22205774e-08],
+       [4.09130096e-01, 2.15269509e-03, 1.05033114e-05, 7.18942147e-06,
+        7.61205740e-07, 1.17917219e-02, 4.98673022e-02, 5.45486948e-03,
+        7.85293651e-06, 5.21574914e-01, 2.11375254e-06, 1.70734542e-12,
+        1.56410269e-12, 8.20332802e-10],
+       [3.04485947e-01, 7.42831384e-04, 1.00997080e-04, 1.26559953e-05,
+        5.26443273e-07, 2.85908543e-02, 3.63336802e-02, 2.50972196e-04,
+        2.53830854e-06, 6.29477382e-01, 1.63504433e-06, 1.05667807e-12,
+        6.18766052e-13, 2.66748221e-11],
+       [5.04188895e-01, 1.39324763e-03, 5.13269370e-05, 1.72447362e-05,
+        3.83479392e-06, 2.24384349e-02, 1.81693565e-02, 1.75106246e-03,
+        2.40337267e-05, 4.51956332e-01, 6.14646706e-06, 2.60632176e-11,
+        2.34529254e-11, 8.55498672e-10],
+       [4.13320184e-01, 1.58873780e-04, 1.04766932e-05, 6.06402011e-07,
+        1.43205284e-07, 2.25541815e-02, 1.22235017e-02, 2.59038061e-04,
+        7.17460523e-07, 5.51471829e-01, 4.56380661e-07, 3.41062348e-15,
+        7.86897674e-15, 3.30171242e-12],
+       [4.46525842e-01, 1.86433143e-03, 6.84313818e-06, 7.56952886e-06,
+        1.34423351e-06, 1.42865395e-02, 3.35485418e-03, 2.72541004e-03,
+        1.40236634e-05, 5.31211078e-01, 2.21822029e-06, 3.27161284e-11,
+        2.85827650e-13, 3.87761455e-11],
+       [5.42021930e-01, 9.37060046e-04, 3.71614624e-05, 1.09748235e-05,
+        1.51776658e-06, 9.71479528e-03, 1.62490588e-02, 3.22431922e-02,
+        9.86682498e-05, 3.98681879e-01, 3.80892379e-06, 2.14061603e-12,
+        5.05896332e-11, 1.30912281e-10],
+       [4.58690435e-01, 1.16384111e-03, 3.60980653e-06, 1.04277092e-06,
+        1.67641929e-07, 1.12919677e-02, 1.26550153e-01, 3.89673258e-03,
+        1.54755162e-06, 3.98399740e-01, 7.21770562e-07, 8.94752886e-14,
+        1.24890522e-13, 4.30671054e-10],
+       [3.48774254e-01, 1.64809206e-03, 2.85527517e-06, 3.63588356e-06,
+        1.35814531e-07, 7.67222000e-03, 1.11487685e-02, 2.15840787e-02,
+        2.87433049e-05, 6.09135628e-01, 1.53265967e-06, 9.55944091e-13,
+        4.55573114e-11, 3.98270167e-10]], dtype=float32)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pred</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([0, 9, 9, 9, 0, 9, 9, 0, 0, 9])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">labels</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">:][:,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([0, 9, 0, 6, 9, 1, 9, 9, 0, 9], dtype=int8)
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./ai_experiments/ai_experiments"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Dani Arribas-Bel, Martin Fleischmann<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>

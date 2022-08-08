@@ -1,0 +1,1870 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore model performances &#8212; Urban Grammar AI | WP3 - Signature AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Modelling of chip probabilities" href="sp_model_chip_probabilities.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.svg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Urban Grammar AI | WP3 - Signature AI</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
+ <span class="caption-text">
+  Project
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference external" href="http://urbangrammarai.xyz">
+   Project homepage
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="http://urbangrammarai.xyz/data_processing">
+   WP1 - Data processing
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="http://urbangrammarai.xyz/spatial_signatures">
+   WP2 - Spatial Signatures
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Create chips
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../create_chips/chip_making_a.html">
+   Chip making
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../create_chips/chip_making_b.html">
+   Chip making - Pt. B
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../create_chips/chip_making_subset.html">
+   Chip making for a subset of GB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../create_chips/chip_making_subset.html#spill-chips-to-disk-for-out-of-core-computation">
+   Spill chips to disk for out-of-core computation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../create_chips/chip_making_gb.html">
+   Create chips for the majority of GB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../create_chips/chip_making_temporal.html">
+   Create chips from a temporal set of Sentinel 2 snapshots
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../create_chips/check_temporal_tiles.html">
+   Plot temporal tiles
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  AI experiments
+ </span>
+</p>
+<ul class="current nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="transfer_learning_pipe.html">
+   Model testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="transfer_learning_evaluation.html">
+   Evaluation of models trained on NW
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="tl_from_disk.html">
+   AI pipeline from disk
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chip_size_eval.html">
+   Evaluation of the effect of chip size and origin
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="predict_from_numpy.html">
+   Predict signature types from a numpy array of chips
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sp_model_chip_probabilities.html">
+   Modelling of chip probabilities
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Explore model performances
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/ai_experiments/explore_model_performance.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/urbangrammarai/signature_ai"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/urbangrammarai/signature_ai/master?urlpath=tree/ai_experiments/explore_model_performance.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data">
+   Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#metrics">
+   Metrics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#global">
+     Global
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#single-scores">
+       Single scores
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#confusion-matrices">
+       Confusion matrices
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#class-based">
+     Class-based
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#accuracy">
+       Accuracy
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#macro-f1">
+       Macro F1
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#spatial">
+     Spatial
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#spatial-structure-w-and-coords">
+       Spatial structure (
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         w
+        </span>
+       </code>
+       and
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         coords
+        </span>
+       </code>
+       )
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#metric-computation">
+       Metric computation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#lattice-based-metrics">
+       Lattice-based metrics
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#moran-s-i">
+         Moran’s I
+        </a>
+       </li>
+       <li class="toc-h5 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#joint-counts">
+         Joint counts
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#point-pattern-metrics">
+       Point pattern metrics
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="explore-model-performances">
+<h1>Explore model performances<a class="headerlink" href="#explore-model-performances" title="Permalink to this headline">¶</a></h1>
+<p>This document presents an overview of the results from a variety of model outputs, including further modelling chip probabilities.</p>
+<p>There are several aspects of the predictions we’d like to explore and compare across models:</p>
+<ul class="simple">
+<li><p>Overall metrics:</p>
+<ul>
+<li><p>[x] <a class="reference external" href="https://towardsdatascience.com/multi-class-metrics-made-simple-the-kappa-score-aka-cohens-kappa-coefficient-bdea137af09c">Kappa score</a>: measure of how many chips the model got right, <em>above</em> what it would have got by pure chance</p></li>
+<li><p>[x] Accuracy (<a class="reference external" href="https://towardsdatascience.com/multi-class-metrics-made-simple-part-ii-the-f1-score-ebe8b2c2ca1">micro-F1</a>: general over-simplified measure of how many chips the model got right</p></li>
+<li><p>[x] Macro-F1 averaged: mean of each class’ F1</p></li>
+<li><p>[x] Macro-F1 weighted: weighted mean of each class’ F1</p></li>
+</ul>
+</li>
+<li><p>Class-based metrics:</p>
+<ul>
+<li><p>[x] Accuracy: proportion of chips the model got right for each class</p></li>
+<li><p>[x] Macro-F1: harmonic mean of precision and recall. Roughly, an overview of how good the model is at predicting each single class</p></li>
+</ul>
+</li>
+<li><p>[x] Confusion matrices: more disaggregated view on predictions. Detailed but not summarising.</p></li>
+<li><p>Spatial metrics: compare whether the distribution of predicted labels over space resembles that of the true values</p>
+<ul>
+<li><p>[x] Moran’s I</p></li>
+<li><p>[x] Joint count statistics</p></li>
+<li><p>[x] Quadrat</p></li>
+<li><p>[x] Ripley’s G</p></li>
+<li><p>[x] Ripley’s F</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pandas</span>
+<span class="kn">import</span> <span class="nn">geopandas</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">tools_chip_prob_modelling</span> <span class="k">as</span> <span class="nn">tools</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="kn">from</span> <span class="nn">pysal.lib</span> <span class="kn">import</span> <span class="n">weights</span>
+<span class="kn">from</span> <span class="nn">pysal.explore</span> <span class="kn">import</span> <span class="n">esda</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="stderr docutils container">
+<pre class="stderr literal-block">ERROR 1: PROJ: proj_create_from_database: Open of /opt/conda/share/proj failed
+/opt/conda/lib/python3.9/site-packages/spaghetti/network.py:36: FutureWarning: The next major release of pysal/spaghetti (2.0.0) will drop support for all ``libpysal.cg`` geometries. This change is a first step in refactoring ``spaghetti`` that is expected to result in dramatically reduced runtimes for network instantiation and operations. Users currently requiring network and point pattern input as ``libpysal.cg`` geometries should prepare for this simply by converting to ``shapely`` geometries.
+  warnings.warn(f&quot;{dep_msg}&quot;, FutureWarning)
+</pre>
+</div>
+</div>
+</div>
+<div class="section" id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
+<p>Here we load the original chip geometries, the true labels and predictions from each model and merge everything into a single geo-table.</p>
+<ul class="simple">
+<li><p>Geometries and true labels</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gl</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span>
+    <span class="s1">&#39;/home/jovyan/data/spatial_signatures/chip_probs/model_outputs/db.pq&#39;</span><span class="p">,</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">,</span> <span class="s1">&#39;train_all&#39;</span><span class="p">,</span> <span class="s1">&#39;geometry&#39;</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Model predictions</p></li>
+</ul>
+<p>Grab all files with model predictions</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">y_preds_f</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span>
+        <span class="s1">&#39;/home/jovyan/data/spatial_signatures/chip_probs/model_outputs/&#39;</span>
+    <span class="p">)</span> <span class="k">if</span> <span class="s1">&#39;_y_pred.pq&#39;</span> <span class="ow">in</span> <span class="n">i</span>
+<span class="p">]</span>
+<span class="n">y_preds_f</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;logite_baseline_wx_y_pred.pq&#39;,
+ &#39;RandomForestClassifier_baseline_wx_y_pred.pq&#39;,
+ &#39;RandomForestClassifier_baseline_y_pred.pq&#39;,
+ &#39;HistGradientBoostingClassifier_baseline_y_pred.pq&#39;,
+ &#39;maxprob_baseline_y_pred.pq&#39;,
+ &#39;HistGradientBoostingClassifier_baseline_wx_y_pred.pq&#39;,
+ &#39;logite_baseline_y_pred.pq&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Read and store predictions and train/val label</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">y_preds</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">gl</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">y_preds_f</span><span class="p">:</span>
+    <span class="n">tab</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;/home/jovyan/data/spatial_signatures/chip_probs/model_outputs/&#39;</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span>
+        <span class="s1">&#39;id&#39;</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
+        <span class="n">columns</span><span class="o">=</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_y_pred.pq&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="n">s</span>
+    <span class="p">)</span>
+    <span class="n">y_preds</span> <span class="o">=</span> <span class="n">y_preds</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tab</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Check train/val indices align across models so we can remove them:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vals</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">y_preds</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="s1">&#39;_Validation&#39;</span> <span class="ow">in</span> <span class="n">c</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vals</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">((</span><span class="n">y_preds</span><span class="p">[</span><span class="n">vals</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">!=</span> <span class="n">y_preds</span><span class="p">[</span><span class="n">vals</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]])</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>0
+0
+0
+0
+0
+0
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Single table</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">db</span> <span class="o">=</span> <span class="n">gl</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">y_preds</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">vals</span><span class="p">))</span>
+<span class="n">db</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;geopandas.geodataframe.GeoDataFrame&#39;&gt;
+Int64Index: 64409 entries, 4 to 103043
+Data columns (total 10 columns):
+ #   Column                                             Non-Null Count  Dtype   
+---  ------                                             --------------  -----   
+ 0   label                                              64409 non-null  category
+ 1   train_all                                          64409 non-null  bool    
+ 2   geometry                                           64409 non-null  geometry
+ 3   logite_baseline_wx_y_pred                          64409 non-null  object  
+ 4   RandomForestClassifier_baseline_wx_y_pred          64409 non-null  object  
+ 5   RandomForestClassifier_baseline_y_pred             64409 non-null  object  
+ 6   HistGradientBoostingClassifier_baseline_y_pred     64409 non-null  object  
+ 7   maxprob_baseline_y_pred                            64409 non-null  object  
+ 8   HistGradientBoostingClassifier_baseline_wx_y_pred  64409 non-null  object  
+ 9   logite_baseline_y_pred                             64409 non-null  object  
+dtypes: bool(1), category(1), geometry(1), object(7)
+memory usage: 6.6+ MB
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="metrics">
+<h2>Metrics<a class="headerlink" href="#metrics" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Set intuitive order of models</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">model_names</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;maxprob_baseline_y_pred&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;logite_baseline_y_pred&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;logite_baseline_wx_y_pred&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;RandomForestClassifier_baseline_y_pred&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;RandomForestClassifier_baseline_wx_y_pred&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;HistGradientBoostingClassifier_baseline_y_pred&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;HistGradientBoostingClassifier_baseline_wx_y_pred&#39;</span>
+<span class="p">]</span>
+<span class="n">model_names_short</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;maxprob_baseline&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;logite&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;logite_wx&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;RF&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;RF_wx&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;HBGB&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;HBGB_wx&#39;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Calculate all metrics by model</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">metrics</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">train</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;train_all&#39;</span><span class="p">)</span>
+<span class="n">val</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;~train_all&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">model_names</span><span class="p">:</span>
+    <span class="n">meta</span> <span class="o">=</span> <span class="n">tools</span><span class="o">.</span><span class="n">build_perf</span><span class="p">(</span>
+        <span class="n">train</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">],</span>
+        <span class="n">train</span><span class="p">[</span><span class="n">model</span><span class="p">],</span>
+        <span class="n">val</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">],</span>
+        <span class="n">val</span><span class="p">[</span><span class="n">model</span><span class="p">],</span>
+        <span class="n">tools</span><span class="o">.</span><span class="n">class_names</span>
+    <span class="p">)</span>
+    <span class="n">metrics</span><span class="p">[</span><span class="n">model</span><span class="p">]</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">meta</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="global">
+<h3>Global<a class="headerlink" href="#global" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="single-scores">
+<h4>Single scores<a class="headerlink" href="#single-scores" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">global_scores</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">metrics</span><span class="p">:</span>
+    <span class="n">global_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pandas</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span>
+        <span class="p">{</span><span class="n">i</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;perf_&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_val&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">):</span> <span class="n">metrics</span><span class="p">[</span><span class="n">model</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span>
+            <span class="s1">&#39;perf_kappa_val&#39;</span><span class="p">,</span> 
+            <span class="s1">&#39;perf_model_accuracy_val&#39;</span><span class="p">,</span> 
+            <span class="s1">&#39;perf_macro_f1_avg_val&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;perf_macro_f1_w_val&#39;</span>
+        <span class="p">]},</span>
+        <span class="n">name</span><span class="o">=</span><span class="n">model</span>
+    <span class="p">))</span>
+<span class="n">global_scores</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+    <span class="n">global_scores</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)[</span>
+    <span class="n">model_names</span>
+<span class="p">]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
+    <span class="n">columns</span><span class="o">=</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_y_pred&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<span class="n">global_scores</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>kappa</th>
+      <th>model_accuracy</th>
+      <th>macro_f1_avg</th>
+      <th>macro_f1_w</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>maxprob_baseline</th>
+      <td>0.082029</td>
+      <td>0.240624</td>
+      <td>0.152201</td>
+      <td>0.257502</td>
+    </tr>
+    <tr>
+      <th>logite_baseline</th>
+      <td>0.156026</td>
+      <td>0.418220</td>
+      <td>0.148086</td>
+      <td>0.403382</td>
+    </tr>
+    <tr>
+      <th>logite_baseline_wx</th>
+      <td>0.188568</td>
+      <td>0.426946</td>
+      <td>0.163392</td>
+      <td>0.421285</td>
+    </tr>
+    <tr>
+      <th>RandomForestClassifier_baseline</th>
+      <td>0.170341</td>
+      <td>0.484825</td>
+      <td>0.167571</td>
+      <td>0.455233</td>
+    </tr>
+    <tr>
+      <th>RandomForestClassifier_baseline_wx</th>
+      <td>0.262610</td>
+      <td>0.530728</td>
+      <td>0.259750</td>
+      <td>0.505413</td>
+    </tr>
+    <tr>
+      <th>HistGradientBoostingClassifier_baseline</th>
+      <td>0.182966</td>
+      <td>0.490841</td>
+      <td>0.209516</td>
+      <td>0.465232</td>
+    </tr>
+    <tr>
+      <th>HistGradientBoostingClassifier_baseline_wx</th>
+      <td>0.238086</td>
+      <td>0.503143</td>
+      <td>0.231285</td>
+      <td>0.491264</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="confusion-matrices">
+<h4>Confusion matrices<a class="headerlink" href="#confusion-matrices" title="Permalink to this headline">¶</a></h4>
+<p>Standard version with counts of occurrences as values (left panels) and row standardised (right panels):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+<span class="n">model_loc</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="c1"># Maxprob</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="c1"># Logite</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="c1"># Logite Wx</span>
+    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="c1"># RF</span>
+    <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="c1"># RF Wx</span>
+    <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="c1"># HGBD</span>
+    <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># HGBD Wx</span>
+<span class="p">]</span>
+                    <span class="c1"># Raw counts #</span>
+<span class="n">maxcount</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">metrics</span><span class="p">[</span><span class="n">model</span><span class="p">][</span><span class="s1">&#39;perf_confusion_val&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">max</span><span class="p">()])</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">model_names</span><span class="p">):</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">tools</span><span class="o">.</span><span class="n">build_cm_plot</span><span class="p">(</span>
+        <span class="n">metrics</span><span class="p">[</span><span class="n">model</span><span class="p">][</span><span class="s1">&#39;perf_confusion_val&#39;</span><span class="p">],</span> 
+        <span class="n">maxcount</span><span class="o">=</span><span class="n">maxcount</span><span class="p">,</span>
+        <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="n">model_loc</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+    <span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">model_names_short</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+                    <span class="c1"># Std #</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">model_names</span><span class="p">):</span>
+    <span class="n">xy</span> <span class="o">=</span> <span class="n">model_loc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">tools</span><span class="o">.</span><span class="n">build_cm_plot</span><span class="p">(</span>
+        <span class="n">metrics</span><span class="p">[</span><span class="n">model</span><span class="p">][</span><span class="s1">&#39;perf_confusion_val&#39;</span><span class="p">],</span> 
+        <span class="n">maxcount</span><span class="o">=</span><span class="n">maxcount</span><span class="p">,</span>
+        <span class="n">std</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="n">xy</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xy</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span>
+    <span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">model_names_short</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/explore_model_performance_25_01.png" src="../_images/explore_model_performance_25_01.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="class-based">
+<h3>Class-based<a class="headerlink" href="#class-based" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="accuracy">
+<h4>Accuracy<a class="headerlink" href="#accuracy" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wca</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">model_names</span><span class="p">):</span>
+    <span class="n">wca</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pandas</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span>
+        <span class="n">metrics</span><span class="p">[</span><span class="n">model</span><span class="p">][</span><span class="s1">&#39;perf_within_class_accuracy_val&#39;</span><span class="p">],</span>
+        <span class="n">metrics</span><span class="p">[</span><span class="n">model</span><span class="p">][</span><span class="s1">&#39;meta_class_names&#39;</span><span class="p">],</span>
+        <span class="n">name</span><span class="o">=</span><span class="n">model_names_short</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="p">))</span>
+<span class="n">wca</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+    <span class="n">wca</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)[</span><span class="n">model_names_short</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
+<span class="n">wca</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>urbanity</th>
+      <th>dense_urban_neighbourhoods</th>
+      <th>dense_residential_neighbourhoods</th>
+      <th>connected_residential_neighbourhoods</th>
+      <th>gridded_residential_quarters</th>
+      <th>accessible_suburbia</th>
+      <th>disconnected_suburbia</th>
+      <th>open_sprawl</th>
+      <th>warehouse_park_land</th>
+      <th>urban_buffer</th>
+      <th>countryside_agriculture</th>
+      <th>wild_countryside</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>maxprob_baseline</th>
+      <td>0.6</td>
+      <td>0.263889</td>
+      <td>0.190476</td>
+      <td>0.082192</td>
+      <td>0.223529</td>
+      <td>0.370526</td>
+      <td>0.000000</td>
+      <td>0.195699</td>
+      <td>0.293907</td>
+      <td>0.120669</td>
+      <td>0.303030</td>
+      <td>0.732816</td>
+    </tr>
+    <tr>
+      <th>logite</th>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.129412</td>
+      <td>0.528421</td>
+      <td>0.000000</td>
+      <td>0.371326</td>
+      <td>0.184588</td>
+      <td>0.300146</td>
+      <td>0.632074</td>
+      <td>0.005543</td>
+    </tr>
+    <tr>
+      <th>logite_wx</th>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.200000</td>
+      <td>0.698947</td>
+      <td>0.000000</td>
+      <td>0.409319</td>
+      <td>0.297491</td>
+      <td>0.320324</td>
+      <td>0.602740</td>
+      <td>0.025499</td>
+    </tr>
+    <tr>
+      <th>RF</th>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.117647</td>
+      <td>0.406316</td>
+      <td>0.000000</td>
+      <td>0.156272</td>
+      <td>0.050179</td>
+      <td>0.587946</td>
+      <td>0.562889</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>RF_wx</th>
+      <td>0.0</td>
+      <td>0.083333</td>
+      <td>0.114286</td>
+      <td>0.000000</td>
+      <td>0.352941</td>
+      <td>0.526316</td>
+      <td>0.000000</td>
+      <td>0.253047</td>
+      <td>0.363799</td>
+      <td>0.488384</td>
+      <td>0.727411</td>
+      <td>0.003326</td>
+    </tr>
+    <tr>
+      <th>HBGB</th>
+      <td>0.0</td>
+      <td>0.013889</td>
+      <td>0.019048</td>
+      <td>0.027397</td>
+      <td>0.200000</td>
+      <td>0.456842</td>
+      <td>0.000000</td>
+      <td>0.128315</td>
+      <td>0.250896</td>
+      <td>0.571618</td>
+      <td>0.578525</td>
+      <td>0.013304</td>
+    </tr>
+    <tr>
+      <th>HBGB_wx</th>
+      <td>0.0</td>
+      <td>0.222222</td>
+      <td>0.133333</td>
+      <td>0.095890</td>
+      <td>0.317647</td>
+      <td>0.309474</td>
+      <td>0.227273</td>
+      <td>0.177061</td>
+      <td>0.354839</td>
+      <td>0.474977</td>
+      <td>0.687976</td>
+      <td>0.080931</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">h</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">wca</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+<span class="n">h</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">rotation</span> <span class="o">=</span> <span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
+<span class="n">h</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Within-class Accuracy&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/explore_model_performance_29_01.png" src="../_images/explore_model_performance_29_01.png" />
+</div>
+</div>
+</div>
+<div class="section" id="macro-f1">
+<h4>Macro F1<a class="headerlink" href="#macro-f1" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f1</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">model</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">model_names</span><span class="p">):</span>
+    <span class="n">f1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pandas</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span>
+        <span class="n">metrics</span><span class="p">[</span><span class="n">model</span><span class="p">][</span><span class="s1">&#39;perf_f1_val&#39;</span><span class="p">],</span>
+        <span class="n">metrics</span><span class="p">[</span><span class="n">model</span><span class="p">][</span><span class="s1">&#39;meta_class_names&#39;</span><span class="p">],</span>
+        <span class="n">name</span><span class="o">=</span><span class="n">model_names_short</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="p">))</span>
+<span class="n">f1</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span>
+    <span class="n">f1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)[</span><span class="n">model_names_short</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
+<span class="n">f1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>urbanity</th>
+      <th>dense_urban_neighbourhoods</th>
+      <th>dense_residential_neighbourhoods</th>
+      <th>connected_residential_neighbourhoods</th>
+      <th>gridded_residential_quarters</th>
+      <th>accessible_suburbia</th>
+      <th>disconnected_suburbia</th>
+      <th>open_sprawl</th>
+      <th>warehouse_park_land</th>
+      <th>urban_buffer</th>
+      <th>countryside_agriculture</th>
+      <th>wild_countryside</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>maxprob_baseline</th>
+      <td>0.304762</td>
+      <td>0.078431</td>
+      <td>0.358752</td>
+      <td>0.098765</td>
+      <td>0.085202</td>
+      <td>0.000000</td>
+      <td>0.168889</td>
+      <td>0.193823</td>
+      <td>0.195253</td>
+      <td>0.026316</td>
+      <td>0.143044</td>
+      <td>0.173173</td>
+    </tr>
+    <tr>
+      <th>logite</th>
+      <td>0.288009</td>
+      <td>0.000000</td>
+      <td>0.555819</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.128655</td>
+      <td>0.274583</td>
+      <td>0.372212</td>
+      <td>0.000000</td>
+      <td>0.147248</td>
+      <td>0.010504</td>
+    </tr>
+    <tr>
+      <th>logite_wx</th>
+      <td>0.304029</td>
+      <td>0.000000</td>
+      <td>0.568372</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.145923</td>
+      <td>0.299974</td>
+      <td>0.389539</td>
+      <td>0.000000</td>
+      <td>0.208805</td>
+      <td>0.044061</td>
+    </tr>
+    <tr>
+      <th>RF</th>
+      <td>0.456805</td>
+      <td>0.000000</td>
+      <td>0.533333</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.196078</td>
+      <td>0.210120</td>
+      <td>0.527011</td>
+      <td>0.000000</td>
+      <td>0.087500</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>RF_wx</th>
+      <td>0.514403</td>
+      <td>0.000000</td>
+      <td>0.613705</td>
+      <td>0.167832</td>
+      <td>0.102564</td>
+      <td>0.000000</td>
+      <td>0.437956</td>
+      <td>0.317732</td>
+      <td>0.516315</td>
+      <td>0.000000</td>
+      <td>0.439870</td>
+      <td>0.006623</td>
+    </tr>
+    <tr>
+      <th>HBGB</th>
+      <td>0.490950</td>
+      <td>0.052632</td>
+      <td>0.537680</td>
+      <td>0.036697</td>
+      <td>0.025641</td>
+      <td>0.000000</td>
+      <td>0.276423</td>
+      <td>0.190223</td>
+      <td>0.523844</td>
+      <td>0.000000</td>
+      <td>0.354430</td>
+      <td>0.025668</td>
+    </tr>
+    <tr>
+      <th>HBGB_wx</th>
+      <td>0.371212</td>
+      <td>0.064815</td>
+      <td>0.601901</td>
+      <td>0.108527</td>
+      <td>0.114695</td>
+      <td>0.047847</td>
+      <td>0.189474</td>
+      <td>0.249874</td>
+      <td>0.505653</td>
+      <td>0.000000</td>
+      <td>0.380769</td>
+      <td>0.140655</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">h</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+<span class="n">h</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">rotation</span> <span class="o">=</span> <span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
+<span class="n">h</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;F1 Score&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/explore_model_performance_32_01.png" src="../_images/explore_model_performance_32_01.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="spatial">
+<h3>Spatial<a class="headerlink" href="#spatial" title="Permalink to this headline">¶</a></h3>
+<p>The goal in this section is to capture how well a set of predictions reproduces the spatial pattern of the original labels. Our first step for this is to consider the labels for a given class. We take those and calculate measures of spatial concentration, either by considering lattice data or a point pattern. In the former case, we compute measures of degree of clustering that treat our data as both continuous (i.e., probability of class occurrence) and discrete. For the latter, we treat instances of a class as a point pattern that is distribtuted across the geography of interest. We then characterise this pattern spatially with a series of explicitly spatial metrics, and calculate those also for the set of predictions from each model we run. Since both the scores for the labels and the predictions is based on the same set of potential locations (i.e. the underlying set of places where a chip can take 1 or 0), the two can be compared directly. Our metrics of interest are thus the difference between the value of a given spatial statistic for the labels, and that for a set of predictions. Smaller quantities will represent greater affinity between the spatial structure of the original labels and that of our predictions. We operationalise this using the validation set.</p>
+<p>What we are going to try to do is characterise the degree of clustering of the predictions for each class. For the set of original labels, these are the maps:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+<span class="n">axs</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span>
+    <span class="n">metrics</span><span class="p">[</span><span class="s1">&#39;maxprob_baseline_y_pred&#39;</span><span class="p">][</span><span class="s1">&#39;meta_class_names&#39;</span><span class="p">]</span>
+<span class="p">):</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">sp_db</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">v</span><span class="o">=</span><span class="n">sp_db</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">c</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="n">categorical</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis_r&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span>
+    <span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/explore_model_performance_36_01.png" src="../_images/explore_model_performance_36_01.png" />
+</div>
+</div>
+<p>We start with only the validation set, as that is the pattern we are interested in characterising.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sp_db</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">query</span><span class="p">(</span>
+    <span class="s1">&#39;train_all == False&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="spatial-structure-w-and-coords">
+<h4>Spatial structure (<code class="docutils literal notranslate"><span class="pre">w</span></code> and <code class="docutils literal notranslate"><span class="pre">coords</span></code>)<a class="headerlink" href="#spatial-structure-w-and-coords" title="Permalink to this headline">¶</a></h4>
+<p>For lattice metrics, we conceptualise space in a topological way, for which we build a spatial weights matrix. We work with two different types of topology: a distance band and nearest neighbors.</p>
+<p>For the distance band, we ensure every polygon is linked to at least one neighbor by calculating the minimum band we need to apply:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">min_thr</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">min_threshold_distance</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">sp_db</span><span class="o">.</span><span class="n">centroid</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">sp_db</span><span class="o">.</span><span class="n">centroid</span><span class="o">.</span><span class="n">y</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+<span class="p">)</span>
+<span class="n">min_thr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>2437.0473938764508
+</pre></div>
+</div>
+</div>
+</div>
+<p>We then build the weights matrix based on that distance:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w_thr</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">DistanceBand</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">sp_db</span><span class="p">,</span> <span class="n">min_thr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This produces a set of cardinalities we can explore with an eye to match similarly with the <span class="math notranslate nohighlight">\(k\)</span>-nearest neighbors weights later.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pandas</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">w_thr</span><span class="o">.</span><span class="n">cardinalities</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">68</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">3</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/explore_model_performance_45_01.png" src="../_images/explore_model_performance_45_01.png" />
+</div>
+</div>
+<p>We then use <span class="math notranslate nohighlight">\(k=35\)</span> to build the nearest neighbor weights:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">w_knn</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">KNN</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">sp_db</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">35</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The point coordinates of each chip are a more straightforward task. We store them as a <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> as that’s how we’ll need them later:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xys</span> <span class="o">=</span> <span class="n">sp_db</span><span class="o">.</span><span class="n">centroid</span>
+<span class="n">xys</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">xys</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">xys</span><span class="o">.</span><span class="n">y</span><span class="p">])</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="metric-computation">
+<h4>Metric computation<a class="headerlink" href="#metric-computation" title="Permalink to this headline">¶</a></h4>
+<p>To accelerate computations across different cores, we set it up in Dask:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dask</span> <span class="kn">import</span> <span class="n">bag</span> <span class="k">as</span> <span class="n">dbag</span>
+<span class="kn">from</span> <span class="nn">dask.distributed</span> <span class="kn">import</span> <span class="n">Client</span><span class="p">,</span> <span class="n">LocalCluster</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="n">LocalCluster</span><span class="p">(</span><span class="n">n_workers</span><span class="o">=</span><span class="mi">8</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="stderr docutils container">
+<pre class="stderr literal-block">Numba: Attempted to fork from a non-main thread, the TBB library may be in an invalid state in the child process.
+Numba: Attempted to fork from a non-main thread, the TBB library may be in an invalid state in the child process.
+Numba: Attempted to fork from a non-main thread, the TBB library may be in an invalid state in the child process.
+Numba: Attempted to fork from a non-main thread, the TBB library may be in an invalid state in the child process.
+Numba: Attempted to fork from a non-main thread, the TBB library may be in an invalid state in the child process.
+Numba: Attempted to fork from a non-main thread, the TBB library may be in an invalid state in the child process.
+Numba: Attempted to fork from a non-main thread, the TBB library may be in an invalid state in the child process.
+Numba: Attempted to fork from a non-main thread, the TBB library may be in an invalid state in the child process.
+Numba: Attempted to fork from a non-main thread, the TBB library may be in an invalid state in the child process.
+2022-08-07 14:07:35,668 - distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/code/signature_ai/ai_experiments/dask-worker-space/worker-uep79n9d', purging
+2022-08-07 14:07:35,668 - distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/code/signature_ai/ai_experiments/dask-worker-space/worker-63ansyiy', purging
+2022-08-07 14:07:35,668 - distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/code/signature_ai/ai_experiments/dask-worker-space/worker-b38pqrvd', purging
+</pre>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">restart</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And span the computations of all the statistics across different cores:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">importlib</span> <span class="kn">import</span> <span class="n">reload</span>
+<span class="n">reload</span><span class="p">(</span><span class="n">tools</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">time</span>
+<span class="n">wd</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;thr&#39;</span><span class="p">:</span> <span class="n">w_thr</span><span class="p">,</span> <span class="s1">&#39;knn&#39;</span><span class="p">:</span> <span class="n">w_knn</span><span class="p">}</span>
+<span class="n">tasks</span> <span class="o">=</span> <span class="p">[(</span>
+    <span class="c1">#     y         w    xys       Name</span>
+    <span class="n">sp_db</span><span class="p">[</span><span class="n">model</span><span class="p">],</span> <span class="n">wd</span><span class="p">,</span> <span class="n">xys</span><span class="p">,</span> <span class="n">model</span>
+<span class="p">)</span> <span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">model_names</span><span class="o">+</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]]</span>
+
+<span class="n">sp_metrics</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">dbag</span><span class="o">.</span><span class="n">from_sequence</span><span class="p">(</span><span class="n">tasks</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+        <span class="n">tools</span><span class="o">.</span><span class="n">spatial_perf</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="stderr docutils container">
+<pre class="stderr literal-block">ERROR 1: PROJ: proj_create_from_database: Open of /opt/conda/share/proj failed
+ERROR 1: PROJ: proj_create_from_database: Open of /opt/conda/share/proj failed
+ERROR 1: PROJ: proj_create_from_database: Open of /opt/conda/share/proj failed
+ERROR 1: PROJ: proj_create_from_database: Open of /opt/conda/share/proj failed
+ERROR 1: PROJ: proj_create_from_database: Open of /opt/conda/share/proj failed
+ERROR 1: PROJ: proj_create_from_database: Open of /opt/conda/share/proj failed
+ERROR 1: PROJ: proj_create_from_database: Open of /opt/conda/share/proj failed
+ERROR 1: PROJ: proj_create_from_database: Open of /opt/conda/share/proj failed
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/pointpats/random.py:60: RuntimeWarning: divide by zero encountered in double_scalars
+  intensity = n_observations / _area(hull)
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/pointpats/random.py:60: RuntimeWarning: divide by zero encountered in double_scalars
+  intensity = n_observations / _area(hull)
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/pointpats/distance_statistics.py:281: RuntimeWarning: invalid value encountered in true_divide
+  fracs = numpy.cumsum(counts) / counts.sum()
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+/opt/conda/lib/python3.9/site-packages/esda/moran.py:193: RuntimeWarning: divide by zero encountered in double_scalars
+  self.z_sim = (self.I - self.EI_sim) / self.seI_sim
+</pre>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>CPU times: user 23.2 s, sys: 1.17 s, total: 24.4 s
+Wall time: 47 s
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sp_metrics</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;(model==&quot;label&quot;) &amp; (metric==&quot;jc_thr&quot;)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>signature</th>
+      <th>metric</th>
+      <th>value</th>
+      <th>model</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4</th>
+      <td>urban_buffer</td>
+      <td>jc_thr</td>
+      <td>109045.0</td>
+      <td>label</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>countryside_agriculture</td>
+      <td>jc_thr</td>
+      <td>135527.0</td>
+      <td>label</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>dense_urban_neighbourhoods</td>
+      <td>jc_thr</td>
+      <td>244.0</td>
+      <td>label</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>open_sprawl</td>
+      <td>jc_thr</td>
+      <td>9375.0</td>
+      <td>label</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>gridded_residential_quarters</td>
+      <td>jc_thr</td>
+      <td>366.0</td>
+      <td>label</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>accessible_suburbia</td>
+      <td>jc_thr</td>
+      <td>2163.0</td>
+      <td>label</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>warehouse_park_land</td>
+      <td>jc_thr</td>
+      <td>7677.0</td>
+      <td>label</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>connected_residential_neighbourhoods</td>
+      <td>jc_thr</td>
+      <td>144.0</td>
+      <td>label</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>dense_residential_neighbourhoods</td>
+      <td>jc_thr</td>
+      <td>257.0</td>
+      <td>label</td>
+    </tr>
+    <tr>
+      <th>67</th>
+      <td>disconnected_suburbia</td>
+      <td>jc_thr</td>
+      <td>15.0</td>
+      <td>label</td>
+    </tr>
+    <tr>
+      <th>74</th>
+      <td>urbanity</td>
+      <td>jc_thr</td>
+      <td>4.0</td>
+      <td>label</td>
+    </tr>
+    <tr>
+      <th>81</th>
+      <td>wild_countryside</td>
+      <td>jc_thr</td>
+      <td>17196.0</td>
+      <td>label</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>To do:</p>
+<ul class="simple">
+<li><p>[x] Find out why there are <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values in the table</p></li>
+<li><p>[ ] Calculate (weighted) average across classes for overall score</p></li>
+<li><p>[x] Move <code class="docutils literal notranslate"><span class="pre">Moran</span></code> computation to a <code class="docutils literal notranslate"><span class="pre">dask.bag</span></code></p></li>
+<li><p>[ ] Update graphics and narrative</p></li>
+</ul>
+</div>
+<div class="section" id="lattice-based-metrics">
+<h4>Lattice-based metrics<a class="headerlink" href="#lattice-based-metrics" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="moran-s-i">
+<h5>Moran’s I<a class="headerlink" href="#moran-s-i" title="Permalink to this headline">¶</a></h5>
+<p>Now we want to compute Moran’s I for each class present in a set of predictions, for which we write the following method:</p>
+<p>Now we can calculate measures of distance between each model and the labels:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">moran_dists</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">model</span> <span class="ow">in</span> <span class="n">model_names</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;knn&#39;</span><span class="p">,</span> <span class="s1">&#39;thr&#39;</span><span class="p">]:</span>
+        <span class="n">moran_dists</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">model</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">w</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">morans</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;label_</span><span class="si">{</span><span class="n">w</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">morans</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">model</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">w</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="p">:]</span>
+        <span class="p">)</span>
+<span class="n">moran_dists</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">moran_dists</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To visualise which models get closer to the original labels, we focus on each class separately as there is a lot of variation in distance across classes but we really are focused on variation across models <em>within</em> each class. We operationalise this by dividing the scores of a giving class by its average.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">h</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span>
+    <span class="n">moran_dists</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="n">moran_dists</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">h</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">rotation</span> <span class="o">=</span> <span class="mi">45</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
+<span class="n">h</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Moran&#39;s I by class by model&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/explore_model_performance_65_01.png" src="../_images/explore_model_performance_65_01.png" />
+</div>
+</div>
+<p><strong>IMPORANT</strong> - Note there are some <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values in the table, these correspond to instances where a model does <em>not</em> predict any chip in a given class.</p>
+</div>
+<div class="section" id="joint-counts">
+<h5>Joint counts<a class="headerlink" href="#joint-counts" title="Permalink to this headline">¶</a></h5>
+<p>Here we look at <a class="reference external" href="https://geographicdata.science/book/notebooks/06_spatial_autocorrelation.html#binary-case-join-counts">joint counts</a> and, specifically, focus on the proportion of pairs of a given class that are neighbors.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tst</span> <span class="o">=</span> <span class="n">tools</span><span class="o">.</span><span class="n">spatial_perf</span><span class="p">((</span><span class="n">sp_db</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">],</span> <span class="n">w_knn</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tst</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>(                                         moran       jcs
+ urban_buffer                          0.650926  104942.5
+ countryside_agriculture               0.761201  109258.0
+ dense_urban_neighbourhoods            0.281699     358.0
+ open_sprawl                           0.464526   12172.0
+ gridded_residential_quarters          0.293207     440.0
+ accessible_suburbia                   0.303767    2649.5
+ warehouse_park_land                   0.718528    7098.5
+ connected_residential_neighbourhoods  0.153006     199.0
+ dense_residential_neighbourhoods      0.222241     414.5
+ disconnected_suburbia                 0.037901      15.0
+ urbanity                              0.045493       4.0
+ wild_countryside                      0.832364   13276.5,
+ None)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="point-pattern-metrics">
+<h4>Point pattern metrics<a class="headerlink" href="#point-pattern-metrics" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./ai_experiments"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="sp_model_chip_probabilities.html" title="previous page">Modelling of chip probabilities</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Dani Arribas-Bel, Martin Fleischmann<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

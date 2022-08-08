@@ -1,37 +1,24 @@
 
+
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>&lt;no title&gt; &#8212; Urban Grammar AI | WP3 - Signature AI</title>
-    
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
-
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
-    
-      
-
-    
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
-
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -39,9 +26,13 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@latest/lib/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
@@ -50,14 +41,14 @@
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
-
     
 
     <div class="container-xl">
@@ -66,38 +57,47 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
-      
-      <img src="../_static/logo.svg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Urban Grammar AI | WP3 - Signature AI</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.svg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Urban Grammar AI | WP3 - Signature AI</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <p class="caption">
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
  <span class="caption-text">
   Project
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference external" href="http://urbangrammarai.xyz">
    Project homepage
+   <i class="fas fa-external-link-alt">
+   </i>
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference external" href="http://urbangrammarai.xyz/data_processing">
    WP1 - Data processing
+   <i class="fas fa-external-link-alt">
+   </i>
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference external" href="http://urbangrammarai.xyz/spatial_signatures">
    WP2 - Spatial Signatures
+   <i class="fas fa-external-link-alt">
+   </i>
   </a>
  </li>
 </ul>
@@ -106,7 +106,7 @@
   Create chips
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../create_chips/chip_making_a.html">
    Chip making
@@ -123,13 +123,13 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../create_chips/chip_making_gb.html">
-   Create chips for the majority of GB
+  <a class="reference internal" href="../create_chips/chip_making_subset.html#spill-chips-to-disk-for-out-of-core-computation">
+   Spill chips to disk for out-of-core computation
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../create_chips/chips_glasgow.html">
-   Create chips for a continous stretch of land
+  <a class="reference internal" href="../create_chips/chip_making_gb.html">
+   Create chips for the majority of GB
   </a>
  </li>
  <li class="toctree-l1">
@@ -148,7 +148,7 @@
   AI experiments
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="transfer_learning_pipe.html">
    Model testing
@@ -174,10 +174,21 @@
    Predict signature types from a numpy array of chips
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sp_model_chip_probabilities.html">
+   Modelling of chip probabilities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="explore_model_performance.html">
+   Explore model performances
+  </a>
+ </li>
 </ul>
 
-    </div>
-</nav> <!-- To handle the deprecated key -->
+</nav>
+
+ <!-- To handle the deprecated key -->
 
 </div>
 
@@ -188,25 +199,25 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
+    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -218,9 +229,9 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
+    
 </div>
-
-            <!-- Source interaction buttons -->
+        <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -235,14 +246,13 @@
     </div>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
+        <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -261,20 +271,16 @@
     </div>
 </div>
 
-        </div>
+    </div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
-</ul>
-
-            </nav>
-        </div>
+        </nav>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -284,7 +290,7 @@
                 
   <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
 <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
 
 <span class="kn">from</span> <span class="nn">tensorflow</span> <span class="kn">import</span> <span class="n">keras</span>
@@ -304,7 +310,7 @@
 <p>Load chips</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">specs</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">specs</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;tensor&#39;</span><span class="p">:</span> <span class="p">(</span>
         <span class="s1">&#39;../urbangrammar_samba/&#39;</span>
         <span class="s1">&#39;spatial_signatures/chips/sample.npz&#39;</span>
@@ -317,14 +323,14 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">specs</span><span class="p">[</span><span class="s2">&quot;tensor&quot;</span><span class="p">],</span> <span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">specs</span><span class="p">[</span><span class="s2">&quot;tensor&quot;</span><span class="p">],</span> <span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chips</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;chips&quot;</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chips</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;chips&quot;</span><span class="p">]</span>
 <span class="n">labels</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;labels&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -333,7 +339,7 @@
 <p>Shuffle data to ensure full randomness before splitting to test, validation and secret.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="n">shuffled_idx</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">chips</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">shuffled_idx</span><span class="p">)</span>
@@ -347,7 +353,7 @@
 <p>Merge groups</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">group_mapping</span> <span class="o">=</span> <span class="p">[</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">group_mapping</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">[</span><span class="s1">&#39;9_0&#39;</span><span class="p">,</span> <span class="s1">&#39;9_1&#39;</span><span class="p">,</span> <span class="s1">&#39;9_2&#39;</span><span class="p">,</span> <span class="s1">&#39;9_4&#39;</span><span class="p">,</span> <span class="s1">&#39;9_5&#39;</span><span class="p">,</span> <span class="s1">&#39;2_0&#39;</span><span class="p">,</span> <span class="s1">&#39;2_1&#39;</span><span class="p">,</span> <span class="s1">&#39;2_2&#39;</span><span class="p">],</span>
     <span class="p">[</span><span class="s1">&#39;1_0&#39;</span><span class="p">,</span> <span class="s1">&#39;3_0&#39;</span><span class="p">,</span> <span class="s1">&#39;5_0&#39;</span><span class="p">,</span> <span class="s1">&#39;6_0&#39;</span><span class="p">,</span> <span class="s1">&#39;8_0&#39;</span><span class="p">],</span>
     <span class="p">[</span><span class="s1">&#39;0_0&#39;</span><span class="p">,</span> <span class="s1">&#39;4_0&#39;</span><span class="p">,</span> <span class="s1">&#39;7_0&#39;</span><span class="p">]</span>
@@ -363,12 +369,12 @@
 <p>Drop chips from excessive classes</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="n">balancer</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">max_ratio</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="n">balancer</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">max_ratio</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total number of selected chips: 18841 out of 65042
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Total number of selected chips: 18841 out of 65042
 Counts:
  {0: 907, 1: 8864, 2: 9070}
 </pre></div>
@@ -377,7 +383,7 @@ Counts:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
 <span class="n">chips</span> <span class="o">=</span> <span class="n">chips</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -386,7 +392,7 @@ Counts:
 <p>Rescale</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chips</span> <span class="o">=</span> <span class="n">chips</span> <span class="o">/</span> <span class="p">(</span><span class="n">chips</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">/</span> <span class="mf">255.0</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chips</span> <span class="o">=</span> <span class="n">chips</span> <span class="o">/</span> <span class="p">(</span><span class="n">chips</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">/</span> <span class="mf">255.0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -394,7 +400,7 @@ Counts:
 <p>Split data into train and validation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">32</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">batch_size</span> <span class="o">=</span> <span class="mi">32</span>
 <span class="n">split_1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">chips</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.6</span><span class="p">)</span>
 <span class="n">split_2</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">chips</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.8</span><span class="p">)</span>
 
@@ -418,7 +424,7 @@ Counts:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_specs</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">model_specs</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;meta_class_map&#39;</span><span class="p">:</span> <span class="n">group_mapping</span><span class="p">,</span>
     <span class="s1">&#39;meta_class_names&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;centres&quot;</span><span class="p">,</span> <span class="s2">&quot;periphery&quot;</span><span class="p">,</span> <span class="s2">&quot;countryside&quot;</span><span class="p">],</span>
     <span class="s1">&#39;meta_chip_size&#39;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
@@ -452,7 +458,7 @@ Counts:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h</span> <span class="o">=</span> <span class="n">tools_keras</span><span class="o">.</span><span class="n">fit_phase</span><span class="p">(</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">h</span> <span class="o">=</span> <span class="n">tools_keras</span><span class="o">.</span><span class="n">fit_phase</span><span class="p">(</span>
         <span class="n">model</span><span class="p">,</span>
         <span class="n">train_dataset</span><span class="p">,</span>
         <span class="n">validation_dataset</span><span class="p">,</span>
@@ -471,7 +477,7 @@ Counts:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;vgg16_none_none_3&quot;
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Model: &quot;vgg16_none_none_3&quot;
 _________________________________________________________________
 Layer (type)                 Output Shape              Param #   
 =================================================================
@@ -492,17 +498,19 @@ _________________________________________________________________
 None
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-01-17 18:22:32.331301: I tensorflow/core/profiler/lib/profiler_session.cc:131] Profiler session initializing.
+<div class="stderr docutils container">
+<pre class="stderr literal-block">2022-01-17 18:22:32.331301: I tensorflow/core/profiler/lib/profiler_session.cc:131] Profiler session initializing.
 2022-01-17 18:22:32.331369: I tensorflow/core/profiler/lib/profiler_session.cc:146] Profiler session started.
 2022-01-17 18:22:32.512681: I tensorflow/core/profiler/lib/profiler_session.cc:164] Profiler session tear down.
 2022-01-17 18:22:32.512838: I tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1749] CUPTI activity buffer flushed
+</pre>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Epoch 1/250
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/250
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-01-17 18:22:43.466694: W tensorflow/core/common_runtime/bfc_allocator.cc:463] Allocator (GPU_0_bfc) ran out of memory trying to allocate 392.00MiB (rounded to 411041792)requested by op gradient_tape/vgg16_none_none_3/vgg16/fc1/MatMul_1
-If the cause is memory fragmentation maybe the environment variable &#39;TF_GPU_ALLOCATOR=cuda_malloc_async&#39; will improve the situation. 
+<div class="stderr docutils container">
+<pre class="stderr literal-block">2022-01-17 18:22:43.466694: W tensorflow/core/common_runtime/bfc_allocator.cc:463] Allocator (GPU_0_bfc) ran out of memory trying to allocate 392.00MiB (rounded to 411041792)requested by op gradient_tape/vgg16_none_none_3/vgg16/fc1/MatMul_1
+If the cause is memory fragmentation maybe the environment variable 'TF_GPU_ALLOCATOR=cuda_malloc_async' will improve the situation. 
 Current allocation summary follows.
 Current allocation summary follows.
 2022-01-17 18:22:43.466821: I tensorflow/core/common_runtime/bfc_allocator.cc:1013] BFCAllocator dump for GPU_0_bfc
@@ -1238,7 +1246,7 @@ LargestFreeBlock:                    0
 2022-01-17 18:22:43.476195: W tensorflow/core/common_runtime/bfc_allocator.cc:474] *************************************************************************************************___
 2022-01-17 18:22:43.476269: W tensorflow/core/framework/op_kernel.cc:1692] OP_REQUIRES failed at matmul_op_impl.h:741 : Resource exhausted: OOM when allocating tensor with shape[25088,4096] and type float on /job:localhost/replica:0/task:0/device:GPU:0 by allocator GPU_0_bfc
 2022-01-17 18:22:53.481267: W tensorflow/core/common_runtime/bfc_allocator.cc:463] Allocator (GPU_0_bfc) ran out of memory trying to allocate 392.00MiB (rounded to 411041792)requested by op gradient_tape/vgg16_none_none_3/vgg16/block1_conv2/Conv2D/Conv2DBackpropInput
-If the cause is memory fragmentation maybe the environment variable &#39;TF_GPU_ALLOCATOR=cuda_malloc_async&#39; will improve the situation. 
+If the cause is memory fragmentation maybe the environment variable 'TF_GPU_ALLOCATOR=cuda_malloc_async' will improve the situation. 
 Current allocation summary follows.
 Current allocation summary follows.
 2022-01-17 18:22:53.481399: I tensorflow/core/common_runtime/bfc_allocator.cc:1013] BFCAllocator dump for GPU_0_bfc
@@ -1952,7 +1960,7 @@ LargestFreeBlock:                    0
 
 2022-01-17 18:22:53.491565: W tensorflow/core/common_runtime/bfc_allocator.cc:474] ****************__**__***************************_******************************************x*******
 2022-01-17 18:22:53.491631: W tensorflow/core/framework/op_kernel.cc:1692] OP_REQUIRES failed at conv_grad_input_ops.cc:455 : Resource exhausted: OOM when allocating tensor with shape[32,64,224,224] and type float on /job:localhost/replica:0/task:0/device:GPU:0 by allocator GPU_0_bfc
-</pre></div>
+</pre>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ResourceExhaustedError</span><span class="g g-Whitespace">                    </span>Traceback (most recent call last)
@@ -2053,17 +2061,13 @@ LargestFreeBlock:                    0
 
               </div>
               
-        
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-
-</div>
-        
         </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -2080,9 +2084,8 @@ LargestFreeBlock:                    0
 
       </div>
     </div>
-  
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-  
+    <script src="../_static/js/index.js"></script>
+    
   </body>
 </html>

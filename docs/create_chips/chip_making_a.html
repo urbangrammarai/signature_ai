@@ -1,37 +1,24 @@
 
+
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chip making &#8212; Urban Grammar AI | WP3 - Signature AI</title>
-    
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
-
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
-    
-      
-
-    
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
-
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -39,9 +26,13 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@latest/lib/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
@@ -52,14 +43,14 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Chip making - Pt. B" href="chip_making_b.html" />
     <link rel="prev" title="WP3 - Signature AI" href="../intro.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
-
     
 
     <div class="container-xl">
@@ -68,38 +59,47 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
-      
-      <img src="../_static/logo.svg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Urban Grammar AI | WP3 - Signature AI</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.svg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Urban Grammar AI | WP3 - Signature AI</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <p class="caption">
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
  <span class="caption-text">
   Project
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference external" href="http://urbangrammarai.xyz">
    Project homepage
+   <i class="fas fa-external-link-alt">
+   </i>
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference external" href="http://urbangrammarai.xyz/data_processing">
    WP1 - Data processing
+   <i class="fas fa-external-link-alt">
+   </i>
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference external" href="http://urbangrammarai.xyz/spatial_signatures">
    WP2 - Spatial Signatures
+   <i class="fas fa-external-link-alt">
+   </i>
   </a>
  </li>
 </ul>
@@ -108,7 +108,7 @@
   Create chips
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    Chip making
@@ -125,13 +125,13 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="chip_making_gb.html">
-   Create chips for the majority of GB
+  <a class="reference internal" href="chip_making_subset.html#spill-chips-to-disk-for-out-of-core-computation">
+   Spill chips to disk for out-of-core computation
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="chips_glasgow.html">
-   Create chips for a continous stretch of land
+  <a class="reference internal" href="chip_making_gb.html">
+   Create chips for the majority of GB
   </a>
  </li>
  <li class="toctree-l1">
@@ -150,7 +150,7 @@
   AI experiments
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../ai_experiments/transfer_learning_pipe.html">
    Model testing
@@ -176,10 +176,21 @@
    Predict signature types from a numpy array of chips
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ai_experiments/sp_model_chip_probabilities.html">
+   Modelling of chip probabilities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ai_experiments/explore_model_performance.html">
+   Explore model performances
+  </a>
+ </li>
 </ul>
 
-    </div>
-</nav> <!-- To handle the deprecated key -->
+</nav>
+
+ <!-- To handle the deprecated key -->
 
 </div>
 
@@ -190,25 +201,25 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
+    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -220,9 +231,9 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
+    
 </div>
-
-            <!-- Source interaction buttons -->
+        <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -237,14 +248,13 @@
     </div>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
+        <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -263,16 +273,15 @@
     </div>
 </div>
 
-        </div>
+    </div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#read-data-in">
    Read data in
@@ -302,8 +311,7 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
+        </nav>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -316,7 +324,7 @@
 <p>This document shows how we flexibly generate a grid of pixel patches (or chips) and select those that fully fall within a given signature class. The result needs to fit in memory.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">time</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">pandas</span>
 <span class="kn">import</span> <span class="nn">geopandas</span>
 <span class="kn">import</span> <span class="nn">tools</span>
@@ -341,24 +349,25 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>v0.1.0a5+8.ge953ff8
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>v0.1.0a5+8.ge953ff8
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span>
 <span class="n">client</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.9/site-packages/distributed/node.py:160: UserWarning: Port 8787 is already in use.
+<div class="stderr docutils container">
+<pre class="stderr literal-block">/opt/conda/lib/python3.9/site-packages/distributed/node.py:160: UserWarning: Port 8787 is already in use.
 Perhaps you already have a cluster running?
 Hosting the HTTP server on port 38187 instead
   warnings.warn(
-</pre></div>
+</pre>
 </div>
 <div class="output text_html"><div>
     <div style="width: 24px; height: 24px; background-color: #e1e1e1; border: 3px solid #9D9D9D; border-radius: 5px; position: absolute;"> </div>
@@ -666,16 +675,17 @@ Hosting the HTTP server on port 38187 instead
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sigs</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sigs</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span>
     <span class="s1">&#39;/home/jovyan/data/spatial_signatures/signatures_combined_levels_simplified.gpkg&#39;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.8/site-packages/geopandas/geodataframe.py:577: RuntimeWarning: Sequential read of iterator was interrupted. Resetting iterator. This can negatively impact the performance.
+<div class="stderr docutils container">
+<pre class="stderr literal-block">/opt/conda/lib/python3.8/site-packages/geopandas/geodataframe.py:577: RuntimeWarning: Sequential read of iterator was interrupted. Resetting iterator. This can negatively impact the performance.
   for feature in features_lst:
-</pre></div>
+</pre>
 </div>
 </div>
 </div>
@@ -684,7 +694,7 @@ Hosting the HTTP server on port 38187 instead
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">rioxarray</span><span class="o">.</span><span class="n">open_rasterio</span><span class="p">(</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">rioxarray</span><span class="o">.</span><span class="n">open_rasterio</span><span class="p">(</span>
     <span class="s1">&#39;../urbangrammar_samba/ghs_composite_s2/GHS-composite-S2.vrt&#39;</span><span class="p">,</span>
     <span class="n">chunks</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">1024</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">1024</span><span class="p">}</span>
 <span class="p">)</span>
@@ -695,7 +705,7 @@ Hosting the HTTP server on port 38187 instead
 <p>Liverpool for prototyping:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bb</span> <span class="o">=</span> <span class="n">box</span><span class="p">(</span><span class="mi">331825</span><span class="p">,</span> <span class="mi">385032</span><span class="p">,</span> <span class="mi">340167</span><span class="p">,</span> <span class="mi">395756</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bb</span> <span class="o">=</span> <span class="n">box</span><span class="p">(</span><span class="mi">331825</span><span class="p">,</span> <span class="mi">385032</span><span class="p">,</span> <span class="mi">340167</span><span class="p">,</span> <span class="mi">395756</span><span class="p">)</span>
 <span class="c1"># bb = box(321566, 468106, 365379, 437198)</span>
 <span class="n">liv</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span>
     <span class="n">band</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
@@ -708,7 +718,7 @@ Hosting the HTTP server on port 38187 instead
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">minmax</span><span class="p">(</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">minmax</span><span class="p">(</span>
     <span class="n">a</span><span class="p">,</span> 
     <span class="n">bottom</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> 
     <span class="n">top</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span> 
@@ -739,20 +749,21 @@ Hosting the HTTP server on port 38187 instead
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">liv</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1500</span> <span class="o">/</span> <span class="mi">255</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">));</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">liv</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1500</span> <span class="o">/</span> <span class="mi">255</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">));</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
-</pre></div>
+<div class="stderr docutils container">
+<pre class="stderr literal-block">Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+</pre>
 </div>
 <img alt="../_images/chip_making_a_11_1.png" src="../_images/chip_making_a_11_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bb</span> <span class="o">=</span> <span class="n">box</span><span class="p">(</span><span class="mi">331825</span><span class="p">,</span> <span class="mi">385032</span><span class="p">,</span> <span class="mi">340167</span><span class="p">,</span> <span class="mi">395756</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bb</span> <span class="o">=</span> <span class="n">box</span><span class="p">(</span><span class="mi">331825</span><span class="p">,</span> <span class="mi">385032</span><span class="p">,</span> <span class="mi">340167</span><span class="p">,</span> <span class="mi">395756</span><span class="p">)</span>
 <span class="c1"># bb = box(321566, 468106, 365379, 437198)</span>
 <span class="n">liv</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span>
     <span class="n">band</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
@@ -765,14 +776,14 @@ Hosting the HTTP server on port 38187 instead
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">liv</span><span class="o">.</span><span class="n">values</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">liv</span><span class="o">.</span><span class="n">values</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">l_min</span><span class="p">,</span> <span class="n">l_max</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([(</span><span class="mi">350</span><span class="p">,</span> <span class="mi">1600</span><span class="p">),</span> <span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">1600</span><span class="p">),</span> <span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">1800</span><span class="p">)]):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">l_min</span><span class="p">,</span> <span class="n">l_max</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([(</span><span class="mi">350</span><span class="p">,</span> <span class="mi">1600</span><span class="p">),</span> <span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">1600</span><span class="p">),</span> <span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">1800</span><span class="p">)]):</span>
     <span class="n">img</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">img</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">l_max</span><span class="p">]</span> <span class="o">=</span> <span class="n">l_max</span>
     <span class="n">img</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">img</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">l_min</span><span class="p">]</span> <span class="o">=</span> <span class="n">l_min</span>
     <span class="n">a_std</span> <span class="o">=</span> <span class="p">(</span><span class="n">img</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">l_min</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">l_max</span> <span class="o">-</span> <span class="n">l_min</span><span class="p">)</span>
@@ -783,14 +794,14 @@ Hosting the HTTP server on port 38187 instead
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">liv2</span> <span class="o">=</span> <span class="n">liv</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">liv2</span> <span class="o">=</span> <span class="n">liv</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">liv2</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">img</span>
 <span class="n">liv2</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fbc40780bb0&gt;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fbc40780bb0&gt;
 </pre></div>
 </div>
 <img alt="../_images/chip_making_a_15_1.png" src="../_images/chip_making_a_15_1.png" />
@@ -798,7 +809,7 @@ Hosting the HTTP server on port 38187 instead
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_bin</span> <span class="o">=</span> <span class="mi">350</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">min_bin</span> <span class="o">=</span> <span class="mi">350</span>
 <span class="n">max_bin</span> <span class="o">=</span> <span class="mi">1500</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">xarray</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">max_bin</span><span class="p">,</span> <span class="n">max_bin</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">xarray</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">min_bin</span><span class="p">,</span> <span class="n">min_bin</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
@@ -818,7 +829,7 @@ Hosting the HTTP server on port 38187 instead
 <p>For small datasets, we can all pack it into a single shot:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">time</span>
 <span class="n">liv_grid</span> <span class="o">=</span> <span class="n">tools</span><span class="o">.</span><span class="n">build_grid</span><span class="p">(</span>
     <span class="n">liv</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">liv</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="mi">6</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">liv</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">crs</span>
 <span class="p">)</span>
@@ -826,7 +837,7 @@ Hosting the HTTP server on port 38187 instead
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 4.34 s, sys: 60.9 ms, total: 4.4 s
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>CPU times: user 4.34 s, sys: 60.9 ms, total: 4.4 s
 Wall time: 1.51 s
 </pre></div>
 </div>
@@ -854,7 +865,7 @@ Wall time: 1.51 s
 <p>First we get the coordinates for the centroid of each chip written to disk:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%time
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>%%time
 ! rm -rf $out_f_xys
 xys, chip_len = tools.coords2xys_parquet(
     out_f_xys,     # Folder to dump chunks on disk
@@ -867,7 +878,7 @@ xys, chip_len = tools.coords2xys_parquet(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 15.3 s, sys: 270 ms, total: 15.6 s
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>CPU times: user 15.3 s, sys: 270 ms, total: 15.6 s
 Wall time: 2.48 s
 </pre></div>
 </div>
@@ -876,12 +887,12 @@ Wall time: 2.48 s
 <p>These are now in disk, so we can work with them within <code class="docutils literal notranslate"><span class="pre">dask/-geopandas</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span> du -h <span class="nv">$out_f_xys</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>! du -h $out_f_xys
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.6G	/home/jovyan/chip_xys
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>3.6G	/home/jovyan/chip_xys
 </pre></div>
 </div>
 </div>
@@ -889,7 +900,7 @@ Wall time: 2.48 s
 <p>Next step involves turning point coordinates into points. For now, we just express the computation:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%time
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>%%time
 
 def process_chunk(xy_pXgrid_p):
     t0 = time.time()
@@ -927,11 +938,11 @@ out = Parallel(n_jobs=16)(
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 37.7 ms, sys: 107 ms, total: 145 ms
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>CPU times: user 37.7 ms, sys: 107 ms, total: 145 ms
 Wall time: 573 ms
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\n_ = tools.dask_map_seq(process_chunk, items[:16], client)\nout = Parallel(n_jobs=16)(\n    delayed(process_chunk)(i) for i in items\n)\n&#39;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;\n_ = tools.dask_map_seq(process_chunk, items[:16], client)\nout = Parallel(n_jobs=16)(\n    delayed(process_chunk)(i) for i in items\n)\n&#39;
 </pre></div>
 </div>
 </div>
@@ -961,35 +972,15 @@ Wall time: 573 ms
 
               </div>
               
-        
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="../intro.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">WP3 - Signature AI</p>
-            </div>
-        </a>
-    </div>
-     <div id="next">
-        <a class="right-next" href="chip_making_b.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Chip making - Pt. B</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
-</div>
-        
         </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">WP3 - Signature AI</a>
+    <a class='right-next' id="next-link" href="chip_making_b.html" title="next page">Chip making - Pt. B</a>
+
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -1006,9 +997,8 @@ Wall time: 573 ms
 
       </div>
     </div>
-  
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-  
+    <script src="../_static/js/index.js"></script>
+    
   </body>
 </html>

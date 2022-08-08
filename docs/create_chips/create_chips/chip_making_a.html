@@ -1,0 +1,1000 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chip making &#8212; Urban Grammar AI | WP3 - Signature AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.svg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Urban Grammar AI | WP3 - Signature AI</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
+ <span class="caption-text">
+  Project
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference external" href="http://urbangrammarai.xyz">
+   Project homepage
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="http://urbangrammarai.xyz/data_processing">
+   WP1 - Data processing
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="http://urbangrammarai.xyz/spatial_signatures">
+   WP2 - Spatial Signatures
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Create chips
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chip_making_a.html">
+   Chip making
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chip_making_b.html">
+   Chip making - Pt. B
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chip_making_subset.html">
+   Chip making for a subset of GB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chip_making_subset.html#spill-chips-to-disk-for-out-of-core-computation">
+   Spill chips to disk for out-of-core computation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chip_making_gb.html">
+   Create chips for the majority of GB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chip_making_temporal.html">
+   Create chips from a temporal set of Sentinel 2 snapshots
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../check_temporal_tiles.html">
+   Plot temporal tiles
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  AI experiments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ai_experiments/transfer_learning_pipe.html">
+   Model testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ai_experiments/transfer_learning_evaluation.html">
+   Evaluation of models trained on NW
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ai_experiments/tl_from_disk.html">
+   AI pipeline from disk
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ai_experiments/chip_size_eval.html">
+   Evaluation of the effect of chip size and origin
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ai_experiments/predict_from_numpy.html">
+   Predict signature types from a numpy array of chips
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ai_experiments/sp_model_chip_probabilities.html">
+   Modelling of chip probabilities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../ai_experiments/explore_model_performance.html">
+   Explore model performances
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/create_chips/create_chips/chip_making_a.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/urbangrammarai/signature_ai"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/urbangrammarai/signature_ai/master?urlpath=tree/create_chips/create_chips/chip_making_a.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#read-data-in">
+   Read data in
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#build-the-grid">
+   Build the grid
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#small-datasets">
+     Small datasets
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#larger-than-ram-datasets">
+     Larger-than-RAM datasets
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#deprecated">
+   Deprecated
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="chip-making">
+<h1>Chip making<a class="headerlink" href="#chip-making" title="Permalink to this headline">¶</a></h1>
+<p>This document shows how we flexibly generate a grid of pixel patches (or chips) and select those that fully fall within a given signature class. The result needs to fit in memory.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">pandas</span>
+<span class="kn">import</span> <span class="nn">geopandas</span>
+<span class="kn">import</span> <span class="nn">tools</span>
+<span class="kn">import</span> <span class="nn">xarray</span><span class="o">,</span> <span class="nn">rioxarray</span>
+<span class="c1"># from geopandas_view import view</span>
+<span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">box</span>
+<span class="kn">import</span> <span class="nn">dask.dataframe</span> <span class="k">as</span> <span class="nn">ddf</span>
+
+<span class="kn">from</span> <span class="nn">joblib</span> <span class="kn">import</span> <span class="n">Parallel</span><span class="p">,</span> <span class="n">delayed</span>
+<span class="kn">from</span> <span class="nn">dask.distributed</span> <span class="kn">import</span> <span class="n">LocalCluster</span><span class="p">,</span> <span class="n">Client</span>
+<span class="kn">import</span> <span class="nn">dask</span>
+<span class="kn">import</span> <span class="nn">dask.distributed</span>
+
+<span class="kn">import</span> <span class="nn">dask_geopandas</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dask_geopandas</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+
+<span class="n">tmp_dir</span> <span class="o">=</span> <span class="s1">&#39;/home/jovyan&#39;</span>
+<span class="n">out_f_xys</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">tmp_dir</span><span class="si">}</span><span class="s1">/chip_xys_liv&#39;</span>
+<span class="n">grid_dir</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">tmp_dir</span><span class="si">}</span><span class="s1">/grid&#39;</span>
+<span class="n">joined_dir</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">tmp_dir</span><span class="si">}</span><span class="s1">/joined&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>v0.1.0a5+8.ge953ff8
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">()</span>
+<span class="n">client</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="stderr docutils container">
+<pre class="stderr literal-block">/opt/conda/lib/python3.9/site-packages/distributed/node.py:160: UserWarning: Port 8787 is already in use.
+Perhaps you already have a cluster running?
+Hosting the HTTP server on port 38187 instead
+  warnings.warn(
+</pre>
+</div>
+<div class="output text_html"><div>
+    <div style="width: 24px; height: 24px; background-color: #e1e1e1; border: 3px solid #9D9D9D; border-radius: 5px; position: absolute;"> </div>
+    <div style="margin-left: 48px;">
+        <h3 style="margin-bottom: 0px;">Client</h3>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-138f2b0b-7d00-11ec-8fcb-5d66f227cdbe</p>
+        <table style="width: 100%; text-align: left;">
+
+        <tr>
+
+            <td style="text-align: left;"><strong>Connection method:</strong> Cluster object</td>
+            <td style="text-align: left;"><strong>Cluster type:</strong> distributed.LocalCluster</td>
+
+        </tr>
+
+
+            <tr>
+                <td style="text-align: left;">
+                    <strong>Dashboard: </strong> <a href="http://127.0.0.1:38187/status" target="_blank">http://127.0.0.1:38187/status</a>
+                </td>
+                <td style="text-align: left;"></td>
+            </tr>
+
+
+        </table>
+
+
+            <details>
+            <summary style="margin-bottom: 20px;"><h3 style="display: inline;">Cluster Info</h3></summary>
+            <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-mod-trusted jp-OutputArea-output">
+    <div style="width: 24px; height: 24px; background-color: #e1e1e1; border: 3px solid #9D9D9D; border-radius: 5px; position: absolute;">
+    </div>
+    <div style="margin-left: 48px;">
+        <h3 style="margin-bottom: 0px; margin-top: 0px;">LocalCluster</h3>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">59e9e1e6</p>
+        <table style="width: 100%; text-align: left;">
+            <tr>
+                <td style="text-align: left;">
+                    <strong>Dashboard:</strong> <a href="http://127.0.0.1:38187/status" target="_blank">http://127.0.0.1:38187/status</a>
+                </td>
+                <td style="text-align: left;">
+                    <strong>Workers:</strong> 4
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: left;">
+                    <strong>Total threads:</strong> 16
+                </td>
+                <td style="text-align: left;">
+                    <strong>Total memory:</strong> 125.54 GiB
+                </td>
+            </tr>
+
+            <tr>
+    <td style="text-align: left;"><strong>Status:</strong> running</td>
+    <td style="text-align: left;"><strong>Using processes:</strong> True</td>
+</tr>
+
+
+        </table>
+
+        <details>
+            <summary style="margin-bottom: 20px;">
+                <h3 style="display: inline;">Scheduler Info</h3>
+            </summary>
+
+            <div style="">
+    <div>
+        <div style="width: 24px; height: 24px; background-color: #FFF7E5; border: 3px solid #FF6132; border-radius: 5px; position: absolute;"> </div>
+        <div style="margin-left: 48px;">
+            <h3 style="margin-bottom: 0px;">Scheduler</h3>
+            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-72bc00f8-eff9-4030-a7e1-a03702e9dc4d</p>
+            <table style="width: 100%; text-align: left;">
+                <tr>
+                    <td style="text-align: left;">
+                        <strong>Comm:</strong> tcp://127.0.0.1:33555
+                    </td>
+                    <td style="text-align: left;">
+                        <strong>Workers:</strong> 4
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">
+                        <strong>Dashboard:</strong> <a href="http://127.0.0.1:38187/status" target="_blank">http://127.0.0.1:38187/status</a>
+                    </td>
+                    <td style="text-align: left;">
+                        <strong>Total threads:</strong> 16
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">
+                        <strong>Started:</strong> Just now
+                    </td>
+                    <td style="text-align: left;">
+                        <strong>Total memory:</strong> 125.54 GiB
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <details style="margin-left: 48px;">
+        <summary style="margin-bottom: 20px;">
+            <h3 style="display: inline;">Workers</h3>
+        </summary>
+
+
+        <div style="margin-bottom: 20px;">
+            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
+            <div style="margin-left: 48px;">
+            <details>
+                <summary>
+                    <h4 style="margin-bottom: 0px; display: inline;">Worker: 0</h4>
+                </summary>
+                <table style="width: 100%; text-align: left;">
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Comm: </strong> tcp://172.17.0.3:35083
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Total threads: </strong> 4
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Dashboard: </strong> <a href="http://172.17.0.3:36105/status" target="_blank">http://172.17.0.3:36105/status</a>
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Memory: </strong> 31.39 GiB
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Nanny: </strong> tcp://127.0.0.1:41601
+                        </td>
+                        <td style="text-align: left;"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: left;">
+                            <strong>Local directory: </strong> /home/jovyan/work/signature_ai/dask-worker-space/worker-zs0ca7op
+                        </td>
+                    </tr>
+
+
+
+
+
+                </table>
+            </details>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
+            <div style="margin-left: 48px;">
+            <details>
+                <summary>
+                    <h4 style="margin-bottom: 0px; display: inline;">Worker: 1</h4>
+                </summary>
+                <table style="width: 100%; text-align: left;">
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Comm: </strong> tcp://172.17.0.3:36631
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Total threads: </strong> 4
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Dashboard: </strong> <a href="http://172.17.0.3:44333/status" target="_blank">http://172.17.0.3:44333/status</a>
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Memory: </strong> 31.39 GiB
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Nanny: </strong> tcp://127.0.0.1:43075
+                        </td>
+                        <td style="text-align: left;"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: left;">
+                            <strong>Local directory: </strong> /home/jovyan/work/signature_ai/dask-worker-space/worker-18ihur_v
+                        </td>
+                    </tr>
+
+
+
+
+
+                </table>
+            </details>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
+            <div style="margin-left: 48px;">
+            <details>
+                <summary>
+                    <h4 style="margin-bottom: 0px; display: inline;">Worker: 2</h4>
+                </summary>
+                <table style="width: 100%; text-align: left;">
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Comm: </strong> tcp://172.17.0.3:35595
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Total threads: </strong> 4
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Dashboard: </strong> <a href="http://172.17.0.3:46467/status" target="_blank">http://172.17.0.3:46467/status</a>
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Memory: </strong> 31.39 GiB
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Nanny: </strong> tcp://127.0.0.1:41903
+                        </td>
+                        <td style="text-align: left;"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: left;">
+                            <strong>Local directory: </strong> /home/jovyan/work/signature_ai/dask-worker-space/worker-eiphm8y3
+                        </td>
+                    </tr>
+
+
+
+
+
+                </table>
+            </details>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <div style="width: 24px; height: 24px; background-color: #DBF5FF; border: 3px solid #4CC9FF; border-radius: 5px; position: absolute;"> </div>
+            <div style="margin-left: 48px;">
+            <details>
+                <summary>
+                    <h4 style="margin-bottom: 0px; display: inline;">Worker: 3</h4>
+                </summary>
+                <table style="width: 100%; text-align: left;">
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Comm: </strong> tcp://172.17.0.3:43237
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Total threads: </strong> 4
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Dashboard: </strong> <a href="http://172.17.0.3:38017/status" target="_blank">http://172.17.0.3:38017/status</a>
+                        </td>
+                        <td style="text-align: left;">
+                            <strong>Memory: </strong> 31.39 GiB
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">
+                            <strong>Nanny: </strong> tcp://127.0.0.1:43515
+                        </td>
+                        <td style="text-align: left;"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: left;">
+                            <strong>Local directory: </strong> /home/jovyan/work/signature_ai/dask-worker-space/worker-fzciyz9g
+                        </td>
+                    </tr>
+
+
+
+
+
+                </table>
+            </details>
+            </div>
+        </div>
+
+
+    </details>
+</div>
+
+        </details>
+    </div>
+</div>
+            </details>
+
+
+    </div>
+</div></div></div>
+</div>
+<div class="section" id="read-data-in">
+<h2>Read data in<a class="headerlink" href="#read-data-in" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Signatures (simplified)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sigs</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span>
+    <span class="s1">&#39;/home/jovyan/data/spatial_signatures/signatures_combined_levels_simplified.gpkg&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="stderr docutils container">
+<pre class="stderr literal-block">/opt/conda/lib/python3.8/site-packages/geopandas/geodataframe.py:577: RuntimeWarning: Sequential read of iterator was interrupted. Resetting iterator. This can negatively impact the performance.
+  for feature in features_lst:
+</pre>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Mosaic</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">rioxarray</span><span class="o">.</span><span class="n">open_rasterio</span><span class="p">(</span>
+    <span class="s1">&#39;../urbangrammar_samba/ghs_composite_s2/GHS-composite-S2.vrt&#39;</span><span class="p">,</span>
+    <span class="n">chunks</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">1024</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">1024</span><span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Liverpool for prototyping:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bb</span> <span class="o">=</span> <span class="n">box</span><span class="p">(</span><span class="mi">331825</span><span class="p">,</span> <span class="mi">385032</span><span class="p">,</span> <span class="mi">340167</span><span class="p">,</span> <span class="mi">395756</span><span class="p">)</span>
+<span class="c1"># bb = box(321566, 468106, 365379, 437198)</span>
+<span class="n">liv</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span>
+    <span class="n">band</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">clip_box</span><span class="p">(</span>
+    <span class="o">*</span><span class="n">bb</span><span class="o">.</span><span class="n">bounds</span>
+<span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">minmax</span><span class="p">(</span>
+    <span class="n">a</span><span class="p">,</span> 
+    <span class="n">bottom</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> 
+    <span class="n">top</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span> 
+    <span class="n">min_cut</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> 
+    <span class="n">max_cut</span><span class="o">=</span><span class="mi">99</span>
+<span class="p">):</span>
+    <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">percentile</span>
+    <span class="n">vals</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">to_series</span><span class="p">()</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">min_bin</span> <span class="o">=</span> <span class="n">percentile</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">min_cut</span><span class="p">)</span>
+    <span class="n">max_bin</span> <span class="o">=</span> <span class="n">percentile</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">max_cut</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">xarray</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">max_bin</span><span class="p">,</span> <span class="n">max_bin</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">xarray</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">min_bin</span><span class="p">,</span> <span class="n">min_bin</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+    <span class="n">a_std</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">a</span><span class="o">.</span><span class="n">min</span><span class="p">())</span> <span class="o">/</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">a</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+    <span class="n">a_scaled</span> <span class="o">=</span> <span class="n">a_std</span> <span class="o">*</span> <span class="p">(</span><span class="n">top</span> <span class="o">-</span> <span class="n">bottom</span><span class="p">)</span> <span class="o">+</span> <span class="n">bottom</span>
+    <span class="k">return</span> <span class="n">a_scaled</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="n">liv</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span>
+    <span class="s2">&quot;band&quot;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+    <span class="n">minmax</span>
+<span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/chip_making_a_10_01.png" src="../../_images/chip_making_a_10_01.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">liv</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1500</span> <span class="o">/</span> <span class="mi">255</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="stderr docutils container">
+<pre class="stderr literal-block">Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers).
+</pre>
+</div>
+<img alt="../../_images/chip_making_a_11_11.png" src="../../_images/chip_making_a_11_11.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bb</span> <span class="o">=</span> <span class="n">box</span><span class="p">(</span><span class="mi">331825</span><span class="p">,</span> <span class="mi">385032</span><span class="p">,</span> <span class="mi">340167</span><span class="p">,</span> <span class="mi">395756</span><span class="p">)</span>
+<span class="c1"># bb = box(321566, 468106, 365379, 437198)</span>
+<span class="n">liv</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span>
+    <span class="n">band</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">clip_box</span><span class="p">(</span>
+    <span class="o">*</span><span class="n">bb</span><span class="o">.</span><span class="n">bounds</span>
+<span class="p">)</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">liv</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">l_min</span><span class="p">,</span> <span class="n">l_max</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([(</span><span class="mi">350</span><span class="p">,</span> <span class="mi">1600</span><span class="p">),</span> <span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">1600</span><span class="p">),</span> <span class="p">(</span><span class="mi">600</span><span class="p">,</span> <span class="mi">1800</span><span class="p">)]):</span>
+    <span class="n">img</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">img</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">l_max</span><span class="p">]</span> <span class="o">=</span> <span class="n">l_max</span>
+    <span class="n">img</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">img</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">l_min</span><span class="p">]</span> <span class="o">=</span> <span class="n">l_min</span>
+    <span class="n">a_std</span> <span class="o">=</span> <span class="p">(</span><span class="n">img</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">l_min</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">l_max</span> <span class="o">-</span> <span class="n">l_min</span><span class="p">)</span>
+    <span class="n">img</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a_std</span> <span class="o">*</span> <span class="mi">255</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">liv2</span> <span class="o">=</span> <span class="n">liv</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">liv2</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="n">img</span>
+<span class="n">liv2</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fbc40780bb0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/chip_making_a_15_11.png" src="../../_images/chip_making_a_15_11.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">min_bin</span> <span class="o">=</span> <span class="mi">350</span>
+<span class="n">max_bin</span> <span class="o">=</span> <span class="mi">1500</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">xarray</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">max_bin</span><span class="p">,</span> <span class="n">max_bin</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">xarray</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">min_bin</span><span class="p">,</span> <span class="n">min_bin</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<span class="n">a_std</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">a</span><span class="o">.</span><span class="n">min</span><span class="p">())</span> <span class="o">/</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">a</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<span class="n">a_scaled</span> <span class="o">=</span> <span class="n">a_std</span> <span class="o">*</span> <span class="p">(</span><span class="n">top</span> <span class="o">-</span> <span class="n">bottom</span><span class="p">)</span> <span class="o">+</span> <span class="n">bottom</span>
+<span class="k">return</span> <span class="n">a_scaled</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="build-the-grid">
+<h2>Build the grid<a class="headerlink" href="#build-the-grid" title="Permalink to this headline">¶</a></h2>
+<p>The goal here is to have a flexible and performant method to generate a uniform grid of polygons (<code class="docutils literal notranslate"><span class="pre">GeoDataFrame</span></code>) that matches the layout of pixels in the mosaic.</p>
+<div class="section" id="small-datasets">
+<h3>Small datasets<a class="headerlink" href="#small-datasets" title="Permalink to this headline">¶</a></h3>
+<p>For small datasets, we can all pack it into a single shot:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">time</span>
+<span class="n">liv_grid</span> <span class="o">=</span> <span class="n">tools</span><span class="o">.</span><span class="n">build_grid</span><span class="p">(</span>
+    <span class="n">liv</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">liv</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="mi">6</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">liv</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">crs</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>CPU times: user 4.34 s, sys: 60.9 ms, total: 4.4 s
+Wall time: 1.51 s
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="larger-than-ram-datasets">
+<h3>Larger-than-RAM datasets<a class="headerlink" href="#larger-than-ram-datasets" title="Permalink to this headline">¶</a></h3>
+<p>Datasets that do not fit in memory can be run through <code class="docutils literal notranslate"><span class="pre">dask-geopandas</span></code>, but it is worth splitting the job across different steps.</p>
+<ul class="simple">
+<li><p>[X] Turn coords into grid XYs as a <code class="docutils literal notranslate"><span class="pre">dask.DataFrame</span></code> w/ <code class="docutils literal notranslate"><span class="pre">Point</span></code> objects –&gt; <code class="docutils literal notranslate"><span class="pre">chip_pts</span></code></p></li>
+<li><p>[X] Turn <code class="docutils literal notranslate"><span class="pre">chip_pts</span></code> into pixel squares –&gt; <code class="docutils literal notranslate"><span class="pre">grid</span></code></p></li>
+<li><p>[ ] Join <code class="docutils literal notranslate"><span class="pre">sigs</span></code> to <code class="docutils literal notranslate"><span class="pre">grid</span></code> to transfer label and discard mixed-signature chips –&gt; <code class="docutils literal notranslate"><span class="pre">sig_chips</span></code></p></li>
+</ul>
+<p>To select the number of chunks to write (<code class="docutils literal notranslate"><span class="pre">npartitions</span></code>), we can do a back-of-the-envelope calculation:</p>
+<ul class="simple">
+<li><p>The mosaic is 121,865 by 182,437 pixels (22,232,685,005) with four values per pixel</p></li>
+<li><p>1500 partitions allocates +59m. ints per chunk (200Mb approx in memory)</p></li>
+</ul>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="deprecated">
+<h2>Deprecated<a class="headerlink" href="#deprecated" title="Permalink to this headline">¶</a></h2>
+<p>First we get the coordinates for the centroid of each chip written to disk:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>%%time
+! rm -rf $out_f_xys
+xys, chip_len = tools.coords2xys_parquet(
+    out_f_xys,     # Folder to dump chunks on disk
+    8,             # No. of chunks
+    liv.coords[&#39;x&#39;], # X coords
+    liv.coords[&#39;y&#39;], # Y coords
+    chip_res=10    # Chip size in pixels
+)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>CPU times: user 15.3 s, sys: 270 ms, total: 15.6 s
+Wall time: 2.48 s
+</pre></div>
+</div>
+</div>
+</div>
+<p>These are now in disk, so we can work with them within <code class="docutils literal notranslate"><span class="pre">dask/-geopandas</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>! du -h $out_f_xys
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>3.6G	/home/jovyan/chip_xys
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next step involves turning point coordinates into points. For now, we just express the computation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>%%time
+
+def process_chunk(xy_pXgrid_p):
+    t0 = time.time()
+    xy_p, grid_p = xy_pXgrid_p
+    xys = pandas.read_parquet(xy_p)
+    chip_len = abs(
+        (xys.head() - xys.head().shift())[&#39;Y&#39;].iloc[1]
+    )
+    xy_pts = geopandas.points_from_xy(
+        xys[&#39;X&#39;], xys[&#39;Y&#39;]
+    )
+    grid = xy_pts.buffer(chip_len/2, cap_style=3)
+    geopandas.GeoDataFrame(
+        {&#39;geometry&#39;: grid}, crs=&#39;EPSG:27700&#39;
+    ).to_parquet(grid_p)    
+    t = time.time() - t0
+    msg = f&#39;Execution of {grid_p.split(&quot;/&quot;)[-1]} completed in {t} seconds&#39;
+    return msg
+
+! rm -rf $grid_dir
+! mkdir $grid_dir
+items = [
+    (
+        f&#39;{out_f_xys}/chunk_{i}.pq&#39;, f&#39;{grid_dir}/chunk_{i}.pq&#39;
+    ) for i in range(len(os.listdir(out_f_xys)))
+]
+
+&#39;&#39;&#39;
+_ = tools.dask_map_seq(process_chunk, items[:16], client)
+out = Parallel(n_jobs=16)(
+    delayed(process_chunk)(i) for i in items
+)
+&#39;&#39;&#39;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>CPU times: user 37.7 ms, sys: 107 ms, total: 145 ms
+Wall time: 573 ms
+</pre></div>
+</div>
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;\n_ = tools.dask_map_seq(process_chunk, items[:16], client)\nout = Parallel(n_jobs=16)(\n    delayed(process_chunk)(i) for i in items\n)\n&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./create_chips/create_chips"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Dani Arribas-Bel, Martin Fleischmann<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>

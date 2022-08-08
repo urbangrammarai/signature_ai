@@ -1,0 +1,1021 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluation of models trained on NW &#8212; Urban Grammar AI | WP3 - Signature AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.svg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Urban Grammar AI | WP3 - Signature AI</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
+ <span class="caption-text">
+  Project
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference external" href="http://urbangrammarai.xyz">
+   Project homepage
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="http://urbangrammarai.xyz/data_processing">
+   WP1 - Data processing
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="http://urbangrammarai.xyz/spatial_signatures">
+   WP2 - Spatial Signatures
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Create chips
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../create_chips/chip_making_a.html">
+   Chip making
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../create_chips/chip_making_b.html">
+   Chip making - Pt. B
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../create_chips/chip_making_subset.html">
+   Chip making for a subset of GB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../create_chips/chip_making_subset.html#spill-chips-to-disk-for-out-of-core-computation">
+   Spill chips to disk for out-of-core computation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../create_chips/chip_making_gb.html">
+   Create chips for the majority of GB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../create_chips/chip_making_temporal.html">
+   Create chips from a temporal set of Sentinel 2 snapshots
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../create_chips/check_temporal_tiles.html">
+   Plot temporal tiles
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  AI experiments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../transfer_learning_pipe.html">
+   Model testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../transfer_learning_evaluation.html">
+   Evaluation of models trained on NW
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tl_from_disk.html">
+   AI pipeline from disk
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chip_size_eval.html">
+   Evaluation of the effect of chip size and origin
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../predict_from_numpy.html">
+   Predict signature types from a numpy array of chips
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sp_model_chip_probabilities.html">
+   Modelling of chip probabilities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../explore_model_performance.html">
+   Explore model performances
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/ai_experiments/ai_experiments/transfer_learning_evaluation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/urbangrammarai/signature_ai"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/urbangrammarai/signature_ai/master?urlpath=tree/ai_experiments/ai_experiments/transfer_learning_evaluation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regression">
+   regression
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="evaluation-of-models-trained-on-nw">
+<h1>Evaluation of models trained on NW<a class="headerlink" href="#evaluation-of-models-trained-on-nw" title="Permalink to this headline">¶</a></h1>
+<p>Evaluation of models trained on NW sample of chips</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">urbangrammar_graphics</span> <span class="k">as</span> <span class="nn">ugg</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;../../urbangrammar_samba/spatial_signatures/ai/nw_*/json/&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;*&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">result</span> <span class="k">if</span> <span class="s2">&quot;meta&quot;</span> <span class="ow">in</span> <span class="n">i</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;meta_n_class&#39;, &#39;meta_class_map&#39;, &#39;meta_class_names&#39;, &#39;meta_chip_size&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">58</span><span class="p">:</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">i</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">52</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">results</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">names</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;efficientnet_pooling_256_3_16&#39;,
+ &#39;vgg19_pooling_256_3_16&#39;,
+ &#39;efficientnet_flatten_128_3_32&#39;,
+ &#39;efficientnet_flatten_256_3_32&#39;,
+ &#39;efficientnet_flatten_512_3_32&#39;,
+ &#39;efficientnet_pooling_128_3_32&#39;,
+ &#39;efficientnet_pooling_256_3_32&#39;,
+ &#39;efficientnet_pooling_512_3_32&#39;,
+ &#39;resnet50_flatten_128_3_32&#39;,
+ &#39;resnet50_flatten_256_3_32&#39;,
+ &#39;resnet50_flatten_512_3_32&#39;,
+ &#39;resnet50_pooling_128_3_32&#39;,
+ &#39;resnet50_pooling_256_3_32&#39;,
+ &#39;resnet50_pooling_512_3_32&#39;,
+ &#39;vgg19_flatten_128_3_32&#39;,
+ &#39;vgg19_flatten_256_3_32&#39;,
+ &#39;vgg19_flatten_512_3_32&#39;,
+ &#39;vgg19_pooling_128_3_32&#39;,
+ &#39;vgg19_pooling_256_3_32&#39;,
+ &#39;vgg19_pooling_512_3_32&#39;,
+ &#39;efficientnet_pooling_256_3_64&#39;,
+ &#39;vgg19_pooling_256_3_64&#39;,
+ &#39;efficientnet_pooling_256_3_08&#39;,
+ &#39;vgg19_pooling_256_3_08&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;global&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;meta_class_names&quot;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_product</span><span class="p">([</span><span class="n">names</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="s2">&quot;val&quot;</span><span class="p">,</span> <span class="s2">&quot;secret&quot;</span><span class="p">]]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    
+    <span class="n">accuracy</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;model_name&quot;</span><span class="p">]</span><span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">r</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">52</span><span class="p">],</span> <span class="s2">&quot;train&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_model_accuracy_train&quot;</span><span class="p">]]</span> <span class="o">+</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_within_class_accuracy_train&quot;</span><span class="p">]</span>
+    <span class="n">accuracy</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;model_name&quot;</span><span class="p">]</span><span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">r</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">52</span><span class="p">],</span> <span class="s2">&quot;val&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_model_accuracy_val&quot;</span><span class="p">]]</span> <span class="o">+</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_within_class_accuracy_val&quot;</span><span class="p">]</span>
+    <span class="n">accuracy</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;model_name&quot;</span><span class="p">]</span><span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">r</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">52</span><span class="p">],</span> <span class="s2">&quot;secret&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_model_accuracy_secret&quot;</span><span class="p">]]</span> <span class="o">+</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_within_class_accuracy_secret&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>global</th>
+      <th>centres</th>
+      <th>periphery</th>
+      <th>countryside</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="3" valign="top">efficientnet_pooling_256_3_16</th>
+      <th>train</th>
+      <td>0.690413</td>
+      <td>0.667913</td>
+      <td>0.696415</td>
+      <td>0.687406</td>
+    </tr>
+    <tr>
+      <th>val</th>
+      <td>0.681598</td>
+      <td>0.462719</td>
+      <td>0.688869</td>
+      <td>0.68674</td>
+    </tr>
+    <tr>
+      <th>secret</th>
+      <td>0.679615</td>
+      <td>0.502315</td>
+      <td>0.685129</td>
+      <td>0.683583</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">vgg19_pooling_256_3_16</th>
+      <th>train</th>
+      <td>0.71285</td>
+      <td>0.683562</td>
+      <td>0.715533</td>
+      <td>0.713139</td>
+    </tr>
+    <tr>
+      <th>val</th>
+      <td>0.687897</td>
+      <td>0.400832</td>
+      <td>0.688503</td>
+      <td>0.709091</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">efficientnet_pooling_256_3_08</th>
+      <th>val</th>
+      <td>0.57277</td>
+      <td>0.608934</td>
+      <td>0.388869</td>
+      <td>0.630643</td>
+    </tr>
+    <tr>
+      <th>secret</th>
+      <td>0.574561</td>
+      <td>0.602028</td>
+      <td>0.408942</td>
+      <td>0.63112</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">vgg19_pooling_256_3_08</th>
+      <th>train</th>
+      <td>0.594761</td>
+      <td>0.616865</td>
+      <td>0.43194</td>
+      <td>0.642681</td>
+    </tr>
+    <tr>
+      <th>val</th>
+      <td>0.58644</td>
+      <td>0.606706</td>
+      <td>0.405567</td>
+      <td>0.644179</td>
+    </tr>
+    <tr>
+      <th>secret</th>
+      <td>0.584357</td>
+      <td>0.602026</td>
+      <td>0.418351</td>
+      <td>0.638548</td>
+    </tr>
+  </tbody>
+</table>
+<p>72 rows × 4 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s1">&#39;train&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;train&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;train&#39;}&gt;
+</pre></div>
+</div>
+<img alt="../../_images/transfer_learning_evaluation_12_1.png" src="../../_images/transfer_learning_evaluation_12_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s1">&#39;val&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;validation&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;validation&#39;}&gt;
+</pre></div>
+</div>
+<img alt="../../_images/transfer_learning_evaluation_13_1.png" src="../../_images/transfer_learning_evaluation_13_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s1">&#39;secret&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;secret&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;secret&#39;}&gt;
+</pre></div>
+</div>
+<img alt="../../_images/transfer_learning_evaluation_14_1.png" src="../../_images/transfer_learning_evaluation_14_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">accuracy</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s1">&#39;val&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="n">accuracy</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s1">&#39;val&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;pooling_512_3_32&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;validation accuracy&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">ugg</span><span class="o">.</span><span class="n">CMAP</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;figs/comp1.pdf&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/transfer_learning_evaluation_15_0.png" src="../../_images/transfer_learning_evaluation_15_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">accuracy</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s1">&#39;val&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="n">accuracy</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s1">&#39;val&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;efficientnet_pooling_256_3&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;validation accuracy&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">ugg</span><span class="o">.</span><span class="n">CMAP</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;figs/comp2.pdf&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/transfer_learning_evaluation_16_0.png" src="../../_images/transfer_learning_evaluation_16_0.png" />
+</div>
+</div>
+<div class="section" id="regression">
+<h2>regression<a class="headerlink" href="#regression" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">regr_input</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;global_validation_acc&quot;</span><span class="p">,</span> <span class="s2">&quot;global_secret_acc&quot;</span><span class="p">,</span> <span class="s2">&quot;architecture&quot;</span><span class="p">,</span> <span class="s2">&quot;top_layer&quot;</span><span class="p">,</span> <span class="s2">&quot;neurons&quot;</span><span class="p">,</span> <span class="s2">&quot;chip_size&quot;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">names</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        
+    <span class="n">regr_input</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;model_name&quot;</span><span class="p">]</span><span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">r</span><span class="p">[</span><span class="mi">47</span><span class="p">:</span><span class="mi">49</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_model_accuracy_val&quot;</span><span class="p">],</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_model_accuracy_secret&quot;</span><span class="p">],</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;model_name&quot;</span><span class="p">][:</span><span class="o">-</span><span class="mi">14</span><span class="p">],</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;model_bridge&quot;</span><span class="p">],</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;model_toplayer&quot;</span><span class="p">],</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;meta_chip_size&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">regr_input</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>global_validation_acc</th>
+      <th>global_secret_acc</th>
+      <th>architecture</th>
+      <th>top_layer</th>
+      <th>neurons</th>
+      <th>chip_size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>efficientnet_pooling_256_3_08</th>
+      <td>0.57277</td>
+      <td>0.574561</td>
+      <td>efficientnet</td>
+      <td>pooling</td>
+      <td>256</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>vgg19_pooling_256_3_08</th>
+      <td>0.58644</td>
+      <td>0.584357</td>
+      <td>vgg19</td>
+      <td>pooling</td>
+      <td>256</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>efficientnet_pooling_256_3_64</th>
+      <td>0.693069</td>
+      <td>0.710526</td>
+      <td>efficientnet</td>
+      <td>pooling</td>
+      <td>256</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <th>vgg19_pooling_256_3_64</th>
+      <td>0.729373</td>
+      <td>0.710526</td>
+      <td>vgg19</td>
+      <td>pooling</td>
+      <td>256</td>
+      <td>64</td>
+    </tr>
+    <tr>
+      <th>efficientnet_pooling_256_3_16</th>
+      <td>0.681598</td>
+      <td>0.679615</td>
+      <td>efficientnet</td>
+      <td>pooling</td>
+      <td>256</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>vgg19_pooling_256_3_16</th>
+      <td>0.687897</td>
+      <td>0.685506</td>
+      <td>vgg19</td>
+      <td>pooling</td>
+      <td>256</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>efficientnet_pooling_256_3_32</th>
+      <td>0.715764</td>
+      <td>0.723534</td>
+      <td>efficientnet</td>
+      <td>pooling</td>
+      <td>256</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>resnet50_pooling_512_3_32</th>
+      <td>0.526274</td>
+      <td>0.538339</td>
+      <td>resnet50</td>
+      <td>pooling</td>
+      <td>512</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>resnet50_flatten_128_3_32</th>
+      <td>0.481157</td>
+      <td>0.495888</td>
+      <td>resnet50</td>
+      <td>flatten</td>
+      <td>128</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>resnet50_pooling_128_3_32</th>
+      <td>0.469745</td>
+      <td>0.451844</td>
+      <td>resnet50</td>
+      <td>pooling</td>
+      <td>128</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>vgg19_pooling_256_3_32</th>
+      <td>0.678609</td>
+      <td>0.669408</td>
+      <td>vgg19</td>
+      <td>pooling</td>
+      <td>256</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>resnet50_flatten_256_3_32</th>
+      <td>0.481423</td>
+      <td>0.495622</td>
+      <td>resnet50</td>
+      <td>flatten</td>
+      <td>256</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>vgg19_pooling_128_3_32</th>
+      <td>0.69931</td>
+      <td>0.692226</td>
+      <td>vgg19</td>
+      <td>pooling</td>
+      <td>128</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>efficientnet_flatten_256_3_32</th>
+      <td>0.715764</td>
+      <td>0.717697</td>
+      <td>efficientnet</td>
+      <td>flatten</td>
+      <td>256</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>vgg19_flatten_128_3_32</th>
+      <td>0.708333</td>
+      <td>0.705492</td>
+      <td>vgg19</td>
+      <td>flatten</td>
+      <td>128</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>efficientnet_flatten_128_3_32</th>
+      <td>0.663482</td>
+      <td>0.671266</td>
+      <td>efficientnet</td>
+      <td>flatten</td>
+      <td>128</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>efficientnet_pooling_128_3_32</th>
+      <td>0.723726</td>
+      <td>0.728575</td>
+      <td>efficientnet</td>
+      <td>pooling</td>
+      <td>128</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>vgg19_flatten_512_3_32</th>
+      <td>0.692144</td>
+      <td>0.702839</td>
+      <td>vgg19</td>
+      <td>flatten</td>
+      <td>512</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>vgg19_flatten_256_3_32</th>
+      <td>0.675425</td>
+      <td>0.664632</td>
+      <td>vgg19</td>
+      <td>flatten</td>
+      <td>256</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>efficientnet_pooling_512_3_32</th>
+      <td>0.727972</td>
+      <td>0.731228</td>
+      <td>efficientnet</td>
+      <td>pooling</td>
+      <td>512</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>vgg19_pooling_512_3_32</th>
+      <td>0.67224</td>
+      <td>0.679491</td>
+      <td>vgg19</td>
+      <td>pooling</td>
+      <td>512</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>resnet50_flatten_512_3_32</th>
+      <td>0.522824</td>
+      <td>0.537278</td>
+      <td>resnet50</td>
+      <td>flatten</td>
+      <td>512</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>efficientnet_flatten_512_3_32</th>
+      <td>0.697187</td>
+      <td>0.702839</td>
+      <td>efficientnet</td>
+      <td>flatten</td>
+      <td>512</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>resnet50_pooling_256_3_32</th>
+      <td>0.469745</td>
+      <td>0.451844</td>
+      <td>resnet50</td>
+      <td>pooling</td>
+      <td>256</td>
+      <td>32</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">regr_input</span><span class="o">.</span><span class="n">global_validation_acc</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">regr_input</span><span class="p">[[</span><span class="s2">&quot;architecture&quot;</span><span class="p">,</span> <span class="s2">&quot;top_layer&quot;</span><span class="p">,</span> <span class="s2">&quot;neurons&quot;</span><span class="p">,</span> <span class="s2">&quot;chip_size&quot;</span><span class="p">]],</span> <span class="n">drop_first</span><span class="o">=</span><span class="kc">True</span><span class="p">)))</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="simpletable">
+<caption>OLS Regression Results</caption>
+<tr>
+  <th>Dep. Variable:</th>            <td>y</td>        <th>  R-squared:         </th> <td>   0.961</td>
+</tr>
+<tr>
+  <th>Model:</th>                   <td>OLS</td>       <th>  Adj. R-squared:    </th> <td>   0.941</td>
+</tr>
+<tr>
+  <th>Method:</th>             <td>Least Squares</td>  <th>  F-statistic:       </th> <td>   46.59</td>
+</tr>
+<tr>
+  <th>Date:</th>             <td>Fri, 14 Jan 2022</td> <th>  Prob (F-statistic):</th> <td>3.25e-09</td>
+</tr>
+<tr>
+  <th>Time:</th>                 <td>16:30:06</td>     <th>  Log-Likelihood:    </th> <td>  62.322</td>
+</tr>
+<tr>
+  <th>No. Observations:</th>      <td>    24</td>      <th>  AIC:               </th> <td>  -106.6</td>
+</tr>
+<tr>
+  <th>Df Residuals:</th>          <td>    15</td>      <th>  BIC:               </th> <td>  -96.04</td>
+</tr>
+<tr>
+  <th>Df Model:</th>              <td>     8</td>      <th>                     </th>     <td> </td>   
+</tr>
+<tr>
+  <th>Covariance Type:</th>      <td>nonrobust</td>    <th>                     </th>     <td> </td>   
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+            <td></td>               <th>coef</th>     <th>std err</th>      <th>t</th>      <th>P>|t|</th>  <th>[0.025</th>    <th>0.975]</th>  
+</tr>
+<tr>
+  <th>const</th>                 <td>    0.5795</td> <td>    0.024</td> <td>   24.103</td> <td> 0.000</td> <td>    0.528</td> <td>    0.631</td>
+</tr>
+<tr>
+  <th>architecture_resnet50</th> <td>   -0.2091</td> <td>    0.013</td> <td>  -16.583</td> <td> 0.000</td> <td>   -0.236</td> <td>   -0.182</td>
+</tr>
+<tr>
+  <th>architecture_vgg19</th>    <td>   -0.0068</td> <td>    0.011</td> <td>   -0.636</td> <td> 0.534</td> <td>   -0.030</td> <td>    0.016</td>
+</tr>
+<tr>
+  <th>top_layer_pooling</th>     <td>    0.0051</td> <td>    0.011</td> <td>    0.472</td> <td> 0.644</td> <td>   -0.018</td> <td>    0.028</td>
+</tr>
+<tr>
+  <th>neurons_256</th>           <td>   -0.0015</td> <td>    0.013</td> <td>   -0.114</td> <td> 0.911</td> <td>   -0.030</td> <td>    0.027</td>
+</tr>
+<tr>
+  <th>neurons_512</th>           <td>    0.0155</td> <td>    0.013</td> <td>    1.176</td> <td> 0.258</td> <td>   -0.013</td> <td>    0.044</td>
+</tr>
+<tr>
+  <th>chip_size_16</th>          <td>    0.1051</td> <td>    0.023</td> <td>    4.610</td> <td> 0.000</td> <td>    0.057</td> <td>    0.154</td>
+</tr>
+<tr>
+  <th>chip_size_32</th>          <td>    0.1143</td> <td>    0.020</td> <td>    5.785</td> <td> 0.000</td> <td>    0.072</td> <td>    0.156</td>
+</tr>
+<tr>
+  <th>chip_size_64</th>          <td>    0.1316</td> <td>    0.023</td> <td>    5.771</td> <td> 0.000</td> <td>    0.083</td> <td>    0.180</td>
+</tr>
+</table>
+<table class="simpletable">
+<tr>
+  <th>Omnibus:</th>       <td> 3.305</td> <th>  Durbin-Watson:     </th> <td>   2.601</td>
+</tr>
+<tr>
+  <th>Prob(Omnibus):</th> <td> 0.192</td> <th>  Jarque-Bera (JB):  </th> <td>   1.427</td>
+</tr>
+<tr>
+  <th>Skew:</th>          <td>-0.159</td> <th>  Prob(JB):          </th> <td>   0.490</td>
+</tr>
+<tr>
+  <th>Kurtosis:</th>      <td> 1.848</td> <th>  Cond. No.          </th> <td>    12.8</td>
+</tr>
+</table><br/><br/>Notes:<br/>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</div></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./ai_experiments/ai_experiments"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Dani Arribas-Bel, Martin Fleischmann<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>

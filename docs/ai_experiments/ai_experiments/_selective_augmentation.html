@@ -1,0 +1,496 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>&lt;no title&gt; &#8212; Urban Grammar AI | WP3 - Signature AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.svg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Urban Grammar AI | WP3 - Signature AI</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
+ <span class="caption-text">
+  Project
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference external" href="http://urbangrammarai.xyz">
+   Project homepage
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="http://urbangrammarai.xyz/data_processing">
+   WP1 - Data processing
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="http://urbangrammarai.xyz/spatial_signatures">
+   WP2 - Spatial Signatures
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Create chips
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../create_chips/chip_making_a.html">
+   Chip making
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../create_chips/chip_making_b.html">
+   Chip making - Pt. B
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../create_chips/chip_making_subset.html">
+   Chip making for a subset of GB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../create_chips/chip_making_subset.html#spill-chips-to-disk-for-out-of-core-computation">
+   Spill chips to disk for out-of-core computation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../create_chips/chip_making_gb.html">
+   Create chips for the majority of GB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../create_chips/chip_making_temporal.html">
+   Create chips from a temporal set of Sentinel 2 snapshots
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../create_chips/check_temporal_tiles.html">
+   Plot temporal tiles
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  AI experiments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../transfer_learning_pipe.html">
+   Model testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../transfer_learning_evaluation.html">
+   Evaluation of models trained on NW
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tl_from_disk.html">
+   AI pipeline from disk
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chip_size_eval.html">
+   Evaluation of the effect of chip size and origin
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../predict_from_numpy.html">
+   Predict signature types from a numpy array of chips
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sp_model_chip_probabilities.html">
+   Modelling of chip probabilities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../explore_model_performance.html">
+   Explore model performances
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/ai_experiments/ai_experiments/_selective_augmentation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/urbangrammarai/signature_ai"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/urbangrammarai/signature_ai/master?urlpath=tree/ai_experiments/ai_experiments/_selective_augmentation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+<span class="kn">from</span> <span class="nn">model_builder</span> <span class="kn">import</span> <span class="n">model_builder</span><span class="p">,</span> <span class="n">relabel</span><span class="p">,</span> <span class="n">class_merger</span><span class="p">,</span> <span class="n">balancer</span>
+
+<span class="kn">import</span> <span class="nn">model_builder</span>
+<span class="kn">import</span> <span class="nn">tools_keras</span>
+
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">specs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;tensor&#39;</span><span class="p">:</span> <span class="p">(</span>
+        <span class="s1">&#39;../urbangrammar_samba/&#39;</span>
+        <span class="s1">&#39;spatial_signatures/chips/sample.npz&#39;</span>
+    <span class="p">),</span>
+    <span class="s1">&#39;folder&#39;</span><span class="p">:</span> <span class="s2">&quot;../urbangrammar_samba/spatial_signatures/ai/nw/&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">specs</span><span class="p">[</span><span class="s2">&quot;tensor&quot;</span><span class="p">],</span> <span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chips</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;chips&quot;</span><span class="p">]</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;labels&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Shuffle data to ensure full randomness before splitting to test, validation and secret.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">shuffled_idx</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">chips</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">shuffled_idx</span><span class="p">)</span>
+
+<span class="n">chips</span> <span class="o">=</span> <span class="n">chips</span><span class="p">[</span><span class="n">shuffled_idx</span><span class="p">]</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">shuffled_idx</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Merge groups</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">group_mapping</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s1">&#39;9_0&#39;</span><span class="p">,</span> <span class="s1">&#39;9_1&#39;</span><span class="p">,</span> <span class="s1">&#39;9_2&#39;</span><span class="p">,</span> <span class="s1">&#39;9_4&#39;</span><span class="p">,</span> <span class="s1">&#39;9_5&#39;</span><span class="p">,</span> <span class="s1">&#39;2_0&#39;</span><span class="p">,</span> <span class="s1">&#39;2_1&#39;</span><span class="p">,</span> <span class="s1">&#39;2_2&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;1_0&#39;</span><span class="p">,</span> <span class="s1">&#39;3_0&#39;</span><span class="p">,</span> <span class="s1">&#39;5_0&#39;</span><span class="p">,</span> <span class="s1">&#39;6_0&#39;</span><span class="p">,</span> <span class="s1">&#39;8_0&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;0_0&#39;</span><span class="p">,</span> <span class="s1">&#39;4_0&#39;</span><span class="p">,</span> <span class="s1">&#39;7_0&#39;</span><span class="p">]</span>
+<span class="p">]</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">class_merger</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">group_mapping</span><span class="p">)</span>
+
+<span class="c1"># If you don&#39;t want to merge groups, use `relabel` to ensure your labels are in the proper format</span>
+<span class="c1"># labels = relabel(labels)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Drop chips from excessive classes</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="n">balancer</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">max_ratio</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Total number of selected chips: 18841 out of 65042
+Counts:
+ {0: 907, 1: 8864, 2: 9070}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+<span class="n">chips</span> <span class="o">=</span> <span class="n">chips</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chips</span> <span class="o">=</span> <span class="n">chips</span> <span class="o">/</span> <span class="p">(</span><span class="n">chips</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">/</span> <span class="mf">255.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">centres</span> <span class="o">=</span> <span class="n">labels</span> <span class="o">==</span> <span class="mi">0</span>
+<span class="n">labels_centres</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">centres</span><span class="o">.</span><span class="n">flatten</span><span class="p">()]</span>
+<span class="n">chips_centres</span> <span class="o">=</span> <span class="n">chips</span><span class="p">[</span><span class="n">centres</span><span class="o">.</span><span class="n">flatten</span><span class="p">()]</span>
+<span class="n">labels_other</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="o">~</span><span class="n">centres</span><span class="o">.</span><span class="n">flatten</span><span class="p">()]</span>
+<span class="n">chips_other</span> <span class="o">=</span> <span class="n">chips</span><span class="p">[</span><span class="o">~</span><span class="n">centres</span><span class="o">.</span><span class="n">flatten</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">centres</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="o">.</span><span class="n">from_tensor_slices</span><span class="p">((</span><span class="n">chips_centres</span><span class="p">,</span> <span class="n">labels_centres</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="stderr docutils container">
+<pre class="stderr literal-block">2021-12-16 15:23:50.622056: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1510] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 120 MB memory:  -&gt; device: 0, name: Quadro RTX 4000, pci bus id: 0000:21:00.0, compute capability: 7.5
+</pre>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">centres</span> <span class="o">=</span> <span class="n">centres</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">image</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">random_flip_left_right</span><span class="p">(</span><span class="n">image</span><span class="p">),</span> <span class="n">label</span><span class="p">))</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">([</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">centres</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>1814
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">chain</span>
+
+<span class="n">merged_generator</span> <span class="o">=</span> <span class="n">chain</span><span class="p">(</span><span class="n">train_generator_cats</span><span class="p">,</span> <span class="n">train_generator_others</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./ai_experiments/ai_experiments"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Dani Arribas-Bel, Martin Fleischmann<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>

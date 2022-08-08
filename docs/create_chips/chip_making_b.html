@@ -1,37 +1,24 @@
 
+
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chip making - Pt. B &#8212; Urban Grammar AI | WP3 - Signature AI</title>
-    
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
-
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
-    
-      
-
-    
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
-
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -39,9 +26,13 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@latest/lib/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
@@ -52,14 +43,14 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Chip making for a subset of GB" href="chip_making_subset.html" />
     <link rel="prev" title="Chip making" href="chip_making_a.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
-
     
 
     <div class="container-xl">
@@ -68,38 +59,47 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
-      
-      <img src="../_static/logo.svg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Urban Grammar AI | WP3 - Signature AI</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.svg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Urban Grammar AI | WP3 - Signature AI</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <p class="caption">
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
  <span class="caption-text">
   Project
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference external" href="http://urbangrammarai.xyz">
    Project homepage
+   <i class="fas fa-external-link-alt">
+   </i>
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference external" href="http://urbangrammarai.xyz/data_processing">
    WP1 - Data processing
+   <i class="fas fa-external-link-alt">
+   </i>
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference external" href="http://urbangrammarai.xyz/spatial_signatures">
    WP2 - Spatial Signatures
+   <i class="fas fa-external-link-alt">
+   </i>
   </a>
  </li>
 </ul>
@@ -108,7 +108,7 @@
   Create chips
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="chip_making_a.html">
    Chip making
@@ -125,13 +125,13 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="chip_making_gb.html">
-   Create chips for the majority of GB
+  <a class="reference internal" href="chip_making_subset.html#spill-chips-to-disk-for-out-of-core-computation">
+   Spill chips to disk for out-of-core computation
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="chips_glasgow.html">
-   Create chips for a continous stretch of land
+  <a class="reference internal" href="chip_making_gb.html">
+   Create chips for the majority of GB
   </a>
  </li>
  <li class="toctree-l1">
@@ -150,7 +150,7 @@
   AI experiments
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../ai_experiments/transfer_learning_pipe.html">
    Model testing
@@ -176,10 +176,21 @@
    Predict signature types from a numpy array of chips
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ai_experiments/sp_model_chip_probabilities.html">
+   Modelling of chip probabilities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ai_experiments/explore_model_performance.html">
+   Explore model performances
+  </a>
+ </li>
 </ul>
 
-    </div>
-</nav> <!-- To handle the deprecated key -->
+</nav>
+
+ <!-- To handle the deprecated key -->
 
 </div>
 
@@ -190,25 +201,25 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
+    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -220,9 +231,9 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
+    
 </div>
-
-            <!-- Source interaction buttons -->
+        <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -237,14 +248,13 @@
     </div>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
+        <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -263,16 +273,15 @@
     </div>
 </div>
 
-        </div>
+    </div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#from-points-to-good-chips">
    From points to (good) chips
@@ -305,8 +314,7 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
+        </nav>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -321,7 +329,7 @@
 <h2>From points to (good) chips<a class="headerlink" href="#from-points-to-good-chips" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
 <span class="kn">import</span> <span class="nn">geopandas</span>
 <span class="kn">import</span> <span class="nn">dask.dataframe</span> <span class="k">as</span> <span class="nn">ddf</span>
 <span class="kn">import</span> <span class="nn">dask</span>
@@ -338,14 +346,14 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>v0.1.0a4+24.g393dcb5
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>v0.1.0a4+24.g393dcb5
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ram_per_worker</span> <span class="o">=</span> <span class="mi">5</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ram_per_worker</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="k">with</span> <span class="n">dask</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
     <span class="p">{</span><span class="s2">&quot;distributed.worker.resources.RAM&quot;</span><span class="p">:</span> <span class="n">ram_per_worker</span><span class="p">}</span>
 <span class="p">):</span>
@@ -380,7 +388,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -392,58 +400,58 @@
 <p>Below we back-of-the-envelope’y test how much RAM each task requires, to then pass it on to Dask as an annotation on the resources required:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> memory_profiler
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">load_ext</span> <span class="n">memory_profiler</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">memit</span>
-xys = pandas.read_parquet(out_f_xys+&#39;/chunk_0.pq&#39;)
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">memit</span>
+<span class="n">xys</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="n">out_f_xys</span><span class="o">+</span><span class="s1">&#39;/chunk_0.pq&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chip_len</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">((</span><span class="n">xys</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="o">-</span> <span class="n">xys</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">shift</span><span class="p">())</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">])</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">chip_len</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">((</span><span class="n">xys</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="o">-</span> <span class="n">xys</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">shift</span><span class="p">())</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">memit</span>
-xy_pts = geopandas.points_from_xy(xys[&#39;X&#39;], xys[&#39;Y&#39;])
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">memit</span>
+<span class="n">xy_pts</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">points_from_xy</span><span class="p">(</span><span class="n">xys</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">],</span> <span class="n">xys</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">memit</span>
-buf = xy_pts.buffer(chip_len/2, cap_style=3)
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">memit</span>
+<span class="n">buf</span> <span class="o">=</span> <span class="n">xy_pts</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="n">chip_len</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">cap_style</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">buf</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">({</span><span class="s1">&#39;geometry&#39;</span><span class="p">:</span> <span class="n">buf</span><span class="p">},</span> <span class="n">crs</span><span class="o">=</span><span class="s1">&#39;EPSG:27700&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">buf</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">({</span><span class="s1">&#39;geometry&#39;</span><span class="p">:</span> <span class="n">buf</span><span class="p">},</span> <span class="n">crs</span><span class="o">=</span><span class="s1">&#39;EPSG:27700&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">memit</span>
-jd = geopandas.sjoin(
-    buf,
-    sigs[[&#39;signature_type&#39;, &#39;geometry&#39;]], 
-    how=&#39;inner&#39;, 
-    op=&#39;within&#39;
-)
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">memit</span>
+<span class="n">jd</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span>
+    <span class="n">buf</span><span class="p">,</span>
+    <span class="n">sigs</span><span class="p">[[</span><span class="s1">&#39;signature_type&#39;</span><span class="p">,</span> <span class="s1">&#39;geometry&#39;</span><span class="p">]],</span> 
+    <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">,</span> 
+    <span class="n">op</span><span class="o">=</span><span class="s1">&#39;within&#39;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -455,7 +463,7 @@ jd = geopandas.sjoin(
 <p>And can start the computation graph:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xys</span> <span class="o">=</span> <span class="n">ddf</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="n">out_f_xys</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xys</span> <span class="o">=</span> <span class="n">ddf</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="n">out_f_xys</span><span class="p">)</span>
 <span class="n">chip_len</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">((</span><span class="n">xys</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> <span class="o">-</span> <span class="n">xys</span><span class="o">.</span><span class="n">head</span><span class="p">()</span><span class="o">.</span><span class="n">shift</span><span class="p">())</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">])</span>
 <span class="k">with</span> <span class="n">dask</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">resources</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;RAM&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}):</span>
     <span class="n">xy_pts</span> <span class="o">=</span> <span class="n">dask_geopandas</span><span class="o">.</span><span class="n">points_from_xy</span><span class="p">(</span>
@@ -468,7 +476,7 @@ jd = geopandas.sjoin(
 <p>These can be turned into pixel polygons:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">dask</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">resources</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;RAM&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">dask</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">resources</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;RAM&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}):</span>
     <span class="n">grid</span> <span class="o">=</span> <span class="n">xy_pts</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="n">chip_len</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">cap_style</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -477,7 +485,7 @@ jd = geopandas.sjoin(
 <p>A bit of wiring in before the spatial join:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 <span class="n">grid</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="s1">&#39;geometry&#39;</span><span class="p">]</span>
 <span class="n">grid</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">set_crs</span><span class="p">(</span><span class="s1">&#39;EPSG:27700&#39;</span><span class="p">)</span>
 <span class="n">grid</span> <span class="o">=</span> <span class="n">dask_geopandas</span><span class="o">.</span><span class="n">from_dask_dataframe</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
@@ -488,23 +496,24 @@ jd = geopandas.sjoin(
 <p>To perform the spatial join, we need to load the polygons of the signatures:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sigs</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sigs</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span>
     <span class="s1">&#39;/home/jovyan/data/spatial_signatures/signatures_combined_levels_simplified.gpkg&#39;</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.8/site-packages/geopandas/geodataframe.py:577: RuntimeWarning: Sequential read of iterator was interrupted. Resetting iterator. This can negatively impact the performance.
+<div class="stderr docutils container">
+<pre class="stderr literal-block">/opt/conda/lib/python3.8/site-packages/geopandas/geodataframe.py:577: RuntimeWarning: Sequential read of iterator was interrupted. Resetting iterator. This can negatively impact the performance.
   for feature in features_lst:
-</pre></div>
+</pre>
 </div>
 </div>
 </div>
 <p>With the full <code class="docutils literal notranslate"><span class="pre">grid</span></code> at hand, we can now express the spatial join:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">dask</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">resources</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;RAM&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">dask</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">resources</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;RAM&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}):</span>
     <span class="n">joined</span> <span class="o">=</span> <span class="n">dask_geopandas</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span>
         <span class="n">grid</span><span class="p">,</span> 
         <span class="n">sigs</span><span class="p">[[</span><span class="s1">&#39;signature_type&#39;</span><span class="p">,</span> <span class="s1">&#39;geometry&#39;</span><span class="p">]],</span> 
@@ -521,14 +530,14 @@ jd = geopandas.sjoin(
 <p>And the computation happens out-of-core as we write it to disk:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%time
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>%%time
 ! rm -rf $joined_dir
 joined.to_parquet(joined_dir)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 8.73 s, sys: 1.37 s, total: 10.1 s
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>CPU times: user 8.73 s, sys: 1.37 s, total: 10.1 s
 Wall time: 1min 32s
 </pre></div>
 </div>
@@ -536,9 +545,9 @@ Wall time: 1min 32s
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span> rm -rf /home/jovyan/sigs
-<span class="n">tst</span> <span class="o">=</span> <span class="n">dask_geopandas</span><span class="o">.</span><span class="n">from_geopandas</span><span class="p">(</span><span class="n">sigs</span><span class="p">,</span> <span class="n">npartitions</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
-<span class="n">tst</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="s1">&#39;/home/jovyan/sigs&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>! rm -rf /home/jovyan/sigs
+tst = dask_geopandas.from_geopandas(sigs, npartitions=8)
+tst.to_parquet(&#39;/home/jovyan/sigs&#39;)
 </pre></div>
 </div>
 </div>
@@ -587,35 +596,15 @@ Wall time: 1min 32s
 
               </div>
               
-        
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="chip_making_a.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Chip making</p>
-            </div>
-        </a>
-    </div>
-     <div id="next">
-        <a class="right-next" href="chip_making_subset.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Chip making for a subset of GB</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
-</div>
-        
         </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="chip_making_a.html" title="previous page">Chip making</a>
+    <a class='right-next' id="next-link" href="chip_making_subset.html" title="next page">Chip making for a subset of GB</a>
+
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -632,9 +621,8 @@ Wall time: 1min 32s
 
       </div>
     </div>
-  
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-  
+    <script src="../_static/js/index.js"></script>
+    
   </body>
 </html>

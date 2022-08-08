@@ -1,0 +1,676 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>verify results &#8212; Urban Grammar AI | WP3 - Signature AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.svg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Urban Grammar AI | WP3 - Signature AI</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
+ <span class="caption-text">
+  Project
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference external" href="http://urbangrammarai.xyz">
+   Project homepage
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="http://urbangrammarai.xyz/data_processing">
+   WP1 - Data processing
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="http://urbangrammarai.xyz/spatial_signatures">
+   WP2 - Spatial Signatures
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Create chips
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../create_chips/chip_making_a.html">
+   Chip making
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../create_chips/chip_making_b.html">
+   Chip making - Pt. B
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../create_chips/chip_making_subset.html">
+   Chip making for a subset of GB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../create_chips/chip_making_subset.html#spill-chips-to-disk-for-out-of-core-computation">
+   Spill chips to disk for out-of-core computation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../create_chips/chip_making_gb.html">
+   Create chips for the majority of GB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../create_chips/chip_making_temporal.html">
+   Create chips from a temporal set of Sentinel 2 snapshots
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../create_chips/check_temporal_tiles.html">
+   Plot temporal tiles
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  AI experiments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="transfer_learning_pipe.html">
+   Model testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="transfer_learning_evaluation.html">
+   Evaluation of models trained on NW
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="tl_from_disk.html">
+   AI pipeline from disk
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="chip_size_eval.html">
+   Evaluation of the effect of chip size and origin
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="predict_from_numpy.html">
+   Predict signature types from a numpy array of chips
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sp_model_chip_probabilities.html">
+   Modelling of chip probabilities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="explore_model_performance.html">
+   Explore model performances
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/ai_experiments/_debug_save_load.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/urbangrammarai/signature_ai"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/urbangrammarai/signature_ai/master?urlpath=tree/ai_experiments/_debug_save_load.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+<span class="kn">from</span> <span class="nn">model_builder</span> <span class="kn">import</span> <span class="n">model_builder</span><span class="p">,</span> <span class="n">relabel</span><span class="p">,</span> <span class="n">class_merger</span><span class="p">,</span> <span class="n">balancer</span>
+<span class="kn">import</span> <span class="nn">tools_keras</span>
+<span class="kn">from</span> <span class="nn">tensorflow</span> <span class="kn">import</span> <span class="n">keras</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">layers</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.applications</span> <span class="kn">import</span> <span class="n">resnet_v2</span><span class="p">,</span> <span class="n">vgg19</span><span class="p">,</span> <span class="n">efficientnet</span>
+
+<span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">specs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;chips&#39;</span><span class="p">:</span> <span class="s2">&quot;../../chips_gb/32_shuffled/&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;chips_combined&#39;</span><span class="p">:</span> <span class="s2">&quot;../../chips_gb/32_shuffled_combined_12_named/&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;chips_balanced&#39;</span><span class="p">:</span> <span class="s2">&quot;../../chips_gb/32_shuffled_sample_12_named/&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;folder&#39;</span><span class="p">:</span> <span class="s2">&quot;../../urbangrammar_samba/spatial_signatures/ai/gb_32_sample/&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">group_mapping</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s1">&#39;9_0&#39;</span><span class="p">,</span> <span class="s1">&#39;9_1&#39;</span><span class="p">,</span> <span class="s1">&#39;9_2&#39;</span><span class="p">,</span> <span class="s1">&#39;9_4&#39;</span><span class="p">,</span> <span class="s1">&#39;9_5&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;2_0&#39;</span><span class="p">],</span> 
+    <span class="p">[</span><span class="s1">&#39;2_1&#39;</span><span class="p">],</span> 
+    <span class="p">[</span><span class="s1">&#39;2_2&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;1_0&#39;</span><span class="p">],</span> 
+    <span class="p">[</span><span class="s1">&#39;3_0&#39;</span><span class="p">],</span> 
+    <span class="p">[</span><span class="s1">&#39;5_0&#39;</span><span class="p">],</span> 
+    <span class="p">[</span><span class="s1">&#39;6_0&#39;</span><span class="p">],</span> 
+    <span class="p">[</span><span class="s1">&#39;8_0&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;0_0&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;4_0&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;7_0&#39;</span><span class="p">]</span>
+<span class="p">]</span>
+
+<span class="n">group_naming</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;Urbanity&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;Dense residential neighbourhoods&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Connected residential neighbourhoods&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Dense urban neighbourhoods&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Accessible suburbia&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Open sprawl&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Warehouse_Park land&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Gridded residential quarters&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Disconnected suburbia&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Countryside agriculture&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;Wild countryside&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;Urban buffer&quot;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># for subset in [&quot;train&quot;, &quot;validation&quot;, &quot;secret&quot;]:</span>
+<span class="c1">#     total = 3500 if subset == &quot;train&quot; else 500</span>
+<span class="c1">#     os.makedirs(specs[&#39;chips_balanced&#39;] + subset, exist_ok=True)</span>
+    
+<span class="c1">#     for folder in glob.glob(specs[&quot;chips_combined&quot;] + f&quot;{subset}/*&quot;):</span>
+<span class="c1">#         os.makedirs(specs[&#39;chips_balanced&#39;] + subset + &quot;/&quot; + Path(folder).name, exist_ok=True)</span>
+<span class="c1">#         files = glob.glob(folder + &quot;/*&quot;)</span>
+<span class="c1">#         random.shuffle(files)</span>
+<span class="c1">#         for f in files[:total]:</span>
+<span class="c1">#             f = Path(f)</span>
+<span class="c1">#             shutil.copy(f, specs[&#39;chips_balanced&#39;] + subset + &quot;/&quot; + Path(folder).name + &quot;/&quot; + f.name)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">model_specs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;meta_class_map&#39;</span><span class="p">:</span> <span class="n">group_mapping</span><span class="p">,</span>
+    <span class="s1">&#39;meta_class_names&#39;</span><span class="p">:</span> <span class="n">group_naming</span><span class="p">,</span>
+    <span class="s1">&#39;meta_chip_size&#39;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">model_builder</span><span class="p">(</span>
+    <span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;efficientnet&quot;</span><span class="p">,</span> 
+    <span class="n">bridge</span><span class="o">=</span><span class="s2">&quot;pooling&quot;</span><span class="p">,</span> 
+    <span class="n">top_layer_neurons</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
+    <span class="n">n_labels</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
+    <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+    <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;accuracy&quot;</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">h</span> <span class="o">=</span> <span class="n">tools_keras</span><span class="o">.</span><span class="n">fit_phase</span><span class="p">(</span>
+        <span class="n">model</span><span class="p">,</span>
+        <span class="n">specs</span><span class="p">[</span><span class="s1">&#39;chips_balanced&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;train&#39;</span><span class="p">,</span>
+        <span class="n">specs</span><span class="p">[</span><span class="s1">&#39;chips_balanced&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;validation&#39;</span><span class="p">,</span>
+        <span class="n">specs</span><span class="p">[</span><span class="s1">&#39;chips_balanced&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;secret&#39;</span><span class="p">,</span>
+        <span class="n">log_folder</span><span class="o">=</span><span class="n">specs</span><span class="p">[</span><span class="s2">&quot;folder&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;logs&quot;</span><span class="p">,</span>
+        <span class="n">pred_folder</span><span class="o">=</span><span class="n">specs</span><span class="p">[</span><span class="s2">&quot;folder&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;pred&quot;</span><span class="p">,</span>
+        <span class="n">model_folder</span><span class="o">=</span><span class="n">specs</span><span class="p">[</span><span class="s2">&quot;folder&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;model&quot;</span><span class="p">,</span>
+        <span class="n">json_folder</span><span class="o">=</span><span class="n">specs</span><span class="p">[</span><span class="s2">&quot;folder&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;json&quot;</span><span class="p">,</span>
+        <span class="n">specs</span><span class="o">=</span><span class="n">model_specs</span><span class="p">,</span>
+        <span class="n">epochs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="n">patience</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+        <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+        <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Model: &quot;efficientnet_pooling_256_12&quot;
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_10 (InputLayer)       [(None, 224, 224, 3)]     0         
+                                                                 
+ resizing_4 (Resizing)       (None, 224, 224, 3)       0         
+                                                                 
+ efficientnetb4 (Functional)  (None, 7, 7, 1792)       17673823  
+                                                                 
+ global_average_pooling2d_4   (None, 1792)             0         
+ (GlobalAveragePooling2D)                                        
+                                                                 
+ dense_8 (Dense)             (None, 256)               459008    
+                                                                 
+ dense_9 (Dense)             (None, 12)                3084      
+                                                                 
+=================================================================
+Total params: 18,135,915
+Trainable params: 462,092
+Non-trainable params: 17,673,823
+_________________________________________________________________
+None
+creating ImageDataGenerators...
+Found 42000 images belonging to 12 classes.
+Found 6000 images belonging to 12 classes.
+training...
+Epoch 1/2
+1313/1313 [==============================] - 177s 131ms/step - loss: 1.7332 - accuracy: 0.3695 - val_loss: 1.7432 - val_accuracy: 0.3672
+Epoch 2/2
+1313/1313 [==============================] - 172s 131ms/step - loss: 1.5392 - accuracy: 0.4389 - val_loss: 1.6879 - val_accuracy: 0.3893
+time elapsed:     350.6s
+creating ImageDataGenerators
+Found 42000 images belonging to 12 classes.
+Found 6000 images belonging to 12 classes.
+Found 6000 images belonging to 12 classes.
+assessing performance of train dataset
+prediction of train saved
+perf_model_accuracy for train: 0.4744523763656616
+assessing performance of val dataset
+prediction of val saved
+perf_model_accuracy for val: 0.3893333375453949
+assessing performance of secret dataset
+prediction of secret saved
+perf_model_accuracy for secret: 0.3619999885559082
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="verify-results">
+<h1>verify results<a class="headerlink" href="#verify-results" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">datagen</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">ImageDataGenerator</span><span class="p">()</span>
+<span class="n">generator</span> <span class="o">=</span> <span class="n">datagen</span><span class="o">.</span><span class="n">flow_from_directory</span><span class="p">(</span>
+    <span class="s2">&quot;../../chips_gb/32_shuffled_sample_12_named/train/&quot;</span><span class="p">,</span>
+    <span class="n">target_size</span><span class="o">=</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">),</span>
+    <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">class_mode</span><span class="o">=</span><span class="s1">&#39;sparse&#39;</span><span class="p">,</span>
+    <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Found 42000 images belonging to 12 classes.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">accuracy</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">Accuracy</span><span class="p">()</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">update_state</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">.</span><span class="n">result</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oy_pred_probs</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">generator</span><span class="p">)</span>
+<span class="n">oy_pred</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">oy_pred_probs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">generator</span><span class="o">.</span><span class="n">labels</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">oy_pred</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.47445238
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">generator</span><span class="o">.</span><span class="n">class_indices</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;accessible_suburbia&#39;: 0,
+ &#39;connected_residential_neighbourhoods&#39;: 1,
+ &#39;countryside_agriculture&#39;: 2,
+ &#39;dense_residential_neighbourhoods&#39;: 3,
+ &#39;dense_urban_neighbourhoods&#39;: 4,
+ &#39;disconnected_suburbia&#39;: 5,
+ &#39;gridded_residential_quarters&#39;: 6,
+ &#39;open_sprawl&#39;: 7,
+ &#39;urban_buffer&#39;: 8,
+ &#39;urbanity&#39;: 9,
+ &#39;warehouse_park_land&#39;: 10,
+ &#39;wild_countryside&#39;: 11}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;model_folder&quot;</span><span class="p">,</span> <span class="n">save_format</span><span class="o">=</span><span class="s2">&quot;tf&quot;</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;model.h5&quot;</span><span class="p">,</span> <span class="n">save_format</span><span class="o">=</span><span class="s2">&quot;h5&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="stderr docutils container">
+<pre class="stderr literal-block">2022-03-24 11:02:51.694071: W tensorflow/python/util/util.cc:368] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
+</pre>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>INFO:tensorflow:Assets written to: model_folder/assets
+</pre></div>
+</div>
+<div class="stderr docutils container">
+<pre class="stderr literal-block">/usr/local/lib/python3.8/dist-packages/keras/engine/functional.py:1410: CustomMaskWarning: Custom mask layers require a config and must override get_config. When loading, the custom mask layer must be passed to the custom_objects argument.
+  layer_config = serialize_layer_fn(layer)
+/usr/local/lib/python3.8/dist-packages/keras/saving/saved_model/layer_serialization.py:112: CustomMaskWarning: Custom mask layers require a config and must override get_config. When loading, the custom mask layer must be passed to the custom_objects argument.
+  return generic_utils.serialize_keras_object(obj)
+</pre>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">model_folder</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;model_folder&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred_probs</span> <span class="o">=</span> <span class="n">model_folder</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">generator</span><span class="p">)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">y_pred_probs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.47445238
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">model_h5</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;model.h5&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred_probs</span> <span class="o">=</span> <span class="n">model_h5</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">generator</span><span class="p">)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">y_pred_probs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.27319047
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./ai_experiments"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Dani Arribas-Bel, Martin Fleischmann<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>

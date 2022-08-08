@@ -1,0 +1,1276 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluation of the effect of chip size and origin &#8212; Urban Grammar AI | WP3 - Signature AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/logo.svg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Urban Grammar AI | WP3 - Signature AI</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
+ <span class="caption-text">
+  Project
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference external" href="http://urbangrammarai.xyz">
+   Project homepage
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="http://urbangrammarai.xyz/data_processing">
+   WP1 - Data processing
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="http://urbangrammarai.xyz/spatial_signatures">
+   WP2 - Spatial Signatures
+   <i class="fas fa-external-link-alt">
+   </i>
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Create chips
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../create_chips/chip_making_a.html">
+   Chip making
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../create_chips/chip_making_b.html">
+   Chip making - Pt. B
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../create_chips/chip_making_subset.html">
+   Chip making for a subset of GB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../create_chips/chip_making_subset.html#spill-chips-to-disk-for-out-of-core-computation">
+   Spill chips to disk for out-of-core computation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../create_chips/chip_making_gb.html">
+   Create chips for the majority of GB
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../create_chips/chip_making_temporal.html">
+   Create chips from a temporal set of Sentinel 2 snapshots
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../create_chips/check_temporal_tiles.html">
+   Plot temporal tiles
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  AI experiments
+ </span>
+</p>
+<ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../transfer_learning_pipe.html">
+   Model testing
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../transfer_learning_evaluation.html">
+   Evaluation of models trained on NW
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../tl_from_disk.html">
+   AI pipeline from disk
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chip_size_eval.html">
+   Evaluation of the effect of chip size and origin
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../predict_from_numpy.html">
+   Predict signature types from a numpy array of chips
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../sp_model_chip_probabilities.html">
+   Modelling of chip probabilities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../explore_model_performance.html">
+   Explore model performances
+  </a>
+ </li>
+</ul>
+
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/ai_experiments/ai_experiments/chip_size_eval.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/urbangrammarai/signature_ai"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/urbangrammarai/signature_ai/master?urlpath=tree/ai_experiments/ai_experiments/chip_size_eval.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#classes">
+   12 classes
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#temporal-data">
+   Temporal data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#balanced-data">
+   Balanced data
+  </a>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="evaluation-of-the-effect-of-chip-size-and-origin">
+<h1>Evaluation of the effect of chip size and origin<a class="headerlink" href="#evaluation-of-the-effect-of-chip-size-and-origin" title="Permalink to this headline">¶</a></h1>
+<p>Compare performance of various models in relation to a chip size and origin (mosaic vs temporal)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span>
+<span class="kn">import</span> <span class="nn">urbangrammar_graphics</span> <span class="k">as</span> <span class="nn">ugg</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;../../urbangrammar_samba/spatial_signatures/ai/gb_*_shuffled/json/&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;*&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">64</span><span class="p">:</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">i</span><span class="p">[</span><span class="mi">47</span><span class="p">:</span><span class="mi">49</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">results</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;global&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;meta_class_names&quot;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_product</span><span class="p">([</span><span class="n">names</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="s2">&quot;val&quot;</span><span class="p">,</span> <span class="s2">&quot;secret&quot;</span><span class="p">]]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    
+    <span class="n">accuracy</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;model_name&quot;</span><span class="p">]</span><span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">r</span><span class="p">[</span><span class="mi">47</span><span class="p">:</span><span class="mi">49</span><span class="p">],</span> <span class="s2">&quot;train&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_model_accuracy_train&quot;</span><span class="p">]]</span> <span class="o">+</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_within_class_accuracy_train&quot;</span><span class="p">]</span>
+    <span class="n">accuracy</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;model_name&quot;</span><span class="p">]</span><span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">r</span><span class="p">[</span><span class="mi">47</span><span class="p">:</span><span class="mi">49</span><span class="p">],</span> <span class="s2">&quot;val&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_model_accuracy_val&quot;</span><span class="p">]]</span> <span class="o">+</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_within_class_accuracy_val&quot;</span><span class="p">]</span>
+    <span class="n">accuracy</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;model_name&quot;</span><span class="p">]</span><span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">r</span><span class="p">[</span><span class="mi">47</span><span class="p">:</span><span class="mi">49</span><span class="p">],</span> <span class="s2">&quot;secret&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_model_accuracy_secret&quot;</span><span class="p">]]</span> <span class="o">+</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_within_class_accuracy_secret&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>global</th>
+      <th>centres</th>
+      <th>periphery</th>
+      <th>Countryside agriculture</th>
+      <th>Wild countryside</th>
+      <th>Urban buffer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="3" valign="top">efficientnet_pooling_256_5_16</th>
+      <th>train</th>
+      <td>0.540909</td>
+      <td>0.716571</td>
+      <td>0.469743</td>
+      <td>0.500086</td>
+      <td>0.732914</td>
+      <td>0.285229</td>
+    </tr>
+    <tr>
+      <th>val</th>
+      <td>0.532293</td>
+      <td>0.7104</td>
+      <td>0.4596</td>
+      <td>0.490533</td>
+      <td>0.728267</td>
+      <td>0.272667</td>
+    </tr>
+    <tr>
+      <th>secret</th>
+      <td>0.537547</td>
+      <td>0.733733</td>
+      <td>0.453333</td>
+      <td>0.4912</td>
+      <td>0.730533</td>
+      <td>0.278933</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">efficientnet_pooling_256_5_64</th>
+      <th>train</th>
+      <td>0.825237</td>
+      <td>0.999681</td>
+      <td>0.978119</td>
+      <td>0.608968</td>
+      <td>0.857752</td>
+      <td>0.681666</td>
+    </tr>
+    <tr>
+      <th>val</th>
+      <td>0.599028</td>
+      <td>0.876449</td>
+      <td>0.346168</td>
+      <td>0.480374</td>
+      <td>0.777009</td>
+      <td>0.51514</td>
+    </tr>
+    <tr>
+      <th>secret</th>
+      <td>0.537702</td>
+      <td>0.698892</td>
+      <td>0.311963</td>
+      <td>0.46972</td>
+      <td>0.779252</td>
+      <td>0.511028</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">efficientnet_pooling_256_5_32</th>
+      <th>train</th>
+      <td>0.631566</td>
+      <td>0.912743</td>
+      <td>0.5622</td>
+      <td>0.5084</td>
+      <td>0.826914</td>
+      <td>0.347571</td>
+    </tr>
+    <tr>
+      <th>val</th>
+      <td>0.561333</td>
+      <td>0.754533</td>
+      <td>0.4884</td>
+      <td>0.469467</td>
+      <td>0.796667</td>
+      <td>0.2976</td>
+    </tr>
+    <tr>
+      <th>secret</th>
+      <td>0.561562</td>
+      <td>0.747511</td>
+      <td>0.494267</td>
+      <td>0.474133</td>
+      <td>0.800533</td>
+      <td>0.312933</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s1">&#39;val&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;validation&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;validation&#39;}&gt;
+</pre></div>
+</div>
+<img alt="../../_images/chip_size_eval_9_1.png" src="../../_images/chip_size_eval_9_1.png" />
+</div>
+</div>
+<p>Notes:</p>
+<ol class="simple">
+<li><p>overall accuracy is unimpressive</p></li>
+<li><p>in princple, larger chips have a better performance but there’s a big but - if you don’t do massive aggregation, you don’t have enough data for urban signature types</p></li>
+<li><p>we’re not horrible in predicting centres and wild countryside</p></li>
+<li><p>urban buffer is a challenging class due to the amout of greenery</p></li>
+<li><p>periphery and countryside are somewhere in between</p></li>
+<li><p>we’re good in predicting urban vs non-urban (two blocks on the confusion matrices)</p></li>
+<li><p>we’re not putting urban buffer to countryside classes (conceptually) but the neural net is (empirically)</p></li>
+<li><p>32 is empircally a better way of approximating signatures than 64 - when there is a space to fit 64x64 chip, it usually covers some adjacent green space because other signature types are too small to fit enough chips</p>
+<ul class="simple">
+<li><p>this could be mitigating by preferring chips with the larger number of intersections with underlying ET cells</p>
+<ul>
+<li><p>count the number of intersections, sort and get N chips with the largest number. That way you limit the number of chips from large ET cells covering greenery.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ul class="simple">
+<li><p>ordered confusion matrix has a pattern similar to co-occurency matrix of singature types (empirical paper)</p></li>
+</ul>
+<p>To-do:</p>
+<ul class="simple">
+<li><p>prediction on 12 classes (combine only urbanity) and analyse the confusion matrix to know which to combine</p></li>
+<li><p>we can try two parallel models, one with a single chip and another one with 3x3 chips around (or a few sampled) and merge before the end with a Dense to combine them [spatial lag]</p></li>
+</ul>
+<p>Next steps:</p>
+<ol class="simple">
+<li><p>prediction on 12 classes using 32x32 chips</p>
+<ul class="simple">
+<li><p>deirive aggregation</p></li>
+</ul>
+</li>
+<li><p>pipeline for John’s data to get way more chips</p></li>
+<li><p>replicate 32x32 training with the new chips</p>
+<ul class="simple">
+<li><p>both 12 classes and aggregation</p></li>
+</ul>
+</li>
+<li><p>consider elimination of chips from large green ET cells (see note 8)</p></li>
+<li><p>consider parallel model</p></li>
+</ol>
+<p>Timeline:</p>
+<ul class="simple">
+<li><p>Revisions by end of Feb</p></li>
+<li><p>Empirical paper submitted by end of Apr</p></li>
+<li><p>AI experiments by end of Apr</p></li>
+<li><p>AI paper submitted by end of June</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">results</span><span class="p">)):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;perf_confusion_val&#39;</span><span class="p">])</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">a</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)):</span>
+        <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">j</span><span class="p">]),</span>
+                       <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;meta_chip_size&#39;</span><span class="p">])</span>
+<span class="c1">#     add labels</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[:],</span> <span class="n">shrink</span><span class="o">=.</span><span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f5042555a30&gt;
+</pre></div>
+</div>
+<img alt="../../_images/chip_size_eval_11_1.png" src="../../_images/chip_size_eval_11_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">results</span><span class="p">)):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;perf_confusion_val&#39;</span><span class="p">])</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">a</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)):</span>
+        <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">j</span><span class="p">]),</span>
+                       <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;meta_chip_size&#39;</span><span class="p">])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[:],</span> <span class="n">shrink</span><span class="o">=.</span><span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f2dd8fd27f0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/chip_size_eval_12_1.png" src="../../_images/chip_size_eval_12_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">results</span><span class="p">)):</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;perf_confusion_train&#39;</span><span class="p">])</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">a</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+    <span class="n">im</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)):</span>
+        <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                       <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;meta_chip_size&#39;</span><span class="p">])</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axs</span><span class="p">[:],</span> <span class="n">shrink</span><span class="o">=.</span><span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x7f2dd8d67e50&gt;
+</pre></div>
+</div>
+<img alt="../../_images/chip_size_eval_13_1.png" src="../../_images/chip_size_eval_13_1.png" />
+</div>
+</div>
+<div class="section" id="classes">
+<h2>12 classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">results</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;../../urbangrammar_samba/spatial_signatures/ai/gb_16_shuffled/json/efficientnet_pooling_256_5.json&#39;,
+ &#39;../../urbangrammar_samba/spatial_signatures/ai/gb_32_shuffled/json/efficientnet_pooling_256_12.json&#39;,
+ &#39;../../urbangrammar_samba/spatial_signatures/ai/gb_32_shuffled/json/efficientnet_pooling_256_5.json&#39;,
+ &#39;../../urbangrammar_samba/spatial_signatures/ai/gb_64_shuffled/json/efficientnet_pooling_256_5.json&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;meta_class_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;Urbanity&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;Dense residential neighbourhoods&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Connected residential neighbourhoods&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Dense urban neighbourhoods&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Accessible suburbia&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Open sprawl&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Warehouse/Park land&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Gridded residential quarters&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Disconnected suburbia&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Countryside agriculture&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;Wild countryside&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;Urban buffer&quot;</span>
+    <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;global&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;meta_class_names&quot;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">([</span><span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="s2">&quot;val&quot;</span><span class="p">,</span> <span class="s2">&quot;secret&quot;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_model_accuracy_train&quot;</span><span class="p">]]</span> <span class="o">+</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_within_class_accuracy_train&quot;</span><span class="p">]</span>
+<span class="n">accuracy</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;val&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_model_accuracy_val&quot;</span><span class="p">]]</span> <span class="o">+</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_within_class_accuracy_val&quot;</span><span class="p">]</span>
+<span class="n">accuracy</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;secret&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_model_accuracy_secret&quot;</span><span class="p">]]</span> <span class="o">+</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_within_class_accuracy_secret&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>global</th>
+      <th>Urbanity</th>
+      <th>Dense residential neighbourhoods</th>
+      <th>Connected residential neighbourhoods</th>
+      <th>Dense urban neighbourhoods</th>
+      <th>Accessible suburbia</th>
+      <th>Open sprawl</th>
+      <th>Warehouse/Park land</th>
+      <th>Gridded residential quarters</th>
+      <th>Disconnected suburbia</th>
+      <th>Countryside agriculture</th>
+      <th>Wild countryside</th>
+      <th>Urban buffer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>train</th>
+      <td>0.62358</td>
+      <td>0.844</td>
+      <td>0.677061</td>
+      <td>0.7896</td>
+      <td>0.2669</td>
+      <td>0.731106</td>
+      <td>0.7369</td>
+      <td>0.6127</td>
+      <td>0.4265</td>
+      <td>0.4537</td>
+      <td>0.822284</td>
+      <td>0.729964</td>
+      <td>0.5854</td>
+    </tr>
+    <tr>
+      <th>val</th>
+      <td>0.420283</td>
+      <td>0.618</td>
+      <td>0.328</td>
+      <td>0.7345</td>
+      <td>0.174</td>
+      <td>0.428009</td>
+      <td>0.302</td>
+      <td>0.4855</td>
+      <td>0.2905</td>
+      <td>0.3175</td>
+      <td>0.40856</td>
+      <td>0.476336</td>
+      <td>0.498</td>
+    </tr>
+    <tr>
+      <th>secret</th>
+      <td>0.428244</td>
+      <td>0.553905</td>
+      <td>0.28684</td>
+      <td>0.753</td>
+      <td>0.1915</td>
+      <td>0.384058</td>
+      <td>0.339</td>
+      <td>0.5035</td>
+      <td>0.285</td>
+      <td>0.327</td>
+      <td>0.608543</td>
+      <td>0.294023</td>
+      <td>0.5175</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;val&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;validation&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;validation&#39;}&gt;
+</pre></div>
+</div>
+<img alt="../../_images/chip_size_eval_21_1.png" src="../../_images/chip_size_eval_21_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;perf_confusion_val&#39;</span><span class="p">])</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">a</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">order</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">order</span><span class="p">,</span> <span class="n">order</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+
+
+<span class="n">im</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">)):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">j</span><span class="p">]),</span>
+                   <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=.</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span><span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;meta_class_names&quot;</span><span class="p">])[</span><span class="n">order</span><span class="p">],</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span><span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;meta_class_names&quot;</span><span class="p">])[</span><span class="n">order</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.YTick at 0x7efc65b62610&gt;,
+  &lt;matplotlib.axis.YTick at 0x7efc65b7ce20&gt;,
+  &lt;matplotlib.axis.YTick at 0x7efc65b7c310&gt;,
+  &lt;matplotlib.axis.YTick at 0x7efc70238820&gt;,
+  &lt;matplotlib.axis.YTick at 0x7efc702f1700&gt;,
+  &lt;matplotlib.axis.YTick at 0x7efc7023ee20&gt;,
+  &lt;matplotlib.axis.YTick at 0x7efc702465b0&gt;,
+  &lt;matplotlib.axis.YTick at 0x7efc70246d00&gt;,
+  &lt;matplotlib.axis.YTick at 0x7efc7024a490&gt;,
+  &lt;matplotlib.axis.YTick at 0x7efc7024abe0&gt;,
+  &lt;matplotlib.axis.YTick at 0x7efc7024a3d0&gt;,
+  &lt;matplotlib.axis.YTick at 0x7efc70246130&gt;],
+ [Text(0, 0, &#39;Urbanity&#39;),
+  Text(0, 1, &#39;Dense urban neighbourhoods&#39;),
+  Text(0, 2, &#39;Dense residential neighbourhoods&#39;),
+  Text(0, 3, &#39;Connected residential neighbourhoods&#39;),
+  Text(0, 4, &#39;Gridded residential quarters&#39;),
+  Text(0, 5, &#39;Accessible suburbia&#39;),
+  Text(0, 6, &#39;Disconnected suburbia&#39;),
+  Text(0, 7, &#39;Open sprawl&#39;),
+  Text(0, 8, &#39;Warehouse/Park land&#39;),
+  Text(0, 9, &#39;Urban buffer&#39;),
+  Text(0, 10, &#39;Countryside agriculture&#39;),
+  Text(0, 11, &#39;Wild countryside&#39;)])
+</pre></div>
+</div>
+<img alt="../../_images/chip_size_eval_24_1.png" src="../../_images/chip_size_eval_24_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;perf_confusion_train&#39;</span><span class="p">])</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">a</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">)):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">j</span><span class="p">]),</span>
+                   <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=.</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;meta_class_names&quot;</span><span class="p">],</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;meta_class_names&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.YTick at 0x7fee9883fe80&gt;,
+  &lt;matplotlib.axis.YTick at 0x7fee9883f760&gt;,
+  &lt;matplotlib.axis.YTick at 0x7fee9886c850&gt;,
+  &lt;matplotlib.axis.YTick at 0x7fee986f0220&gt;,
+  &lt;matplotlib.axis.YTick at 0x7fee986f0970&gt;,
+  &lt;matplotlib.axis.YTick at 0x7fee986f6100&gt;,
+  &lt;matplotlib.axis.YTick at 0x7fee986f0940&gt;,
+  &lt;matplotlib.axis.YTick at 0x7fee986e32e0&gt;,
+  &lt;matplotlib.axis.YTick at 0x7fee986f60d0&gt;,
+  &lt;matplotlib.axis.YTick at 0x7fee986f6c40&gt;,
+  &lt;matplotlib.axis.YTick at 0x7fee986fc3d0&gt;,
+  &lt;matplotlib.axis.YTick at 0x7fee986fcb20&gt;],
+ [Text(0, 0, &#39;Urbanity&#39;),
+  Text(0, 1, &#39;Dense residential neighbourhoods&#39;),
+  Text(0, 2, &#39;Connected residential neighbourhoods&#39;),
+  Text(0, 3, &#39;Dense urban neighbourhoods&#39;),
+  Text(0, 4, &#39;Accessible suburbia&#39;),
+  Text(0, 5, &#39;Open sprawl&#39;),
+  Text(0, 6, &#39;Warehouse/Park land&#39;),
+  Text(0, 7, &#39;Gridded residential quarters&#39;),
+  Text(0, 8, &#39;Disconnected suburbia&#39;),
+  Text(0, 9, &#39;Countryside agriculture&#39;),
+  Text(0, 10, &#39;Wild countryside&#39;),
+  Text(0, 11, &#39;Urban buffer&#39;)])
+</pre></div>
+</div>
+<img alt="../../_images/chip_size_eval_25_1.png" src="../../_images/chip_size_eval_25_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="temporal-data">
+<h2>Temporal data<a class="headerlink" href="#temporal-data" title="Permalink to this headline">¶</a></h2>
+<p>The same based on temporal chips</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;../urbangrammar_samba/spatial_signatures/ai/gb_32_temporal/json/&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;*&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;global&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;meta_class_names&quot;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">([</span><span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="s2">&quot;val&quot;</span><span class="p">,</span> <span class="s2">&quot;secret&quot;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_model_accuracy_train&quot;</span><span class="p">]]</span> <span class="o">+</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_within_class_accuracy_train&quot;</span><span class="p">]</span>
+<span class="n">accuracy</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;val&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_model_accuracy_val&quot;</span><span class="p">]]</span> <span class="o">+</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_within_class_accuracy_val&quot;</span><span class="p">]</span>
+<span class="n">accuracy</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;secret&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_model_accuracy_secret&quot;</span><span class="p">]]</span> <span class="o">+</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_within_class_accuracy_secret&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;val&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;validation&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;validation&#39;}&gt;
+</pre></div>
+</div>
+<img alt="../../_images/chip_size_eval_33_1.png" src="../../_images/chip_size_eval_33_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;perf_confusion_val&#39;</span><span class="p">])</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">a</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># order = numpy.array([0, 3, 1, 2, 7, 4, 8, 5, 6, 11, 9, 10], dtype=int)</span>
+<span class="c1"># a = pd.DataFrame(a).iloc[order, order].values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+
+
+<span class="n">im</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">)):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">j</span><span class="p">]),</span>
+                   <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=.</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span><span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;meta_class_names&quot;</span><span class="p">])[</span><span class="n">order</span><span class="p">],</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span><span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;meta_class_names&quot;</span><span class="p">])[</span><span class="n">order</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.YTick at 0x7f9ac06168b0&gt;,
+  &lt;matplotlib.axis.YTick at 0x7f9ac0616130&gt;,
+  &lt;matplotlib.axis.YTick at 0x7f9ac064fa90&gt;,
+  &lt;matplotlib.axis.YTick at 0x7f9ac0421ac0&gt;,
+  &lt;matplotlib.axis.YTick at 0x7f9ac04986d0&gt;,
+  &lt;matplotlib.axis.YTick at 0x7f9ac042b340&gt;,
+  &lt;matplotlib.axis.YTick at 0x7f9ac042bac0&gt;,
+  &lt;matplotlib.axis.YTick at 0x7f9ac0434250&gt;,
+  &lt;matplotlib.axis.YTick at 0x7f9ac04349a0&gt;,
+  &lt;matplotlib.axis.YTick at 0x7f9ac0434850&gt;,
+  &lt;matplotlib.axis.YTick at 0x7f9ac042b4f0&gt;,
+  &lt;matplotlib.axis.YTick at 0x7f9ac0427790&gt;],
+ [Text(0, 0, &#39;Urbanity&#39;),
+  Text(0, 1, &#39;Dense urban neighbourhoods&#39;),
+  Text(0, 2, &#39;Dense residential neighbourhoods&#39;),
+  Text(0, 3, &#39;Connected residential neighbourhoods&#39;),
+  Text(0, 4, &#39;Gridded residential quarters&#39;),
+  Text(0, 5, &#39;Accessible suburbia&#39;),
+  Text(0, 6, &#39;Disconnected suburbia&#39;),
+  Text(0, 7, &#39;Open sprawl&#39;),
+  Text(0, 8, &#39;Warehouse/Park land&#39;),
+  Text(0, 9, &#39;Urban buffer&#39;),
+  Text(0, 10, &#39;Countryside agriculture&#39;),
+  Text(0, 11, &#39;Wild countryside&#39;)])
+</pre></div>
+</div>
+<img alt="../../_images/chip_size_eval_36_1.png" src="../../_images/chip_size_eval_36_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="balanced-data">
+<h2>Balanced data<a class="headerlink" href="#balanced-data" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;../../urbangrammar_samba/spatial_signatures/ai/gb_32_balanced_named_v2/json/&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;*&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;global&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;meta_class_names&quot;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">([</span><span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="s2">&quot;val&quot;</span><span class="p">,</span> <span class="s2">&quot;secret&quot;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_model_accuracy_train&quot;</span><span class="p">]]</span> <span class="o">+</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_within_class_accuracy_train&quot;</span><span class="p">]</span>
+<span class="n">accuracy</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;val&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_model_accuracy_val&quot;</span><span class="p">]]</span> <span class="o">+</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_within_class_accuracy_val&quot;</span><span class="p">]</span>
+<span class="n">accuracy</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;secret&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_model_accuracy_secret&quot;</span><span class="p">]]</span> <span class="o">+</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_within_class_accuracy_secret&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>global</th>
+      <th>Urbanity</th>
+      <th>Dense residential neighbourhoods</th>
+      <th>Connected residential neighbourhoods</th>
+      <th>Dense urban neighbourhoods</th>
+      <th>Accessible suburbia</th>
+      <th>Open sprawl</th>
+      <th>Warehouse_Park land</th>
+      <th>Gridded residential quarters</th>
+      <th>Disconnected suburbia</th>
+      <th>Countryside agriculture</th>
+      <th>Wild countryside</th>
+      <th>Urban buffer</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>train</th>
+      <td>0.554045</td>
+      <td>0.769971</td>
+      <td>0.707678</td>
+      <td>0.615457</td>
+      <td>0.538372</td>
+      <td>0.600216</td>
+      <td>0.477016</td>
+      <td>0.589415</td>
+      <td>0.393829</td>
+      <td>0.233229</td>
+      <td>0.683429</td>
+      <td>0.462629</td>
+      <td>0.762229</td>
+    </tr>
+    <tr>
+      <th>val</th>
+      <td>0.428392</td>
+      <td>0.6646</td>
+      <td>0.507874</td>
+      <td>0.5828</td>
+      <td>0.238587</td>
+      <td>0.219465</td>
+      <td>0.254962</td>
+      <td>0.230869</td>
+      <td>0.304</td>
+      <td>0.2158</td>
+      <td>0.452206</td>
+      <td>0.3276</td>
+      <td>0.7366</td>
+    </tr>
+    <tr>
+      <th>secret</th>
+      <td>0.439124</td>
+      <td>0.6722</td>
+      <td>0.481884</td>
+      <td>0.5816</td>
+      <td>0.237983</td>
+      <td>0.211743</td>
+      <td>0.163166</td>
+      <td>0.377451</td>
+      <td>0.286</td>
+      <td>0.2152</td>
+      <td>0.383388</td>
+      <td>0.3482</td>
+      <td>0.7412</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;val&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;validation&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;validation&#39;}&gt;
+</pre></div>
+</div>
+<img alt="../../_images/chip_size_eval_45_1.png" src="../../_images/chip_size_eval_45_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;perf_confusion_val&#39;</span><span class="p">])</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">a</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">order</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">order</span><span class="p">,</span> <span class="n">order</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+
+
+<span class="n">im</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">)):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{:.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">j</span><span class="p">]),</span>
+                   <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=.</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">ticks</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;meta_class_names&quot;</span><span class="p">]))[</span><span class="n">order</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span><span class="n">ticks</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span><span class="n">ticks</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;figs/image_class_conf.pdf&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/chip_size_eval_49_0.png" src="../../_images/chip_size_eval_49_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./ai_experiments/ai_experiments"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Dani Arribas-Bel, Martin Fleischmann<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+  </body>
+</html>

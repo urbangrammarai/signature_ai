@@ -1,37 +1,24 @@
 
+
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI pipeline from disk &#8212; Urban Grammar AI | WP3 - Signature AI</title>
-    
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
-
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
-    
-      
-
-    
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
-
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -39,9 +26,13 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@latest/lib/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
@@ -52,14 +43,14 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Evaluation of the effect of chip size and origin" href="chip_size_eval.html" />
     <link rel="prev" title="Evaluation of models trained on NW" href="transfer_learning_evaluation.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
-
     
 
     <div class="container-xl">
@@ -68,38 +59,47 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
-      
-      <img src="../_static/logo.svg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Urban Grammar AI | WP3 - Signature AI</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.svg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Urban Grammar AI | WP3 - Signature AI</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <p class="caption">
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
  <span class="caption-text">
   Project
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference external" href="http://urbangrammarai.xyz">
    Project homepage
+   <i class="fas fa-external-link-alt">
+   </i>
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference external" href="http://urbangrammarai.xyz/data_processing">
    WP1 - Data processing
+   <i class="fas fa-external-link-alt">
+   </i>
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference external" href="http://urbangrammarai.xyz/spatial_signatures">
    WP2 - Spatial Signatures
+   <i class="fas fa-external-link-alt">
+   </i>
   </a>
  </li>
 </ul>
@@ -108,7 +108,7 @@
   Create chips
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../create_chips/chip_making_a.html">
    Chip making
@@ -125,13 +125,13 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../create_chips/chip_making_gb.html">
-   Create chips for the majority of GB
+  <a class="reference internal" href="../create_chips/chip_making_subset.html#spill-chips-to-disk-for-out-of-core-computation">
+   Spill chips to disk for out-of-core computation
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../create_chips/chips_glasgow.html">
-   Create chips for a continous stretch of land
+  <a class="reference internal" href="../create_chips/chip_making_gb.html">
+   Create chips for the majority of GB
   </a>
  </li>
  <li class="toctree-l1">
@@ -150,7 +150,7 @@
   AI experiments
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="transfer_learning_pipe.html">
    Model testing
@@ -176,10 +176,21 @@
    Predict signature types from a numpy array of chips
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sp_model_chip_probabilities.html">
+   Modelling of chip probabilities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="explore_model_performance.html">
+   Explore model performances
+  </a>
+ </li>
 </ul>
 
-    </div>
-</nav> <!-- To handle the deprecated key -->
+</nav>
+
+ <!-- To handle the deprecated key -->
 
 </div>
 
@@ -190,25 +201,25 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
+    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -220,9 +231,9 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
+    
 </div>
-
-            <!-- Source interaction buttons -->
+        <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -237,14 +248,13 @@
     </div>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
+        <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -263,12 +273,23 @@
     </div>
 </div>
 
-        </div>
+    </div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
         </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#verify-results">
+   verify results
+  </a>
+ </li>
+</ul>
+
+        </nav>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -281,7 +302,7 @@
 <p>This notebook contains a Keras pipeline that takes chips stored in individual folders per class and train a model on them.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">glob</span>
 <span class="kn">import</span> <span class="nn">shutil</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
@@ -296,17 +317,19 @@
 <span class="kn">from</span> <span class="nn">tensorflow.keras.applications</span> <span class="kn">import</span> <span class="n">resnet_v2</span><span class="p">,</span> <span class="n">vgg19</span><span class="p">,</span> <span class="n">efficientnet</span>
 
 <span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">specs</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;chips&#39;</span><span class="p">:</span> <span class="s2">&quot;../chips_gb/32_temporal/&quot;</span><span class="p">,</span>
-    <span class="s1">&#39;chips_combined&#39;</span><span class="p">:</span> <span class="s2">&quot;../chips_gb/32_temporal_combined_12/&quot;</span><span class="p">,</span>
-    <span class="s1">&#39;chips_balanced&#39;</span><span class="p">:</span> <span class="s2">&quot;../chips_gb/32_temporal_balanced_12/&quot;</span><span class="p">,</span>
-    <span class="s1">&#39;folder&#39;</span><span class="p">:</span> <span class="s2">&quot;../urbangrammar_samba/spatial_signatures/ai/gb_32_temporal/&quot;</span><span class="p">,</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">specs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;chips&#39;</span><span class="p">:</span> <span class="s2">&quot;../../chips_gb/32_shuffled/&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;chips_combined&#39;</span><span class="p">:</span> <span class="s2">&quot;../../chips_gb/32_shuffled_combined_12_named/&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;chips_balanced&#39;</span><span class="p">:</span> <span class="s2">&quot;../../chips_gb/32_shuffled_balanced_12_named/&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;folder&#39;</span><span class="p">:</span> <span class="s2">&quot;../../ai/gb_32_shuffled/&quot;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -315,7 +338,7 @@
 <p>Combine groups</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">group_mapping</span> <span class="o">=</span> <span class="p">[</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">group_mapping</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">[</span><span class="s1">&#39;9_0&#39;</span><span class="p">,</span> <span class="s1">&#39;9_1&#39;</span><span class="p">,</span> <span class="s1">&#39;9_2&#39;</span><span class="p">,</span> <span class="s1">&#39;9_4&#39;</span><span class="p">,</span> <span class="s1">&#39;9_5&#39;</span><span class="p">],</span>
     <span class="p">[</span><span class="s1">&#39;2_0&#39;</span><span class="p">],</span> 
     <span class="p">[</span><span class="s1">&#39;2_1&#39;</span><span class="p">],</span> 
@@ -329,23 +352,38 @@
     <span class="p">[</span><span class="s1">&#39;4_0&#39;</span><span class="p">],</span>
     <span class="p">[</span><span class="s1">&#39;7_0&#39;</span><span class="p">]</span>
 <span class="p">]</span>
+
+<span class="n">group_naming</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;Urbanity&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;Dense residential neighbourhoods&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Connected residential neighbourhoods&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Dense urban neighbourhoods&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Accessible suburbia&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Open sprawl&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Warehouse_Park land&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Gridded residential quarters&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Disconnected suburbia&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Countryside agriculture&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;Wild countryside&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;Urban buffer&quot;</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">subset</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="s2">&quot;validation&quot;</span><span class="p">,</span> <span class="s2">&quot;secret&quot;</span><span class="p">]:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">subset</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="s2">&quot;validation&quot;</span><span class="p">,</span> <span class="s2">&quot;secret&quot;</span><span class="p">]:</span>
     <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">specs</span><span class="p">[</span><span class="s1">&#39;chips_combined&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">subset</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">group_mapping</span><span class="p">):</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">specs</span><span class="p">[</span><span class="s1">&#39;chips_combined&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">subset</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">group_naming</span><span class="p">,</span> <span class="n">group_mapping</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">specs</span><span class="p">[</span><span class="s1">&#39;chips_combined&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">subset</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="s2">&quot;_&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         
         <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">group</span><span class="p">:</span>
             <span class="n">files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">specs</span><span class="p">[</span><span class="s1">&#39;chips&#39;</span><span class="p">]</span><span class="si">}{</span><span class="n">subset</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">g</span><span class="si">}</span><span class="s2">/*.tif&quot;</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
                 <span class="n">f</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-                <span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">specs</span><span class="p">[</span><span class="s1">&#39;chips_combined&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">subset</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+                <span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">specs</span><span class="p">[</span><span class="s1">&#39;chips_combined&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">subset</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span><span class="s2">&quot;_&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -353,7 +391,7 @@
 <p>Balance groups</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">subset</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="s2">&quot;validation&quot;</span><span class="p">,</span> <span class="s2">&quot;secret&quot;</span><span class="p">]:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">subset</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="s2">&quot;validation&quot;</span><span class="p">,</span> <span class="s2">&quot;secret&quot;</span><span class="p">]:</span>
     <span class="n">total</span> <span class="o">=</span> <span class="mi">35000</span> <span class="k">if</span> <span class="n">subset</span> <span class="o">==</span> <span class="s2">&quot;train&quot;</span> <span class="k">else</span> <span class="mi">5000</span>
     <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">specs</span><span class="p">[</span><span class="s1">&#39;chips_balanced&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">subset</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     
@@ -370,22 +408,9 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_specs</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">model_specs</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;meta_class_map&#39;</span><span class="p">:</span> <span class="n">group_mapping</span><span class="p">,</span>
-    <span class="s1">&#39;meta_class_names&#39;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s2">&quot;Urbanity&quot;</span><span class="p">,</span> 
-        <span class="s2">&quot;Dense residential neighbourhoods&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;Connected residential neighbourhoods&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;Dense urban neighbourhoods&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;Accessible suburbia&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;Open sprawl&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;Warehouse/Park land&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;Gridded residential quarters&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;Disconnected suburbia&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;Countryside agriculture&quot;</span><span class="p">,</span> 
-        <span class="s2">&quot;Wild countryside&quot;</span><span class="p">,</span> 
-        <span class="s2">&quot;Urban buffer&quot;</span>
-    <span class="p">],</span>
+    <span class="s1">&#39;meta_class_names&#39;</span><span class="p">:</span> <span class="n">group_naming</span><span class="p">,</span>
     <span class="s1">&#39;meta_chip_size&#39;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
@@ -394,7 +419,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">model_builder</span><span class="p">(</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">model_builder</span><span class="p">(</span>
     <span class="n">model_name</span><span class="o">=</span><span class="s2">&quot;efficientnet&quot;</span><span class="p">,</span> 
     <span class="n">bridge</span><span class="o">=</span><span class="s2">&quot;pooling&quot;</span><span class="p">,</span> 
     <span class="n">top_layer_neurons</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>
@@ -405,19 +430,40 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-02-21 19:07:01.549167: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1510] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 6517 MB memory:  -&gt; device: 0, name: Quadro RTX 4000, pci bus id: 0000:21:00.0, compute capability: 7.5
+<div class="stderr docutils container">
+<pre class="stderr literal-block">2022-05-09 10:43:11.087950: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 6391 MB memory:  -&gt; device: 0, name: Quadro RTX 4000, pci bus id: 0000:21:00.0, compute capability: 7.5
+</pre>
+</div>
+</div>
+</div>
+<p>Define class weigths as an inverse of the count.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">train_datagen</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">ImageDataGenerator</span><span class="p">()</span>
+<span class="n">train_generator</span> <span class="o">=</span> <span class="n">train_datagen</span><span class="o">.</span><span class="n">flow_from_directory</span><span class="p">(</span>
+    <span class="n">specs</span><span class="p">[</span><span class="s1">&#39;chips_balanced&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;train&#39;</span><span class="p">,</span>
+    <span class="n">target_size</span><span class="o">=</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">),</span>
+    <span class="n">class_mode</span><span class="o">=</span><span class="s1">&#39;sparse&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading data from https://storage.googleapis.com/keras-applications/efficientnetb4_notop.h5
-71688192/71686520 [==============================] - 1s 0us/step
-71696384/71686520 [==============================] - 1s 0us/step
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Found 262937 images belonging to 12 classes.
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">h</span> <span class="o">=</span> <span class="n">tools_keras</span><span class="o">.</span><span class="n">fit_phase</span><span class="p">(</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">un</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">train_generator</span><span class="o">.</span><span class="n">classes</span><span class="p">,</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">class_weights</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">un</span><span class="p">,</span> <span class="n">c</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">/</span> <span class="n">c</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">h</span> <span class="o">=</span> <span class="n">tools_keras</span><span class="o">.</span><span class="n">fit_phase</span><span class="p">(</span>
         <span class="n">model</span><span class="p">,</span>
         <span class="n">specs</span><span class="p">[</span><span class="s1">&#39;chips_balanced&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;train&#39;</span><span class="p">,</span>
         <span class="n">specs</span><span class="p">[</span><span class="s1">&#39;chips_balanced&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;validation&#39;</span><span class="p">,</span>
@@ -431,26 +477,29 @@
         <span class="n">patience</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
         <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
         <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">class_weight</span><span class="o">=</span><span class="n">class_weights</span><span class="p">,</span>
     <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;efficientnet_pooling_256_12&quot;
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Model: &quot;efficientnet_pooling_256_12&quot;
 _________________________________________________________________
-Layer (type)                 Output Shape              Param #   
+ Layer (type)                Output Shape              Param #   
 =================================================================
-input_2 (InputLayer)         [(None, 224, 224, 3)]     0         
-_________________________________________________________________
-resizing (Resizing)          (None, 224, 224, 3)       0         
-_________________________________________________________________
-efficientnetb4 (Functional)  (None, 7, 7, 1792)        17673823  
-_________________________________________________________________
-global_average_pooling2d (Gl (None, 1792)              0         
-_________________________________________________________________
-dense (Dense)                (None, 256)               459008    
-_________________________________________________________________
-dense_1 (Dense)              (None, 12)                3084      
+ input_2 (InputLayer)        [(None, 224, 224, 3)]     0         
+                                                                 
+ resizing (Resizing)         (None, 224, 224, 3)       0         
+                                                                 
+ efficientnetb4 (Functional)  (None, 7, 7, 1792)       17673823  
+                                                                 
+ global_average_pooling2d (G  (None, 1792)             0         
+ lobalAveragePooling2D)                                          
+                                                                 
+ dense (Dense)               (None, 256)               459008    
+                                                                 
+ dense_1 (Dense)             (None, 12)                3084      
+                                                                 
 =================================================================
 Total params: 18,135,915
 Trainable params: 462,092
@@ -458,88 +507,215 @@ Non-trainable params: 17,673,823
 _________________________________________________________________
 None
 creating ImageDataGenerators...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-02-21 19:07:06.202169: I tensorflow/core/profiler/lib/profiler_session.cc:131] Profiler session initializing.
-2022-02-21 19:07:06.202199: I tensorflow/core/profiler/lib/profiler_session.cc:146] Profiler session started.
-2022-02-21 19:07:06.202715: I tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1614] Profiler found 1 GPUs
-2022-02-21 19:07:06.340010: I tensorflow/core/profiler/lib/profiler_session.cc:164] Profiler session tear down.
-2022-02-21 19:07:06.340179: I tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1749] CUPTI activity buffer flushed
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Found 420000 images belonging to 12 classes.
-Found 58134 images belonging to 12 classes.
+Found 262937 images belonging to 12 classes.
+Found 42251 images belonging to 12 classes.
 training...
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/local/lib/python3.8/dist-packages/keras/utils/generic_utils.py:494: CustomMaskWarning: Custom mask layers require a config and must override get_config. When loading, the custom mask layer must be passed to the custom_objects argument.
-  warnings.warn(&#39;Custom mask layers require a config and must override &#39;
-2022-02-21 19:07:35.804154: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:185] None of the MLIR Optimization Passes are enabled (registered 2)
+<div class="stderr docutils container">
+<pre class="stderr literal-block">/usr/local/lib/python3.8/dist-packages/keras/engine/functional.py:1410: CustomMaskWarning: Custom mask layers require a config and must override get_config. When loading, the custom mask layer must be passed to the custom_objects argument.
+  layer_config = serialize_layer_fn(layer)
+</pre>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Epoch 1/200
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/200
+<div class="stderr docutils container">
+<pre class="stderr literal-block">2022-05-09 10:43:38.630974: I tensorflow/stream_executor/cuda/cuda_dnn.cc:377] Loaded cuDNN version 8302
+</pre>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>8217/8217 [==============================] - ETA: 0s - loss: 2.5337 - accuracy: 0.3838
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-02-21 19:07:44.778001: I tensorflow/stream_executor/cuda/cuda_dnn.cc:381] Loaded cuDNN version 8300
+<div class="stderr docutils container">
+<pre class="stderr literal-block">2022-05-09 11:01:28.444617: W tensorflow/python/util/util.cc:368] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
+</pre>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>INFO:tensorflow:Assets written to: ../../ai/gb_32_shuffled/model/efficientnet_pooling_256_12_best/assets
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    1/13125 [..............................] - ETA: 45:02:00 - loss: 2.5577 - accuracy: 0.0312
-</pre></div>
+<div class="stderr docutils container">
+<pre class="stderr literal-block">/usr/local/lib/python3.8/dist-packages/keras/engine/functional.py:1410: CustomMaskWarning: Custom mask layers require a config and must override get_config. When loading, the custom mask layer must be passed to the custom_objects argument.
+  layer_config = serialize_layer_fn(layer)
+/usr/local/lib/python3.8/dist-packages/keras/saving/saved_model/layer_serialization.py:112: CustomMaskWarning: Custom mask layers require a config and must override get_config. When loading, the custom mask layer must be passed to the custom_objects argument.
+  return generic_utils.serialize_keras_object(obj)
+</pre>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-02-21 19:07:48.484811: I tensorflow/core/profiler/lib/profiler_session.cc:131] Profiler session initializing.
-2022-02-21 19:07:48.484849: I tensorflow/core/profiler/lib/profiler_session.cc:146] Profiler session started.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    2/13125 [..............................] - ETA: 4:39:00 - loss: 2.5870 - accuracy: 0.0625 
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-02-21 19:07:49.519324: I tensorflow/core/profiler/lib/profiler_session.cc:66] Profiler session collecting data.
-2022-02-21 19:07:49.520112: I tensorflow/core/profiler/internal/gpu/cupti_tracer.cc:1749] CUPTI activity buffer flushed
-2022-02-21 19:07:49.582884: I tensorflow/core/profiler/internal/gpu/cupti_collector.cc:673]  GpuTracer has collected 9459 callback api events and 7601 activity events. 
-2022-02-21 19:07:49.670164: I tensorflow/core/profiler/lib/profiler_session.cc:164] Profiler session tear down.
-2022-02-21 19:07:49.803630: I tensorflow/core/profiler/rpc/client/save_profile.cc:136] Creating directory: ../urbangrammar_samba/spatial_signatures/ai/gb_32_temporal/logs/efficientnet_pooling_256_12/train/plugins/profile/2022_02_21_19_07_49
-
-2022-02-21 19:07:49.885436: I tensorflow/core/profiler/rpc/client/save_profile.cc:142] Dumped gzipped tool data for trace.json.gz to ../urbangrammar_samba/spatial_signatures/ai/gb_32_temporal/logs/efficientnet_pooling_256_12/train/plugins/profile/2022_02_21_19_07_49/b0aa527ea1da.trace.json.gz
-2022-02-21 19:07:49.977864: I tensorflow/core/profiler/rpc/client/save_profile.cc:136] Creating directory: ../urbangrammar_samba/spatial_signatures/ai/gb_32_temporal/logs/efficientnet_pooling_256_12/train/plugins/profile/2022_02_21_19_07_49
-
-2022-02-21 19:07:49.986968: I tensorflow/core/profiler/rpc/client/save_profile.cc:142] Dumped gzipped tool data for memory_profile.json.gz to ../urbangrammar_samba/spatial_signatures/ai/gb_32_temporal/logs/efficientnet_pooling_256_12/train/plugins/profile/2022_02_21_19_07_49/b0aa527ea1da.memory_profile.json.gz
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    3/13125 [..............................] - ETA: 3:29:01 - loss: 2.5480 - accuracy: 0.0729
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-02-21 19:07:50.031675: I tensorflow/core/profiler/rpc/client/capture_profile.cc:251] Creating directory: ../urbangrammar_samba/spatial_signatures/ai/gb_32_temporal/logs/efficientnet_pooling_256_12/train/plugins/profile/2022_02_21_19_07_49
-Dumped tool data for xplane.pb to ../urbangrammar_samba/spatial_signatures/ai/gb_32_temporal/logs/efficientnet_pooling_256_12/train/plugins/profile/2022_02_21_19_07_49/b0aa527ea1da.xplane.pb
-Dumped tool data for overview_page.pb to ../urbangrammar_samba/spatial_signatures/ai/gb_32_temporal/logs/efficientnet_pooling_256_12/train/plugins/profile/2022_02_21_19_07_49/b0aa527ea1da.overview_page.pb
-Dumped tool data for input_pipeline.pb to ../urbangrammar_samba/spatial_signatures/ai/gb_32_temporal/logs/efficientnet_pooling_256_12/train/plugins/profile/2022_02_21_19_07_49/b0aa527ea1da.input_pipeline.pb
-Dumped tool data for tensorflow_stats.pb to ../urbangrammar_samba/spatial_signatures/ai/gb_32_temporal/logs/efficientnet_pooling_256_12/train/plugins/profile/2022_02_21_19_07_49/b0aa527ea1da.tensorflow_stats.pb
-Dumped tool data for kernel_stats.pb to ../urbangrammar_samba/spatial_signatures/ai/gb_32_temporal/logs/efficientnet_pooling_256_12/train/plugins/profile/2022_02_21_19_07_49/b0aa527ea1da.kernel_stats.pb
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13125/13125 [==============================] - 1645s 124ms/step - loss: 1.6454 - accuracy: 0.3935 - val_loss: 1.8330 - val_accuracy: 0.3475
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>8217/8217 [==============================] - 1110s 134ms/step - loss: 2.5337 - accuracy: 0.3838 - val_loss: 1.6744 - val_accuracy: 0.3807
 Epoch 2/200
-13125/13125 [==============================] - 1632s 124ms/step - loss: 1.4809 - accuracy: 0.4559 - val_loss: 1.8705 - val_accuracy: 0.3481
+8217/8217 [==============================] - ETA: 0s - loss: 2.2021 - accuracy: 0.4353INFO:tensorflow:Assets written to: ../../ai/gb_32_shuffled/model/efficientnet_pooling_256_12_best/assets
+</pre></div>
+</div>
+<div class="stderr docutils container">
+<pre class="stderr literal-block">/usr/local/lib/python3.8/dist-packages/keras/engine/functional.py:1410: CustomMaskWarning: Custom mask layers require a config and must override get_config. When loading, the custom mask layer must be passed to the custom_objects argument.
+  layer_config = serialize_layer_fn(layer)
+/usr/local/lib/python3.8/dist-packages/keras/saving/saved_model/layer_serialization.py:112: CustomMaskWarning: Custom mask layers require a config and must override get_config. When loading, the custom mask layer must be passed to the custom_objects argument.
+  return generic_utils.serialize_keras_object(obj)
+</pre>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>8217/8217 [==============================] - 1106s 135ms/step - loss: 2.2021 - accuracy: 0.4353 - val_loss: 1.6776 - val_accuracy: 0.3881
 Epoch 3/200
- 7551/13125 [================&gt;.............] - ETA: 10:12 - loss: 1.4117 - accuracy: 0.4811
+8217/8217 [==============================] - ETA: 0s - loss: 2.0392 - accuracy: 0.4612INFO:tensorflow:Assets written to: ../../ai/gb_32_shuffled/model/efficientnet_pooling_256_12_best/assets
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>IOPub message rate exceeded.
-The notebook server will temporarily stop sending output
-to the client in order to avoid crashing it.
-To change this limit, set the config variable
-`--NotebookApp.iopub_msg_rate_limit`.
-
-Current values:
-NotebookApp.iopub_msg_rate_limit=1000.0 (msgs/sec)
-NotebookApp.rate_limit_window=3.0 (secs)
-</pre></div>
+<div class="stderr docutils container">
+<pre class="stderr literal-block">/usr/local/lib/python3.8/dist-packages/keras/engine/functional.py:1410: CustomMaskWarning: Custom mask layers require a config and must override get_config. When loading, the custom mask layer must be passed to the custom_objects argument.
+  layer_config = serialize_layer_fn(layer)
+/usr/local/lib/python3.8/dist-packages/keras/saving/saved_model/layer_serialization.py:112: CustomMaskWarning: Custom mask layers require a config and must override get_config. When loading, the custom mask layer must be passed to the custom_objects argument.
+  return generic_utils.serialize_keras_object(obj)
+</pre>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13125/13125 [==============================] - 1632s 124ms/step - loss: 1.4045 - accuracy: 0.4835 - val_loss: 1.8771 - val_accuracy: 0.3504
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>8217/8217 [==============================] - 1107s 135ms/step - loss: 2.0392 - accuracy: 0.4612 - val_loss: 1.6744 - val_accuracy: 0.3967
 Epoch 4/200
-13125/13125 [==============================] - 1634s 124ms/step - loss: 1.3539 - accuracy: 0.5025 - val_loss: 1.9430 - val_accuracy: 0.3437
-Epoch 5/200
- 8742/13125 [==================&gt;...........] - ETA: 8:02 - loss: 1.3159 - accuracy: 0.5147
+8217/8217 [==============================] - ETA: 0s - loss: 1.9295 - accuracy: 0.4762INFO:tensorflow:Assets written to: ../../ai/gb_32_shuffled/model/efficientnet_pooling_256_12_best/assets
 </pre></div>
+</div>
+<div class="stderr docutils container">
+<pre class="stderr literal-block">/usr/local/lib/python3.8/dist-packages/keras/engine/functional.py:1410: CustomMaskWarning: Custom mask layers require a config and must override get_config. When loading, the custom mask layer must be passed to the custom_objects argument.
+  layer_config = serialize_layer_fn(layer)
+/usr/local/lib/python3.8/dist-packages/keras/saving/saved_model/layer_serialization.py:112: CustomMaskWarning: Custom mask layers require a config and must override get_config. When loading, the custom mask layer must be passed to the custom_objects argument.
+  return generic_utils.serialize_keras_object(obj)
+</pre>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>8217/8217 [==============================] - 1109s 135ms/step - loss: 1.9295 - accuracy: 0.4762 - val_loss: 1.6667 - val_accuracy: 0.4117
+Epoch 5/200
+8217/8217 [==============================] - ETA: 0s - loss: 1.8435 - accuracy: 0.4902INFO:tensorflow:Assets written to: ../../ai/gb_32_shuffled/model/efficientnet_pooling_256_12_best/assets
+</pre></div>
+</div>
+<div class="stderr docutils container">
+<pre class="stderr literal-block">/usr/local/lib/python3.8/dist-packages/keras/engine/functional.py:1410: CustomMaskWarning: Custom mask layers require a config and must override get_config. When loading, the custom mask layer must be passed to the custom_objects argument.
+  layer_config = serialize_layer_fn(layer)
+/usr/local/lib/python3.8/dist-packages/keras/saving/saved_model/layer_serialization.py:112: CustomMaskWarning: Custom mask layers require a config and must override get_config. When loading, the custom mask layer must be passed to the custom_objects argument.
+  return generic_utils.serialize_keras_object(obj)
+</pre>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>8217/8217 [==============================] - 1108s 135ms/step - loss: 1.8435 - accuracy: 0.4902 - val_loss: 1.6850 - val_accuracy: 0.4187
+Epoch 6/200
+8217/8217 [==============================] - 1058s 129ms/step - loss: 1.7738 - accuracy: 0.5013 - val_loss: 1.7244 - val_accuracy: 0.4138
+Epoch 00006: early stopping
+time elapsed:    6599.4s
+INFO:tensorflow:Assets written to: ../../ai/gb_32_shuffled/model/efficientnet_pooling_256_12/assets
+</pre></div>
+</div>
+<div class="stderr docutils container">
+<pre class="stderr literal-block">/usr/local/lib/python3.8/dist-packages/keras/engine/functional.py:1410: CustomMaskWarning: Custom mask layers require a config and must override get_config. When loading, the custom mask layer must be passed to the custom_objects argument.
+  layer_config = serialize_layer_fn(layer)
+/usr/local/lib/python3.8/dist-packages/keras/saving/saved_model/layer_serialization.py:112: CustomMaskWarning: Custom mask layers require a config and must override get_config. When loading, the custom mask layer must be passed to the custom_objects argument.
+  return generic_utils.serialize_keras_object(obj)
+</pre>
+</div>
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>creating ImageDataGenerators
+Found 262937 images belonging to 12 classes.
+Found 42251 images belonging to 12 classes.
+Found 38677 images belonging to 12 classes.
+assessing performance of train dataset
+prediction of train saved
+perf_model_accuracy for train: 0.5069313049316406
+assessing performance of val dataset
+prediction of val saved
+perf_model_accuracy for val: 0.4137890338897705
+assessing performance of secret dataset
+prediction of secret saved
+perf_model_accuracy for secret: 0.4087183475494385
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="verify-results">
+<h2>verify results<a class="headerlink" href="#verify-results" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="s2">&quot;../../urbangrammar_samba/spatial_signatures/ai/gb_8/model/efficientnet_pooling_256_12_best&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">datagen</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">preprocessing</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">ImageDataGenerator</span><span class="p">()</span>
+<span class="n">generator</span> <span class="o">=</span> <span class="n">datagen</span><span class="o">.</span><span class="n">flow_from_directory</span><span class="p">(</span>
+    <span class="s2">&quot;../../chips_gb/8_shuffled_balanced_12/train/&quot;</span><span class="p">,</span>
+    <span class="n">target_size</span><span class="o">=</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">),</span>
+    <span class="n">batch_size</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span>
+    <span class="n">class_mode</span><span class="o">=</span><span class="s1">&#39;sparse&#39;</span><span class="p">,</span>
+    <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Found 395690 images belonging to 12 classes.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred_probs</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">generator</span><span class="p">)</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">y_pred_probs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">generator</span><span class="o">.</span><span class="n">labels</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">accuracy</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">Accuracy</span><span class="p">()</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">update_state</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">a</span><span class="o">.</span><span class="n">result</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">within_class_metrics</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">y_probs</span><span class="p">):</span>
+    <span class="n">top_prob</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">y_pred</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">wc_accuracy</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">y_probs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+    <span class="n">wc_top_prob</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">y_probs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">y_probs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+        <span class="n">c_id</span> <span class="o">=</span> <span class="n">y</span> <span class="o">==</span> <span class="n">c</span>
+        <span class="c1"># Top prob</span>
+        <span class="n">top_prob</span><span class="p">[</span><span class="n">c_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_probs</span><span class="p">[</span><span class="n">c_id</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span>
+        <span class="c1"># WC accuracy</span>
+        <span class="n">wc_accuracy</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">accuracy</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">c_id</span><span class="p">],</span> <span class="n">y_pred</span><span class="p">[</span><span class="n">c_id</span><span class="p">])</span>
+        <span class="c1"># WC top prob</span>
+        <span class="n">wc_top_prob</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_probs</span><span class="p">[</span><span class="n">c_id</span><span class="p">,</span> <span class="n">c</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">top_prob</span> <span class="o">=</span> <span class="n">top_prob</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">top_prob</span><span class="p">,</span> <span class="n">wc_accuracy</span><span class="p">,</span> <span class="n">wc_top_prob</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.2887412
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">within_class_metrics</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">y_pred_probs</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[0.75011426,
+ 0.5083132,
+ 0.5638286,
+ 0.44788584,
+ 0.4550801,
+ 0.39879662,
+ 0.70287836,
+ 0.5022857,
+ 0.25628573,
+ 0.8010856,
+ 0.43285716,
+ 0.75637144]
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -567,35 +743,15 @@ Epoch 5/200
 
               </div>
               
-        
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="transfer_learning_evaluation.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Evaluation of models trained on NW</p>
-            </div>
-        </a>
-    </div>
-     <div id="next">
-        <a class="right-next" href="chip_size_eval.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Evaluation of the effect of chip size and origin</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
-</div>
-        
         </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="transfer_learning_evaluation.html" title="previous page">Evaluation of models trained on NW</a>
+    <a class='right-next' id="next-link" href="chip_size_eval.html" title="next page">Evaluation of the effect of chip size and origin</a>
+
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -612,9 +768,8 @@ Epoch 5/200
 
       </div>
     </div>
-  
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-  
+    <script src="../_static/js/index.js"></script>
+    
   </body>
 </html>

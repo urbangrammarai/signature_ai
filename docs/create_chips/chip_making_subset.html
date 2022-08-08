@@ -1,37 +1,24 @@
 
+
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chip making for a subset of GB &#8212; Urban Grammar AI | WP3 - Signature AI</title>
-    
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
-
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
-    
-      
-
-    
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
-
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -39,9 +26,13 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@latest/lib/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
@@ -52,14 +43,14 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Create chips for the majority of GB" href="chip_making_gb.html" />
     <link rel="prev" title="Chip making - Pt. B" href="chip_making_b.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
-
     
 
     <div class="container-xl">
@@ -68,38 +59,47 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
-      
-      <img src="../_static/logo.svg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Urban Grammar AI | WP3 - Signature AI</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.svg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Urban Grammar AI | WP3 - Signature AI</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <p class="caption">
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
  <span class="caption-text">
   Project
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference external" href="http://urbangrammarai.xyz">
    Project homepage
+   <i class="fas fa-external-link-alt">
+   </i>
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference external" href="http://urbangrammarai.xyz/data_processing">
    WP1 - Data processing
+   <i class="fas fa-external-link-alt">
+   </i>
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference external" href="http://urbangrammarai.xyz/spatial_signatures">
    WP2 - Spatial Signatures
+   <i class="fas fa-external-link-alt">
+   </i>
   </a>
  </li>
 </ul>
@@ -108,7 +108,7 @@
   Create chips
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="chip_making_a.html">
    Chip making
@@ -125,13 +125,13 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="chip_making_gb.html">
-   Create chips for the majority of GB
+  <a class="reference internal" href="#spill-chips-to-disk-for-out-of-core-computation">
+   Spill chips to disk for out-of-core computation
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="chips_glasgow.html">
-   Create chips for a continous stretch of land
+  <a class="reference internal" href="chip_making_gb.html">
+   Create chips for the majority of GB
   </a>
  </li>
  <li class="toctree-l1">
@@ -150,7 +150,7 @@
   AI experiments
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../ai_experiments/transfer_learning_pipe.html">
    Model testing
@@ -176,10 +176,21 @@
    Predict signature types from a numpy array of chips
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ai_experiments/sp_model_chip_probabilities.html">
+   Modelling of chip probabilities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ai_experiments/explore_model_performance.html">
+   Explore model performances
+  </a>
+ </li>
 </ul>
 
-    </div>
-</nav> <!-- To handle the deprecated key -->
+</nav>
+
+ <!-- To handle the deprecated key -->
 
 </div>
 
@@ -190,25 +201,25 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
+    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -220,9 +231,9 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
+    
 </div>
-
-            <!-- Source interaction buttons -->
+        <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -237,14 +248,13 @@
     </div>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
+        <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -263,74 +273,48 @@
     </div>
 </div>
 
-        </div>
+    </div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Chip making for a subset of GB
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#specs">
+   Specs
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#specs">
-     Specs
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#load-region">
-     Load region
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#make-chips">
-     Make chips
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#filter-through-signatures">
-     Filter through signatures
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#load-imagery-into-chips">
-     Load imagery into chips
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#write-to-disk">
-     Write to disk
-    </a>
-   </li>
-  </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#spill-chips-to-disk-for-out-of-core-computation">
-   Spill chips to disk for out-of-core computation
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-region">
+   Load region
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#add-shifted-chips">
-     Add shifted chips
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#todo">
-     Todo
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#make-chips">
+   Make chips
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filter-through-signatures">
+   Filter through signatures
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-imagery-into-chips">
+   Load imagery into chips
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#write-to-disk">
+   Write to disk
+  </a>
  </li>
 </ul>
 
-            </nav>
-        </div>
+        </nav>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -343,7 +327,7 @@
 <p>This document extracts a series of chips for a region of GB and stores them as <code class="docutils literal notranslate"><span class="pre">numpy</span></code> arrays ready to be loaded by TensorFlow.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tools</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tools</span>
 
 
 <span class="kn">import</span> <span class="nn">geopandas</span>
@@ -362,7 +346,7 @@
 <h2>Specs<a class="headerlink" href="#specs" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">specs</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">specs</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;bb&#39;</span><span class="p">:</span> <span class="n">box</span><span class="p">(</span><span class="mi">321566</span><span class="p">,</span> <span class="mi">365379</span><span class="p">,</span> <span class="mi">468106</span><span class="p">,</span> <span class="mi">437198</span><span class="p">),</span>
     <span class="s1">&#39;chip_size&#39;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
     <span class="s1">&#39;bands&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="c1">#RGB</span>
@@ -396,7 +380,7 @@
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">rioxarray</span><span class="o">.</span><span class="n">open_rasterio</span><span class="p">(</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">rioxarray</span><span class="o">.</span><span class="n">open_rasterio</span><span class="p">(</span>
     <span class="n">specs</span><span class="p">[</span><span class="s1">&#39;mosaic_p&#39;</span><span class="p">],</span> <span class="n">chunks</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">1024</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="mi">1024</span><span class="p">}</span>
 <span class="p">)</span>
 </pre></div>
@@ -408,7 +392,7 @@
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">region</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">region</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span>
     <span class="n">band</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="p">)</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">clip_box</span><span class="p">(</span>
     <span class="o">*</span><span class="n">specs</span><span class="p">[</span><span class="s1">&#39;bb&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">bounds</span>
@@ -422,7 +406,7 @@
 <h2>Make chips<a class="headerlink" href="#make-chips" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">time</span>
 <span class="n">chips</span> <span class="o">=</span> <span class="n">tools</span><span class="o">.</span><span class="n">build_grid</span><span class="p">(</span>
     <span class="n">region</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span>
     <span class="n">region</span><span class="o">.</span><span class="n">coords</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span>
@@ -433,7 +417,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.83 s, sys: 68.8 ms, total: 1.9 s
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.83 s, sys: 68.8 ms, total: 1.9 s
 Wall time: 1.74 s
 </pre></div>
 </div>
@@ -447,13 +431,13 @@ Wall time: 1.74 s
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">time</span>
 <span class="n">spsig</span> <span class="o">=</span> <span class="n">pyogrio</span><span class="o">.</span><span class="n">read_dataframe</span><span class="p">(</span><span class="n">specs</span><span class="p">[</span><span class="s1">&#39;spsig_p&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 936 ms, sys: 274 ms, total: 1.21 s
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>CPU times: user 936 ms, sys: 274 ms, total: 1.21 s
 Wall time: 2.64 s
 </pre></div>
 </div>
@@ -464,7 +448,7 @@ Wall time: 2.64 s
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">time</span>
 <span class="n">oc_chips</span> <span class="o">=</span> <span class="n">geopandas</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span>
     <span class="n">chips</span><span class="p">,</span> 
     <span class="n">spsig</span><span class="p">[[</span><span class="s1">&#39;signature_type&#39;</span><span class="p">,</span> <span class="s1">&#39;geometry&#39;</span><span class="p">]],</span> 
@@ -475,7 +459,7 @@ Wall time: 2.64 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 3.81 s, sys: 18.5 ms, total: 3.83 s
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>CPU times: user 3.81 s, sys: 18.5 ms, total: 3.83 s
 Wall time: 3.81 s
 </pre></div>
 </div>
@@ -484,7 +468,7 @@ Wall time: 3.81 s
 <hr class="docutils" />
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">spsig</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">spsig</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
 <span class="n">oc_chips</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 <span class="n">minX</span><span class="p">,</span> <span class="n">minY</span><span class="p">,</span> <span class="n">maxX</span><span class="p">,</span> <span class="n">maxY</span> <span class="o">=</span> <span class="n">oc_chips</span><span class="o">.</span><span class="n">total_bounds</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">((</span><span class="n">minX</span><span class="p">,</span> <span class="n">maxX</span><span class="p">))</span>
@@ -501,7 +485,7 @@ Wall time: 3.81 s
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">spsig</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">spsig</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
 <span class="n">oc_chips</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
 <span class="n">minX</span><span class="p">,</span> <span class="n">minY</span><span class="p">,</span> <span class="n">maxX</span><span class="p">,</span> <span class="n">maxY</span> <span class="o">=</span> <span class="n">oc_chips</span><span class="o">.</span><span class="n">total_bounds</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">((</span><span class="n">minX</span><span class="p">,</span> <span class="n">maxX</span><span class="p">))</span>
@@ -510,7 +494,7 @@ Wall time: 3.81 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(365462.947432155, 437199.5895371777)
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>(365462.947432155, 437199.5895371777)
 </pre></div>
 </div>
 <img alt="../_images/chip_making_subset_18_1.png" src="../_images/chip_making_subset_18_1.png" />
@@ -521,7 +505,7 @@ Wall time: 3.81 s
 <h2>Load imagery into chips<a class="headerlink" href="#load-imagery-into-chips" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span>
     <span class="n">LocalCluster</span><span class="p">(</span><span class="n">n_workers</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">threads_per_worker</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="p">)</span>
 <span class="n">client</span>
@@ -529,7 +513,8 @@ Wall time: 3.81 s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Numba: Attempted to fork from a non-main thread, the TBB library may be in an invalid state in the child process.
+<div class="stderr docutils container">
+<pre class="stderr literal-block">Numba: Attempted to fork from a non-main thread, the TBB library may be in an invalid state in the child process.
 Numba: Attempted to fork from a non-main thread, the TBB library may be in an invalid state in the child process.
 Numba: Attempted to fork from a non-main thread, the TBB library may be in an invalid state in the child process.
 Numba: Attempted to fork from a non-main thread, the TBB library may be in an invalid state in the child process.
@@ -545,87 +530,87 @@ Numba: Attempted to fork from a non-main thread, the TBB library may be in an in
 Numba: Attempted to fork from a non-main thread, the TBB library may be in an invalid state in the child process.
 Numba: Attempted to fork from a non-main thread, the TBB library may be in an invalid state in the child process.
 Numba: Attempted to fork from a non-main thread, the TBB library may be in an invalid state in the child process.
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-6e0qxdsb&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-00if11q9&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-9ovq9z8c&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-naaycxl0&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-rs2vt_vy&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-yinuktyk&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-r0az67v6&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-x0ez1col&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-wdms9pvr&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-7vxfug7n&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-2f_xmyka&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-69skdxwi&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-i7wbqerl&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-7jbly44z&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-_siuomnu&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-mxapku7e&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-a314zwgw&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-sh4mujfj&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-0ft48y4l&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-f86cx4iq&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-6208hn5f&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-nwwg3sir&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-9guipejt&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-fj8kfxdq&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-tawfngsi&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-wkkk8he6&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-cpx5iwnr&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-z4mkp72t&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-hfphevb9&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-b0xeaazg&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-lu35raz9&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-l6uwizav&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-64lpg7hq&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-4t7s6l0i&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-giioi5s4&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-yd3h5g_s&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-33rts_d1&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-jxze3cao&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-7o4sfm7f&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-2vkuh897&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-mc02rth9&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-r_x5im64&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-fh49okor&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-mrsltk9m&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-ldk0uatp&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-nl8b5yrf&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-a_xlerg0&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-ztfis0hh&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-p392381j&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-tjia1tfd&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-_nv_uxoe&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-b70w1asj&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-0dw8uumw&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-flb15emw&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-36f4nxm1&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-n2r5jlpf&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-3embxh2d&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-227m6ull&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-msfikl_7&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-tetghvvb&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-2im089fp&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-mbkl90_l&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-ne1b9ol3&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-6oaszlvl&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-pfhwsjk9&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-yd9fc0fh&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-kysgkkx2&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-t3mz3ab7&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-b55pr5nf&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-1tlbxeba&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-z64eia7a&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-b60h8tcv&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-vt9noze7&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-j9fsjlkb&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-er5otl13&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-1nz_h_bl&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-4829ayl_&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-zufzv9zp&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-ftqdhhwt&#39;, purging
-distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jovyan/work/signature_ai/dask-worker-space/worker-38tlyrls&#39;, purging
-</pre></div>
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-6e0qxdsb', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-00if11q9', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-9ovq9z8c', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-naaycxl0', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-rs2vt_vy', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-yinuktyk', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-r0az67v6', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-x0ez1col', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-wdms9pvr', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-7vxfug7n', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-2f_xmyka', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-69skdxwi', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-i7wbqerl', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-7jbly44z', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-_siuomnu', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-mxapku7e', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-a314zwgw', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-sh4mujfj', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-0ft48y4l', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-f86cx4iq', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-6208hn5f', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-nwwg3sir', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-9guipejt', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-fj8kfxdq', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-tawfngsi', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-wkkk8he6', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-cpx5iwnr', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-z4mkp72t', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-hfphevb9', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-b0xeaazg', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-lu35raz9', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-l6uwizav', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-64lpg7hq', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-4t7s6l0i', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-giioi5s4', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-yd3h5g_s', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-33rts_d1', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-jxze3cao', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-7o4sfm7f', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-2vkuh897', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-mc02rth9', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-r_x5im64', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-fh49okor', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-mrsltk9m', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-ldk0uatp', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-nl8b5yrf', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-a_xlerg0', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-ztfis0hh', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-p392381j', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-tjia1tfd', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-_nv_uxoe', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-b70w1asj', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-0dw8uumw', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-flb15emw', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-36f4nxm1', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-n2r5jlpf', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-3embxh2d', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-227m6ull', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-msfikl_7', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-tetghvvb', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-2im089fp', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-mbkl90_l', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-ne1b9ol3', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-6oaszlvl', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-pfhwsjk9', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-yd9fc0fh', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-kysgkkx2', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-t3mz3ab7', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-b55pr5nf', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-1tlbxeba', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-z64eia7a', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-b60h8tcv', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-vt9noze7', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-j9fsjlkb', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-er5otl13', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-1nz_h_bl', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-4829ayl_', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-zufzv9zp', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-ftqdhhwt', purging
+distributed.diskutils - INFO - Found stale lock file and directory '/home/jovyan/work/signature_ai/dask-worker-space/worker-38tlyrls', purging
+</pre>
 </div>
 <div class="output text_html"><div>
     <div style="width: 24px; height: 24px; background-color: #e1e1e1; border: 3px solid #9D9D9D; border-radius: 5px; position: absolute;"> </div>
@@ -1468,12 +1453,12 @@ distributed.diskutils - INFO - Found stale lock file and directory &#39;/home/jo
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">time</span> out = tools.bag_of_chips(oc_chips, specs, 16)
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">time</span> <span class="n">out</span> <span class="o">=</span> <span class="n">tools</span><span class="o">.</span><span class="n">bag_of_chips</span><span class="p">(</span><span class="n">oc_chips</span><span class="p">,</span> <span class="n">specs</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 5min 3s, sys: 6min 15s, total: 11min 18s
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>CPU times: user 5min 3s, sys: 6min 15s, total: 11min 18s
 Wall time: 5min 53s
 </pre></div>
 </div>
@@ -1482,7 +1467,7 @@ Wall time: 5min 53s
 <p>Shuffle</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 
 <span class="n">shuffled_idx</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">out</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">shuffled_idx</span><span class="p">)</span>
@@ -1500,13 +1485,13 @@ Wall time: 5min 53s
 <p>Once ready, we store the array as a <code class="docutils literal notranslate"><span class="pre">.npz</span></code> file to be shipped to TensorFlow.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">time</span>
 <span class="n">numpy</span><span class="o">.</span><span class="n">savez_compressed</span><span class="p">(</span><span class="n">specs</span><span class="p">[</span><span class="s2">&quot;tensor&quot;</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">chips</span><span class="o">=</span><span class="n">out</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 2min 41s, sys: 1min 57s, total: 4min 38s
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>CPU times: user 2min 41s, sys: 1min 57s, total: 4min 38s
 Wall time: 1min 24s
 </pre></div>
 </div>
@@ -1518,14 +1503,14 @@ Wall time: 1min 24s
 <h1>Spill chips to disk for out-of-core computation<a class="headerlink" href="#spill-chips-to-disk-for-out-of-core-computation" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">time</span>
 <span class="c1"># max value for normalisation</span>
-<span class="n">specs</span><span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">region</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">.99</span><span class="p">))</span>
+<span class="n">specs</span><span class="p">[</span><span class="s1">&#39;max&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">region</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="o">.</span><span class="mi">99</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 733 ms, sys: 135 ms, total: 867 ms
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>CPU times: user 733 ms, sys: 135 ms, total: 867 ms
 Wall time: 689 ms
 </pre></div>
 </div>
@@ -1533,7 +1518,7 @@ Wall time: 689 ms
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span>
     <span class="n">LocalCluster</span><span class="p">(</span><span class="n">n_workers</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">threads_per_worker</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="p">)</span>
 <span class="n">client</span>
@@ -1541,7 +1526,8 @@ Wall time: 689 ms
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Numba: Attempted to fork from a non-main thread, the TBB library may be in an invalid state in the child process.
+<div class="stderr docutils container">
+<pre class="stderr literal-block">Numba: Attempted to fork from a non-main thread, the TBB library may be in an invalid state in the child process.
 Numba: Attempted to fork from a non-main thread, the TBB library may be in an invalid state in the child process.
 Numba: Attempted to fork from a non-main thread, the TBB library may be in an invalid state in the child process.
 Numba: Attempted to fork from a non-main thread, the TBB library may be in an invalid state in the child process.
@@ -1558,7 +1544,7 @@ Numba: Attempted to fork from a non-main thread, the TBB library may be in an in
 Numba: Attempted to fork from a non-main thread, the TBB library may be in an invalid state in the child process.
 Numba: Attempted to fork from a non-main thread, the TBB library may be in an invalid state in the child process.
 Numba: Attempted to fork from a non-main thread, the TBB library may be in an invalid state in the child process.
-</pre></div>
+</pre>
 </div>
 <div class="output text_html"><div>
     <div style="width: 24px; height: 24px; background-color: #e1e1e1; border: 3px solid #9D9D9D; border-radius: 5px; position: absolute;"> </div>
@@ -2401,13 +2387,13 @@ Numba: Attempted to fork from a non-main thread, the TBB library may be in an in
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">time</span>
 <span class="n">tools</span><span class="o">.</span><span class="n">spilled_bag_of_chips</span><span class="p">(</span><span class="n">oc_chips</span><span class="p">,</span> <span class="n">specs</span><span class="p">,</span> <span class="n">npartitions</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 38.7 s, sys: 5.86 s, total: 44.6 s
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>CPU times: user 38.7 s, sys: 5.86 s, total: 44.6 s
 Wall time: 2min 14s
 </pre></div>
 </div>
@@ -2418,7 +2404,7 @@ Wall time: 2min 14s
 <p>Count the number of chips per class</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">glob</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">glob</span>
 
 <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">specs</span><span class="p">[</span><span class="s1">&#39;folder&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;*&quot;</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:],</span> <span class="nb">len</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">f</span> <span class="o">+</span> <span class="s2">&quot;/*&quot;</span><span class="p">)))</span>
@@ -2426,7 +2412,7 @@ Wall time: 2min 14s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4_0 3090
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>4_0 3090
 9_2 11
 2_0 379
 9_0 18
@@ -2447,7 +2433,7 @@ Wall time: 2min 14s
 <p>Add overlapping chips for some classes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># translate</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># translate</span>
 <span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
 
 <span class="n">subset_to_add</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;4_0&quot;</span><span class="p">,</span> <span class="s2">&quot;9_2&quot;</span><span class="p">,</span> <span class="s2">&quot;2_0&quot;</span><span class="p">,</span> <span class="s2">&quot;9_0&quot;</span><span class="p">,</span> <span class="s2">&quot;2_2&quot;</span><span class="p">,</span> <span class="s2">&quot;1_0&quot;</span><span class="p">,</span> <span class="s2">&quot;8_0&quot;</span><span class="p">,</span> <span class="s2">&quot;6_0&quot;</span><span class="p">,</span> <span class="s2">&quot;2_1&quot;</span><span class="p">,</span> <span class="s2">&quot;9_4&quot;</span><span class="p">,</span> <span class="s2">&quot;5_0&quot;</span><span class="p">]</span>
@@ -2471,7 +2457,7 @@ Wall time: 2min 14s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 80 done
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>0 80 done
 0 160 done
 0 240 done
 80 80 done
@@ -2489,13 +2475,13 @@ Wall time: 2min 14s
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">specs</span><span class="p">[</span><span class="s1">&#39;folder&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;*&quot;</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">specs</span><span class="p">[</span><span class="s1">&#39;folder&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;*&quot;</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:],</span> <span class="nb">len</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">f</span> <span class="o">+</span> <span class="s2">&quot;/*&quot;</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4_0 39986
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>4_0 39986
 9_2 124
 2_0 4931
 9_0 218
@@ -2516,7 +2502,7 @@ Wall time: 2min 14s
 <p>A few more.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">subset_to_add</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;9_2&quot;</span><span class="p">,</span> <span class="s2">&quot;2_0&quot;</span><span class="p">,</span> <span class="s2">&quot;9_0&quot;</span><span class="p">,</span> <span class="s2">&quot;2_2&quot;</span><span class="p">,</span> <span class="s2">&quot;8_0&quot;</span><span class="p">,</span> <span class="s2">&quot;6_0&quot;</span><span class="p">,</span> <span class="s2">&quot;2_1&quot;</span><span class="p">,</span> <span class="s2">&quot;9_4&quot;</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">subset_to_add</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;9_2&quot;</span><span class="p">,</span> <span class="s2">&quot;2_0&quot;</span><span class="p">,</span> <span class="s2">&quot;9_0&quot;</span><span class="p">,</span> <span class="s2">&quot;2_2&quot;</span><span class="p">,</span> <span class="s2">&quot;8_0&quot;</span><span class="p">,</span> <span class="s2">&quot;6_0&quot;</span><span class="p">,</span> <span class="s2">&quot;2_1&quot;</span><span class="p">,</span> <span class="s2">&quot;9_4&quot;</span><span class="p">]</span>
 
 <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">product</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span> <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">200</span><span class="p">]):</span>
     <span class="n">chips_translated</span> <span class="o">=</span> <span class="n">chips</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -2537,7 +2523,7 @@ Wall time: 2min 14s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 40 done
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>0 40 done
 0 120 done
 0 200 done
 40 40 done
@@ -2555,13 +2541,13 @@ Wall time: 2min 14s
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">specs</span><span class="p">[</span><span class="s1">&#39;folder&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;*&quot;</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">specs</span><span class="p">[</span><span class="s1">&#39;folder&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;*&quot;</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:],</span> <span class="nb">len</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">f</span> <span class="o">+</span> <span class="s2">&quot;/*&quot;</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4_0 39986
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>4_0 39986
 9_2 261
 2_0 9459
 9_0 407
@@ -2581,7 +2567,7 @@ Wall time: 2min 14s
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">subset_to_add</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;9_2&quot;</span><span class="p">,</span> <span class="s2">&quot;9_0&quot;</span><span class="p">,</span> <span class="s2">&quot;9_4&quot;</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">subset_to_add</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;9_2&quot;</span><span class="p">,</span> <span class="s2">&quot;9_0&quot;</span><span class="p">,</span> <span class="s2">&quot;9_4&quot;</span><span class="p">]</span>
 
 <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">product</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">260</span><span class="p">,</span> <span class="mi">280</span><span class="p">,</span> <span class="mi">300</span><span class="p">],</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">260</span><span class="p">,</span> <span class="mi">280</span><span class="p">,</span> <span class="mi">300</span><span class="p">]):</span>
     <span class="n">chips_translated</span> <span class="o">=</span> <span class="n">chips</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -2602,7 +2588,7 @@ Wall time: 2min 14s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0 20 done
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>0 20 done
 0 60 done
 0 100 done
 0 140 done
@@ -2698,7 +2684,7 @@ Wall time: 2min 14s
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span> <span class="o">=</span> <span class="p">{}</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">specs</span><span class="p">[</span><span class="s1">&#39;folder&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;*&quot;</span><span class="p">):</span>
     <span class="n">counts</span><span class="p">[</span><span class="n">f</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">:]]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">f</span> <span class="o">+</span> <span class="s2">&quot;/*&quot;</span><span class="p">))</span>
 </pre></div>
@@ -2707,12 +2693,12 @@ Wall time: 2min 14s
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;4_0&#39;: 39986,
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;4_0&#39;: 39986,
  &#39;9_2&#39;: 1211,
  &#39;2_0&#39;: 9459,
  &#39;9_0&#39;: 1892,
@@ -2732,7 +2718,7 @@ Wall time: 2min 14s
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">group_mapping</span> <span class="o">=</span> <span class="p">[</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">group_mapping</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">[</span><span class="s1">&#39;9_0&#39;</span><span class="p">,</span> <span class="s1">&#39;9_1&#39;</span><span class="p">,</span> <span class="s1">&#39;9_2&#39;</span><span class="p">,</span> <span class="s1">&#39;9_4&#39;</span><span class="p">,</span> <span class="s1">&#39;9_5&#39;</span><span class="p">,</span> <span class="s1">&#39;2_0&#39;</span><span class="p">,</span> <span class="s1">&#39;2_1&#39;</span><span class="p">,</span> <span class="s1">&#39;2_2&#39;</span><span class="p">],</span>
     <span class="p">[</span><span class="s1">&#39;1_0&#39;</span><span class="p">,</span> <span class="s1">&#39;3_0&#39;</span><span class="p">,</span> <span class="s1">&#39;5_0&#39;</span><span class="p">,</span> <span class="s1">&#39;6_0&#39;</span><span class="p">,</span> <span class="s1">&#39;8_0&#39;</span><span class="p">],</span>
     <span class="p">[</span><span class="s1">&#39;0_0&#39;</span><span class="p">,</span> <span class="s1">&#39;4_0&#39;</span><span class="p">,</span> <span class="s1">&#39;7_0&#39;</span><span class="p">]</span>
@@ -2743,7 +2729,7 @@ Wall time: 2min 14s
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">group_counts</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">group_counts</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">0</span><span class="p">}</span>
 <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">counts</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">g</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">group_mapping</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">g</span><span class="p">:</span>
@@ -2754,12 +2740,12 @@ Wall time: 2min 14s
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">group_counts</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">group_counts</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{0: 24679, 1: 61766, 2: 92167}
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>{0: 24679, 1: 61766, 2: 92167}
 </pre></div>
 </div>
 </div>
@@ -2767,7 +2753,7 @@ Wall time: 2min 14s
 <p>move them around to a proper place</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">specs</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">specs</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;chips&#39;</span><span class="p">:</span> <span class="s2">&quot;../urbangrammar_samba/spatial_signatures/chips/32/&quot;</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
@@ -2776,7 +2762,7 @@ Wall time: 2min 14s
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">split</span> <span class="o">=</span> <span class="p">(</span><span class="mf">.6</span><span class="p">,</span> <span class="mf">.2</span><span class="p">,</span> <span class="mf">.2</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">split</span> <span class="o">=</span> <span class="p">(</span><span class="o">.</span><span class="mi">6</span><span class="p">,</span> <span class="o">.</span><span class="mi">2</span><span class="p">,</span> <span class="o">.</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="n">subfolders</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">specs</span><span class="p">[</span><span class="s2">&quot;chips&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;*&quot;</span><span class="p">)</span>
 
@@ -2788,7 +2774,7 @@ Wall time: 2min 14s
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">sub</span> <span class="ow">in</span> <span class="n">subfolders</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">sub</span> <span class="ow">in</span> <span class="n">subfolders</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="s2">&quot;validation&quot;</span><span class="p">,</span> <span class="s2">&quot;secret&quot;</span><span class="p">]:</span>
         <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">specs</span><span class="p">[</span><span class="s1">&#39;chips&#39;</span><span class="p">]</span><span class="si">}{</span><span class="n">t</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">Path</span><span class="p">(</span><span class="n">sub</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">files</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">sub</span> <span class="o">+</span> <span class="s2">&quot;/*.tif&quot;</span><span class="p">)</span>
@@ -2807,7 +2793,7 @@ Wall time: 2min 14s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>../urbangrammar_samba/spatial_signatures/chips/32/4_0 done
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>../urbangrammar_samba/spatial_signatures/chips/32/4_0 done
 ../urbangrammar_samba/spatial_signatures/chips/32/9_2 done
 ../urbangrammar_samba/spatial_signatures/chips/32/2_0 done
 ../urbangrammar_samba/spatial_signatures/chips/32/9_0 done
@@ -2833,24 +2819,24 @@ Wall time: 2min 14s
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="n">region</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">band</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">.99</span><span class="p">)),</span> <span class="nb">int</span><span class="p">(</span><span class="n">region</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">band</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">.99</span><span class="p">)),</span> <span class="nb">int</span><span class="p">(</span><span class="n">region</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">band</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">.99</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="n">region</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">band</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="o">.</span><span class="mi">99</span><span class="p">)),</span> <span class="nb">int</span><span class="p">(</span><span class="n">region</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">band</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="o">.</span><span class="mi">99</span><span class="p">)),</span> <span class="nb">int</span><span class="p">(</span><span class="n">region</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">band</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="o">.</span><span class="mi">99</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1386, 1378, 1589)
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>(1386, 1378, 1589)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="n">region</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">band</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">.02</span><span class="p">)),</span> <span class="nb">int</span><span class="p">(</span><span class="n">region</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">band</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">.02</span><span class="p">)),</span> <span class="nb">int</span><span class="p">(</span><span class="n">region</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">band</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">.02</span><span class="p">))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">int</span><span class="p">(</span><span class="n">region</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">band</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="o">.</span><span class="mi">02</span><span class="p">)),</span> <span class="nb">int</span><span class="p">(</span><span class="n">region</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">band</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="o">.</span><span class="mi">02</span><span class="p">)),</span> <span class="nb">int</span><span class="p">(</span><span class="n">region</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">band</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="o">.</span><span class="mi">02</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(376, 637, 801)
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>(376, 637, 801)
 </pre></div>
 </div>
 </div>
@@ -2880,35 +2866,15 @@ Wall time: 2min 14s
 
               </div>
               
-        
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="chip_making_b.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Chip making - Pt. B</p>
-            </div>
-        </a>
-    </div>
-     <div id="next">
-        <a class="right-next" href="chip_making_gb.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Create chips for the majority of GB</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
-</div>
-        
         </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="chip_making_b.html" title="previous page">Chip making - Pt. B</a>
+    <a class='right-next' id="next-link" href="chip_making_gb.html" title="next page">Create chips for the majority of GB</a>
+
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -2925,9 +2891,8 @@ Wall time: 2min 14s
 
       </div>
     </div>
-  
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-  
+    <script src="../_static/js/index.js"></script>
+    
   </body>
 </html>

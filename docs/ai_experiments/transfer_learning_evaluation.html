@@ -1,37 +1,24 @@
 
+
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evaluation of models trained on NW &#8212; Urban Grammar AI | WP3 - Signature AI</title>
-    
-  <link href="../_static/css/theme.css" rel="stylesheet" />
-  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
-
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
-
-    
-      
-
-    
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
-    
-  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
-
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -39,9 +26,13 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@latest/lib/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
@@ -52,14 +43,14 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="AI pipeline from disk" href="tl_from_disk.html" />
     <link rel="prev" title="Model testing" href="transfer_learning_pipe.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
-    
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
-    
-    <div class="container-fluid" id="banner"></div>
-
     
 
     <div class="container-xl">
@@ -68,38 +59,47 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
-      
-      <img src="../_static/logo.svg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Urban Grammar AI | WP3 - Signature AI</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/logo.svg" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Urban Grammar AI | WP3 - Signature AI</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <p class="caption">
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <p class="caption">
  <span class="caption-text">
   Project
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference external" href="http://urbangrammarai.xyz">
    Project homepage
+   <i class="fas fa-external-link-alt">
+   </i>
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference external" href="http://urbangrammarai.xyz/data_processing">
    WP1 - Data processing
+   <i class="fas fa-external-link-alt">
+   </i>
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference external" href="http://urbangrammarai.xyz/spatial_signatures">
    WP2 - Spatial Signatures
+   <i class="fas fa-external-link-alt">
+   </i>
   </a>
  </li>
 </ul>
@@ -108,7 +108,7 @@
   Create chips
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../create_chips/chip_making_a.html">
    Chip making
@@ -125,13 +125,13 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../create_chips/chip_making_gb.html">
-   Create chips for the majority of GB
+  <a class="reference internal" href="../create_chips/chip_making_subset.html#spill-chips-to-disk-for-out-of-core-computation">
+   Spill chips to disk for out-of-core computation
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../create_chips/chips_glasgow.html">
-   Create chips for a continous stretch of land
+  <a class="reference internal" href="../create_chips/chip_making_gb.html">
+   Create chips for the majority of GB
   </a>
  </li>
  <li class="toctree-l1">
@@ -150,7 +150,7 @@
   AI experiments
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="current nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="transfer_learning_pipe.html">
    Model testing
@@ -176,10 +176,21 @@
    Predict signature types from a numpy array of chips
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="sp_model_chip_probabilities.html">
+   Modelling of chip probabilities
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="explore_model_performance.html">
+   Explore model performances
+  </a>
+ </li>
 </ul>
 
-    </div>
-</nav> <!-- To handle the deprecated key -->
+</nav>
+
+ <!-- To handle the deprecated key -->
 
 </div>
 
@@ -190,25 +201,25 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
 
+    
     <div class="dropdown-buttons">
         <!-- ipynb file if we had a myst markdown file -->
         
@@ -220,9 +231,9 @@
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
+    
 </div>
-
-            <!-- Source interaction buttons -->
+        <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -237,14 +248,13 @@
     </div>
 </div>
 
-            <!-- Full screen (wrap in <a> to have style consistency -->
 
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
 
-            <!-- Launch buttons -->
+        <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -263,16 +273,15 @@
     </div>
 </div>
 
-        </div>
+    </div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> On this page
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#regression">
    regression
@@ -280,8 +289,7 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
+        </nav>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -294,7 +302,7 @@
 <p>Evaluation of models trained on NW sample of chips</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">glob</span>
 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -307,21 +315,21 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;../urbangrammar_samba/spatial_signatures/ai/nw_*/json/&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;../../urbangrammar_samba/spatial_signatures/ai/nw_*/json/&quot;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;*&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;*&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -329,88 +337,88 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">result</span> <span class="k">if</span> <span class="s2">&quot;meta&quot;</span> <span class="ow">in</span> <span class="n">i</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">result</span> <span class="k">if</span> <span class="s2">&quot;meta&quot;</span> <span class="ow">in</span> <span class="n">i</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;meta_n_class&#39;, &#39;meta_class_map&#39;, &#39;meta_class_names&#39;, &#39;meta_chip_size&#39;]
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;meta_n_class&#39;, &#39;meta_class_map&#39;, &#39;meta_class_names&#39;, &#39;meta_chip_size&#39;]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">55</span><span class="p">:</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">i</span><span class="p">[</span><span class="mi">47</span><span class="p">:</span><span class="mi">49</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">results</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">58</span><span class="p">:</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">i</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">52</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">results</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">names</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">names</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;efficientnet_pooling_256_3_08&#39;,
- &#39;vgg19_pooling_256_3_08&#39;,
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;efficientnet_pooling_256_3_16&#39;,
+ &#39;vgg19_pooling_256_3_16&#39;,
+ &#39;efficientnet_flatten_128_3_32&#39;,
+ &#39;efficientnet_flatten_256_3_32&#39;,
+ &#39;efficientnet_flatten_512_3_32&#39;,
+ &#39;efficientnet_pooling_128_3_32&#39;,
+ &#39;efficientnet_pooling_256_3_32&#39;,
+ &#39;efficientnet_pooling_512_3_32&#39;,
+ &#39;resnet50_flatten_128_3_32&#39;,
+ &#39;resnet50_flatten_256_3_32&#39;,
+ &#39;resnet50_flatten_512_3_32&#39;,
+ &#39;resnet50_pooling_128_3_32&#39;,
+ &#39;resnet50_pooling_256_3_32&#39;,
+ &#39;resnet50_pooling_512_3_32&#39;,
+ &#39;vgg19_flatten_128_3_32&#39;,
+ &#39;vgg19_flatten_256_3_32&#39;,
+ &#39;vgg19_flatten_512_3_32&#39;,
+ &#39;vgg19_pooling_128_3_32&#39;,
+ &#39;vgg19_pooling_256_3_32&#39;,
+ &#39;vgg19_pooling_512_3_32&#39;,
  &#39;efficientnet_pooling_256_3_64&#39;,
  &#39;vgg19_pooling_256_3_64&#39;,
- &#39;efficientnet_pooling_256_3_16&#39;,
- &#39;vgg19_pooling_256_3_16&#39;,
- &#39;efficientnet_pooling_256_3_32&#39;,
- &#39;resnet50_pooling_512_3_32&#39;,
- &#39;resnet50_flatten_128_3_32&#39;,
- &#39;resnet50_pooling_128_3_32&#39;,
- &#39;vgg19_pooling_256_3_32&#39;,
- &#39;resnet50_flatten_256_3_32&#39;,
- &#39;vgg19_pooling_128_3_32&#39;,
- &#39;efficientnet_flatten_256_3_32&#39;,
- &#39;vgg19_flatten_128_3_32&#39;,
- &#39;efficientnet_flatten_128_3_32&#39;,
- &#39;efficientnet_pooling_128_3_32&#39;,
- &#39;vgg19_flatten_512_3_32&#39;,
- &#39;vgg19_flatten_256_3_32&#39;,
- &#39;efficientnet_pooling_512_3_32&#39;,
- &#39;vgg19_pooling_512_3_32&#39;,
- &#39;resnet50_flatten_512_3_32&#39;,
- &#39;efficientnet_flatten_512_3_32&#39;,
- &#39;resnet50_pooling_256_3_32&#39;]
+ &#39;efficientnet_pooling_256_3_08&#39;,
+ &#39;vgg19_pooling_256_3_08&#39;]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;global&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;meta_class_names&quot;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_product</span><span class="p">([</span><span class="n">names</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="s2">&quot;val&quot;</span><span class="p">,</span> <span class="s2">&quot;secret&quot;</span><span class="p">]]))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;global&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;meta_class_names&quot;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_product</span><span class="p">([</span><span class="n">names</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;train&quot;</span><span class="p">,</span> <span class="s2">&quot;val&quot;</span><span class="p">,</span> <span class="s2">&quot;secret&quot;</span><span class="p">]]))</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
     
-    <span class="n">accuracy</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;model_name&quot;</span><span class="p">]</span><span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">r</span><span class="p">[</span><span class="mi">47</span><span class="p">:</span><span class="mi">49</span><span class="p">],</span> <span class="s2">&quot;train&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_model_accuracy_train&quot;</span><span class="p">]]</span> <span class="o">+</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_within_class_accuracy_train&quot;</span><span class="p">]</span>
-    <span class="n">accuracy</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;model_name&quot;</span><span class="p">]</span><span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">r</span><span class="p">[</span><span class="mi">47</span><span class="p">:</span><span class="mi">49</span><span class="p">],</span> <span class="s2">&quot;val&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_model_accuracy_val&quot;</span><span class="p">]]</span> <span class="o">+</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_within_class_accuracy_val&quot;</span><span class="p">]</span>
-    <span class="n">accuracy</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;model_name&quot;</span><span class="p">]</span><span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">r</span><span class="p">[</span><span class="mi">47</span><span class="p">:</span><span class="mi">49</span><span class="p">],</span> <span class="s2">&quot;secret&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_model_accuracy_secret&quot;</span><span class="p">]]</span> <span class="o">+</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_within_class_accuracy_secret&quot;</span><span class="p">]</span>
+    <span class="n">accuracy</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;model_name&quot;</span><span class="p">]</span><span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">r</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">52</span><span class="p">],</span> <span class="s2">&quot;train&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_model_accuracy_train&quot;</span><span class="p">]]</span> <span class="o">+</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_within_class_accuracy_train&quot;</span><span class="p">]</span>
+    <span class="n">accuracy</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;model_name&quot;</span><span class="p">]</span><span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">r</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">52</span><span class="p">],</span> <span class="s2">&quot;val&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_model_accuracy_val&quot;</span><span class="p">]]</span> <span class="o">+</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_within_class_accuracy_val&quot;</span><span class="p">]</span>
+    <span class="n">accuracy</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;model_name&quot;</span><span class="p">]</span><span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">r</span><span class="p">[</span><span class="mi">50</span><span class="p">:</span><span class="mi">52</span><span class="p">],</span> <span class="s2">&quot;secret&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_model_accuracy_secret&quot;</span><span class="p">]]</span> <span class="o">+</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;perf_within_class_accuracy_secret&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span>
 </pre></div>
 </div>
 </div>
@@ -442,14 +450,52 @@
   </thead>
   <tbody>
     <tr>
-      <th rowspan="3" valign="top">efficientnet_pooling_256_3_08</th>
+      <th rowspan="3" valign="top">efficientnet_pooling_256_3_16</th>
       <th>train</th>
-      <td>0.578606</td>
-      <td>0.614376</td>
-      <td>0.403471</td>
-      <td>0.631898</td>
+      <td>0.690413</td>
+      <td>0.667913</td>
+      <td>0.696415</td>
+      <td>0.687406</td>
     </tr>
     <tr>
+      <th>val</th>
+      <td>0.681598</td>
+      <td>0.462719</td>
+      <td>0.688869</td>
+      <td>0.68674</td>
+    </tr>
+    <tr>
+      <th>secret</th>
+      <td>0.679615</td>
+      <td>0.502315</td>
+      <td>0.685129</td>
+      <td>0.683583</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">vgg19_pooling_256_3_16</th>
+      <th>train</th>
+      <td>0.71285</td>
+      <td>0.683562</td>
+      <td>0.715533</td>
+      <td>0.713139</td>
+    </tr>
+    <tr>
+      <th>val</th>
+      <td>0.687897</td>
+      <td>0.400832</td>
+      <td>0.688503</td>
+      <td>0.709091</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">efficientnet_pooling_256_3_08</th>
       <th>val</th>
       <td>0.57277</td>
       <td>0.608934</td>
@@ -464,7 +510,7 @@
       <td>0.63112</td>
     </tr>
     <tr>
-      <th rowspan="2" valign="top">vgg19_pooling_256_3_08</th>
+      <th rowspan="3" valign="top">vgg19_pooling_256_3_08</th>
       <th>train</th>
       <td>0.594761</td>
       <td>0.616865</td>
@@ -479,49 +525,11 @@
       <td>0.644179</td>
     </tr>
     <tr>
-      <th>...</th>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">efficientnet_flatten_512_3_32</th>
-      <th>val</th>
-      <td>0.697187</td>
-      <td>0.322581</td>
-      <td>0.715353</td>
-      <td>0.695613</td>
-    </tr>
-    <tr>
       <th>secret</th>
-      <td>0.702839</td>
-      <td>0.293103</td>
-      <td>0.704061</td>
-      <td>0.712578</td>
-    </tr>
-    <tr>
-      <th rowspan="3" valign="top">resnet50_pooling_256_3_32</th>
-      <th>train</th>
-      <td>0.476911</td>
-      <td>0.0</td>
-      <td>0.476911</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>val</th>
-      <td>0.469745</td>
-      <td>0.0</td>
-      <td>0.469745</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>secret</th>
-      <td>0.451844</td>
-      <td>0.0</td>
-      <td>0.451844</td>
-      <td>0.0</td>
+      <td>0.584357</td>
+      <td>0.602026</td>
+      <td>0.418351</td>
+      <td>0.638548</td>
     </tr>
   </tbody>
 </table>
@@ -530,55 +538,81 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s1">&#39;train&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;train&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s1">&#39;train&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;train&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;train&#39;}&gt;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;train&#39;}&gt;
 </pre></div>
 </div>
-<img alt="../_images/transfer_learning_evaluation_12_1.png" src="../_images/transfer_learning_evaluation_12_1.png" />
+<img alt="../_images/transfer_learning_evaluation_12_11.png" src="../_images/transfer_learning_evaluation_12_11.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s1">&#39;val&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;validation&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s1">&#39;val&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;validation&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;validation&#39;}&gt;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;validation&#39;}&gt;
 </pre></div>
 </div>
-<img alt="../_images/transfer_learning_evaluation_13_1.png" src="../_images/transfer_learning_evaluation_13_1.png" />
+<img alt="../_images/transfer_learning_evaluation_13_11.png" src="../_images/transfer_learning_evaluation_13_11.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s1">&#39;secret&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;secret&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">accuracy</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s1">&#39;secret&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;secret&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;secret&#39;}&gt;
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:title={&#39;center&#39;:&#39;secret&#39;}&gt;
 </pre></div>
 </div>
-<img alt="../_images/transfer_learning_evaluation_14_1.png" src="../_images/transfer_learning_evaluation_14_1.png" />
+<img alt="../_images/transfer_learning_evaluation_14_11.png" src="../_images/transfer_learning_evaluation_14_11.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">accuracy</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s1">&#39;val&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="n">accuracy</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s1">&#39;val&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;pooling_512_3_32&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;validation accuracy&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">ugg</span><span class="o">.</span><span class="n">CMAP</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;figs/comp1.pdf&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/transfer_learning_evaluation_15_01.png" src="../_images/transfer_learning_evaluation_15_01.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">accuracy</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s1">&#39;val&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="n">accuracy</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s1">&#39;val&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;efficientnet_pooling_256_3&quot;</span><span class="p">)]</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;validation accuracy&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">ugg</span><span class="o">.</span><span class="n">CMAP</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">despine</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;figs/comp2.pdf&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/transfer_learning_evaluation_16_01.png" src="../_images/transfer_learning_evaluation_16_01.png" />
 </div>
 </div>
 <div class="section" id="regression">
 <h2>regression<a class="headerlink" href="#regression" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regr_input</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;global_validation_acc&quot;</span><span class="p">,</span> <span class="s2">&quot;global_secret_acc&quot;</span><span class="p">,</span> <span class="s2">&quot;architecture&quot;</span><span class="p">,</span> <span class="s2">&quot;top_layer&quot;</span><span class="p">,</span> <span class="s2">&quot;neurons&quot;</span><span class="p">,</span> <span class="s2">&quot;chip_size&quot;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">names</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">regr_input</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;global_validation_acc&quot;</span><span class="p">,</span> <span class="s2">&quot;global_secret_acc&quot;</span><span class="p">,</span> <span class="s2">&quot;architecture&quot;</span><span class="p">,</span> <span class="s2">&quot;top_layer&quot;</span><span class="p">,</span> <span class="s2">&quot;neurons&quot;</span><span class="p">,</span> <span class="s2">&quot;chip_size&quot;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">names</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">result</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
         
@@ -589,7 +623,7 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regr_input</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">regr_input</span>
 </pre></div>
 </div>
 </div>
@@ -843,14 +877,14 @@
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">regr_input</span><span class="o">.</span><span class="n">global_validation_acc</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">regr_input</span><span class="p">[[</span><span class="s2">&quot;architecture&quot;</span><span class="p">,</span> <span class="s2">&quot;top_layer&quot;</span><span class="p">,</span> <span class="s2">&quot;neurons&quot;</span><span class="p">,</span> <span class="s2">&quot;chip_size&quot;</span><span class="p">]],</span> <span class="n">drop_first</span><span class="o">=</span><span class="kc">True</span><span class="p">)))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">OLS</span><span class="p">(</span><span class="n">regr_input</span><span class="o">.</span><span class="n">global_validation_acc</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">),</span> <span class="n">sm</span><span class="o">.</span><span class="n">add_constant</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">regr_input</span><span class="p">[[</span><span class="s2">&quot;architecture&quot;</span><span class="p">,</span> <span class="s2">&quot;top_layer&quot;</span><span class="p">,</span> <span class="s2">&quot;neurons&quot;</span><span class="p">,</span> <span class="s2">&quot;chip_size&quot;</span><span class="p">]],</span> <span class="n">drop_first</span><span class="o">=</span><span class="kc">True</span><span class="p">)))</span>
 <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 <span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 </pre></div>
@@ -959,35 +993,15 @@
 
               </div>
               
-        
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="transfer_learning_pipe.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Model testing</p>
-            </div>
-        </a>
-    </div>
-     <div id="next">
-        <a class="right-next" href="tl_from_disk.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">AI pipeline from disk</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
-</div>
-        
         </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="transfer_learning_pipe.html" title="previous page">Model testing</a>
+    <a class='right-next' id="next-link" href="tl_from_disk.html" title="next page">AI pipeline from disk</a>
+
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -1004,9 +1018,8 @@
 
       </div>
     </div>
-  
-  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-  
+    <script src="../_static/js/index.js"></script>
+    
   </body>
 </html>
