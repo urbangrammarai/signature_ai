@@ -29,5 +29,7 @@
     - file: ai_experiments/predict_from_numpy
     - file: ai_experiments/sp_model_chip_probabilities
     - file: ai_experiments/explore_model_performance
+    - file: ai_experiments/production_sp_modeling
+    - file: ai_experiments/production_model_performance
 
 
