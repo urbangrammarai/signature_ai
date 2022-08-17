@@ -4,8 +4,13 @@ Tools for modelling chip probabilities
 
 import os, json
 import pandas
+import geopandas
 import numpy as np
 from time import time
+from datetime import datetime
+
+from sklearn.model_selection import GridSearchCV
+from sklearn.ensemble import HistGradientBoostingClassifier
 
 import statsmodels.api as sm
 from sklearn.metrics import (
@@ -40,6 +45,8 @@ class_names = [
     'countryside_agriculture',
     'wild_countryside'
 ]
+w_class_names = ['w_'+i for i in class_names]
+
 
 def parse_nn_json(json_p):
     with open(json_p) as f:
@@ -54,11 +61,22 @@ def parse_nn_json(json_p):
         return cd2nm
     
 def lag_columns(
-    tab, cols, w=None, prefix='w_', flag_islands=True, add_card=True
+    tab, 
+    cols,
+    w=None,
+    criterium=weights.Queen, # Needs to have a `from_dataframe` method
+    crit_kwds={},
+    prefix='w_',
+    flag_islands=True,
+    add_card=True
 ):
     if w is None:
-        w = weights.Queen.from_dataframe(tab) # NOTE: positional index
-        w.transform = 'R'
+        w_user = criterium.from_dataframe(
+            tab, ids=range(len(tab)), **crit_kwds
+        ) # NOTE: positional index
+        w_k1 = weights.KNN.from_dataframe(tab, k=1, ids=range(len(tab)))
+        w = weights.w_union(w_user, w_k1)
+        w.transform = 'R'        
     col_names = [prefix+i for i in cols]
     w_tab = pandas.DataFrame(
         np.zeros(tab[cols].shape), index=tab.index, columns=col_names
@@ -97,6 +115,61 @@ def interact_vars(db, vars_a, vars_b, auto_drop=False):
             a_by_b = a_by_b.rename(columns={i:f'{va}-x-{vb}'})
             i+=1
     return a_by_b
+
+def path2chipsize_arch(p):
+    pieces = (
+        os.path.split(p)[1]
+        .split('.')[0]
+        .replace('v2_', '')
+        .split('_')
+    )
+    chipsize = int(pieces[0])
+    # Arch
+    if 'multi' in pieces:
+        arch = 'mor'
+    elif 'slided' in pieces:
+        arch = 'sic'
+    else:
+        arch = 'bic'
+    return chipsize, arch
+
+def premodelling_process(p, cw):
+    chipsize, arch = path2chipsize_arch(p)
+    db = geopandas.read_parquet(p+'_labels.parquet')
+    # Labels
+    db['label'] = pandas.Categorical(db['signature_type'].map(cw))
+    # Probs
+    columns = [ # Provided by MF on Aug. 17th
+        "Urbanity", 
+        "Dense residential neighbourhoods",
+        "Connected residential neighbourhoods",
+        "Dense urban neighbourhoods",
+        "Accessible suburbia",
+        "Open sprawl",
+        "Warehouse_Park land",
+        "Gridded residential quarters",
+        "Disconnected suburbia",
+        "Countryside agriculture", 
+        "Wild countryside", 
+        "Urban buffer"
+    ]
+    columns = [i.lower().replace(' ', '_') for i in columns]
+    probs = pandas.DataFrame(
+        np.load(p+'_prediction.npy'), columns=columns
+    )[class_names] # Re-order following hierarchy
+    # Keep only data in ML split
+    db = db.join(probs).query('(split == "ml_train") | (split == "ml_val")')
+    # Spatial Lag
+    sp_lag = db.groupby('split').apply(
+        lag_columns, 
+        cols=class_names, 
+        criterium=weights.DistanceBand, 
+        crit_kwds={'threshold': chipsize * 10 * 1.5} 
+    )
+    db = db.join(sp_lag.drop(columns=['island', 'card']))
+    return db, f'{chipsize}_{arch}'
+
+
 
                     #################
                     ### Modelling ###
@@ -273,6 +346,116 @@ def run_mlogit(
     )
     write_json(mlogit_res, res_path)
     return mlogit_res
+
+def model_runner(f, params, verbose, fo=None):
+    log = ''
+    try:
+        res = f(*params)
+        log += logger(f'{datetime.now()} |Log| {f} completed successfully\n', verbose, fo)
+    except:
+        res = None
+        log += logger(f'{datetime.now()} |Log| {f} failed\n', verbose, fo)
+    return log
+
+def logger(log, verbose=False, fo=None):
+    if verbose:
+        print(log)
+    if fo is not None:
+        with open(fo, 'a') as l:
+            l.write(log)
+    return log
+
+def run_all_models(db, prefix, out_folder, verbose=False, fo=None):
+    train_ids = db.query('split == "ml_train"').index
+    val_ids = db.query('split == "ml_val"').index
+    log = logger(f'\t### {prefix} ###\n', verbose, fo)
+    log += model_runner(     # Maxprob
+        run_maxprob, (
+            class_names, 'label', db, train_ids, val_ids, prefix, out_folder
+        ), verbose=verbose, fo=fo
+    )
+    log += model_runner(     # LogitE baseline
+        run_logite, (
+            class_names, 'label', db, train_ids, val_ids, f'baseline_{prefix}', out_folder
+        ), verbose=verbose, fo=fo
+    )
+    log += model_runner(     # LogitE baseline + wx
+        run_logite, (
+            class_names + w_class_names, 
+            'label', 
+            db, 
+            train_ids, 
+            val_ids, 
+            f'baseline-wx_{prefix}', 
+            out_folder
+        ), verbose=verbose, fo=fo
+    )
+                             # GBT
+    hbgb_param_grid = {
+        'max_iter': [50, 100, 150, 200, 300],
+        'learning_rate': [0.01, 0.05] + np.linspace(0, 1, 11)[1:].tolist(),
+        'max_depth': [5, 10, 20, 30, None],
+    }
+    '''
+    hbgb_param_grid = {
+        'max_iter': [50],
+        'learning_rate': [0.01, 0.05],
+        'max_depth': [30, None],
+    }
+    '''
+                             # Grid baseline
+    grid = GridSearchCV(
+        HistGradientBoostingClassifier(),
+        hbgb_param_grid,
+        scoring='accuracy',
+        cv=5,
+        n_jobs=-1
+    )
+    log += model_runner(
+        grid.fit, (
+            db.query('split == "ml_train"')[class_names],
+            db.query('split == "ml_train"')['label']
+        ), verbose, fo=fo
+    )
+    log += model_runner(     # HBGBT baseline
+        run_tree, (
+            class_names,
+            'label', 
+            db,
+            train_ids,
+            val_ids,
+            HistGradientBoostingClassifier(**grid.best_params_),
+            f'baseline_{prefix}',
+            out_folder
+        ), verbose=verbose, fo=fo
+    )
+                             # Grid baseline + wx
+    grid = GridSearchCV(
+        HistGradientBoostingClassifier(),
+        hbgb_param_grid,
+        scoring='accuracy',
+        cv=5,
+        n_jobs=-1
+    )
+    log += model_runner(
+        grid.fit, (
+            db.query('split == "ml_train"')[class_names + w_class_names],
+            db.query('split == "ml_train"')['label']
+        ), verbose, fo=fo
+    )
+    log += model_runner(     # HBGBT baseline + wx
+        run_tree, (
+            class_names + w_class_names,
+            'label', 
+            db,
+            train_ids,
+            val_ids,
+            HistGradientBoostingClassifier(**grid.best_params_),
+            f'baseline_{prefix}',
+            out_folder
+        ), verbose=verbose, fo=fo
+    )
+    return log
     
                     #################
                     #  Performance  #
