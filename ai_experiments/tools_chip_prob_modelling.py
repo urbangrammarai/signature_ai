@@ -480,6 +480,30 @@ def run_all_models(
                     #################
                     #  Performance  #
                     #################
+                
+def parse_path(p):
+    _, f = os.path.split(p)
+    pieces = f.replace('_y_pred.pq', '').split('_')
+    arch = pieces[-1]
+    chipsize = pieces[-2]
+    algo = pieces[0]
+    if len(pieces) == 4:
+        variant = pieces[1]
+    else:
+        variant = ''
+    return algo, variant, chipsize, arch
+
+def compile_chipsize_arch(chipsize, arch, ps):
+    fs = [p for p in ps if parse_path(p)[2:] == (str(chipsize), arch)]
+    db = pandas.concat([(
+        pandas.read_parquet(f)
+        [['y_pred']]
+        .rename(columns={'y_pred': '_'.join(parse_path(f)[:2]).strip('_')})
+    ) for f in fs], axis=1)
+    geo = geopandas.read_parquet(
+        f'{os.path.split(ps[0])[0]}/geo_labels_{chipsize}_{arch}.parquet'
+    ).assign(chipsize_arch=f'{chipsize}_{arch}')
+    return geo.join(db)
     
 def build_perf(
     y_true_train, 
