@@ -3,6 +3,7 @@ Tools for modelling chip probabilities
 '''
 
 import os, json
+import warnings
 import pandas
 import geopandas
 import numpy as np
@@ -136,7 +137,18 @@ def path2chipsize_arch(p):
 def premodelling_process(p, cw):
     chipsize, arch = path2chipsize_arch(p)
     db = geopandas.read_parquet(p+'_labels.parquet')
+    db.index = pandas.RangeIndex(len(db))
     # Labels
+    if arch == 'mor':
+        type_ids = db.drop(columns=['geometry', 'split']).columns
+        db['signature_type'] = (db
+                                [type_ids]
+                                .idxmax(axis=1)
+                               )
+        outliers = db['signature_type'].isin(
+            ['9_3', '9_6', '9_7', '9_8']
+        )
+        db = db.drop(columns=type_ids)#.loc[~outliers, :]
     db['label'] = pandas.Categorical(db['signature_type'].map(cw))
     # Probs
     columns = [ # Provided by MF on Aug. 17th
@@ -157,6 +169,9 @@ def premodelling_process(p, cw):
     probs = pandas.DataFrame(
         np.load(p+'_prediction.npy'), columns=columns
     )[class_names] # Re-order following hierarchy
+    # Remove outliers after join
+    if arch == 'mor':
+        db = db[~outliers]
     # Keep only data in ML split
     db = db.join(probs).query('(split == "ml_train") | (split == "ml_val")')
     # Spatial Lag
@@ -168,8 +183,6 @@ def premodelling_process(p, cw):
     )
     db = db.join(sp_lag.drop(columns=['island', 'card']))
     return db, f'{chipsize}_{arch}'
-
-
 
                     #################
                     ### Modelling ###
@@ -239,7 +252,7 @@ def logite_fit(endog, exog, classes):
     for c in classes:
         endog_c = pandas.Series(np.zeros(endog.shape), index=endog.index)
         endog_c[endog == c] = 1
-        logite[c] = sm.Logit(endog_c, exog).fit()
+        logite[c] = sm.Logit(endog_c, exog).fit(disp=False)
     return logite
 
 def logite_predict(logite, exog, classes):
@@ -365,96 +378,103 @@ def logger(log, verbose=False, fo=None):
             l.write(log)
     return log
 
-def run_all_models(db, prefix, out_folder, verbose=False, fo=None):
+def run_all_models(
+    db, prefix, out_folder, verbose=False, fo=None, models=None, ignoreWarnings=True
+):
+    if models is None:
+        models = ['maxprob', 'logite', 'gbt']
     train_ids = db.query('split == "ml_train"').index
     val_ids = db.query('split == "ml_val"').index
     log = logger(f'\t### {prefix} ###\n', verbose, fo)
-    log += model_runner(     # Maxprob
-        run_maxprob, (
-            class_names, 'label', db, train_ids, val_ids, prefix, out_folder
-        ), verbose=verbose, fo=fo
-    )
-    log += model_runner(     # LogitE baseline
-        run_logite, (
-            class_names, 'label', db, train_ids, val_ids, f'baseline_{prefix}', out_folder
-        ), verbose=verbose, fo=fo
-    )
-    log += model_runner(     # LogitE baseline + wx
-        run_logite, (
-            class_names + w_class_names, 
-            'label', 
-            db, 
-            train_ids, 
-            val_ids, 
-            f'baseline-wx_{prefix}', 
-            out_folder
-        ), verbose=verbose, fo=fo
-    )
+    if 'maxprob' in models:
+        log += model_runner(     # Maxprob
+            run_maxprob, (
+                class_names, 'label', db, train_ids, val_ids, prefix, out_folder
+            ), verbose=verbose, fo=fo
+        )
+    if 'logite' in models:
+        log += model_runner(     # LogitE baseline
+            run_logite, (
+                class_names, 'label', db, train_ids, val_ids, f'baseline_{prefix}', out_folder
+            ), verbose=verbose, fo=fo
+        )
+        log += model_runner(     # LogitE baseline + wx
+            run_logite, (
+                class_names + w_class_names, 
+                'label', 
+                db, 
+                train_ids, 
+                val_ids, 
+                f'baseline-wx_{prefix}', 
+                out_folder
+            ), verbose=verbose, fo=fo
+        )
+    if 'gbt' in models:
                              # GBT
-    hbgb_param_grid = {
-        'max_iter': [50, 100, 150, 200, 300],
-        'learning_rate': [0.01, 0.05] + np.linspace(0, 1, 11)[1:].tolist(),
-        'max_depth': [5, 10, 20, 30, None],
-    }
-    '''
-    hbgb_param_grid = {
-        'max_iter': [50],
-        'learning_rate': [0.01, 0.05],
-        'max_depth': [30, None],
-    }
-    '''
-                             # Grid baseline
-    grid = GridSearchCV(
-        HistGradientBoostingClassifier(),
-        hbgb_param_grid,
-        scoring='accuracy',
-        cv=5,
-        n_jobs=-1
-    )
-    log += model_runner(
-        grid.fit, (
-            db.query('split == "ml_train"')[class_names],
-            db.query('split == "ml_train"')['label']
-        ), verbose, fo=fo
-    )
-    log += model_runner(     # HBGBT baseline
-        run_tree, (
-            class_names,
-            'label', 
-            db,
-            train_ids,
-            val_ids,
-            HistGradientBoostingClassifier(**grid.best_params_),
-            f'baseline_{prefix}',
-            out_folder
-        ), verbose=verbose, fo=fo
-    )
-                             # Grid baseline + wx
-    grid = GridSearchCV(
-        HistGradientBoostingClassifier(),
-        hbgb_param_grid,
-        scoring='accuracy',
-        cv=5,
-        n_jobs=-1
-    )
-    log += model_runner(
-        grid.fit, (
-            db.query('split == "ml_train"')[class_names + w_class_names],
-            db.query('split == "ml_train"')['label']
-        ), verbose, fo=fo
-    )
-    log += model_runner(     # HBGBT baseline + wx
-        run_tree, (
-            class_names + w_class_names,
-            'label', 
-            db,
-            train_ids,
-            val_ids,
-            HistGradientBoostingClassifier(**grid.best_params_),
-            f'baseline_{prefix}',
-            out_folder
-        ), verbose=verbose, fo=fo
-    )
+        hbgb_param_grid = {
+            'max_iter': [50, 100, 150, 200, 300],
+            'learning_rate': [0.01, 0.05] + np.linspace(0, 1, 11)[1:].tolist(),
+            'max_depth': [5, 10, 20, 30, None],
+        }
+        '''
+        hbgb_param_grid = {
+            'max_iter': [50],
+            'learning_rate': [0.01, 0.05],
+            'max_depth': [30, None],
+        }
+        '''
+                                 # Grid baseline
+        grid = GridSearchCV(
+            HistGradientBoostingClassifier(),
+            hbgb_param_grid,
+            scoring='accuracy',
+            cv=5,
+            n_jobs=-1
+        )
+        log += model_runner(
+            grid.fit, (
+                db.query('split == "ml_train"')[class_names],
+                db.query('split == "ml_train"')['label']
+            ), verbose, fo=fo
+        )
+        log += model_runner(     # HBGBT baseline
+            run_tree, (
+                class_names,
+                'label', 
+                db,
+                train_ids,
+                val_ids,
+                HistGradientBoostingClassifier(**grid.best_params_),
+                f'baseline_{prefix}',
+                out_folder
+            ), verbose=verbose, fo=fo
+        )
+                                 # Grid baseline + wx
+        grid = GridSearchCV(
+            HistGradientBoostingClassifier(),
+            hbgb_param_grid,
+            scoring='accuracy',
+            cv=5,
+            n_jobs=-1
+        )
+        log += model_runner(
+            grid.fit, (
+                db.query('split == "ml_train"')[class_names + w_class_names],
+                db.query('split == "ml_train"')['label']
+            ), verbose, fo=fo
+        )
+        log += model_runner(     # HBGBT baseline + wx
+            run_tree, (
+                class_names + w_class_names,
+                'label', 
+                db,
+                train_ids,
+                val_ids,
+                HistGradientBoostingClassifier(**grid.best_params_),
+                f'baseline-wx_{prefix}',
+                out_folder
+            ), verbose=verbose, fo=fo
+        )
     return log
     
                     #################
