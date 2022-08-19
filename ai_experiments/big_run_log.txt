@@ -1,0 +1,229 @@
+2022-08-18 11:52:43.363257 |Log| Start
+/home/jovyan/data/spatial_signatures/chip_probs/prod_probs/v2_8	### 8_bic ###
+2022-08-18 12:32:26.639390 |Log| <bound method BaseSearchCV.fit of GridSearchCV(cv=5, estimator=HistGradientBoostingClassifier(), n_jobs=-1,
+             param_grid={'learning_rate': [0.01, 0.05, 0.1, 0.2,
+                                           0.30000000000000004, 0.4, 0.5,
+                                           0.6000000000000001,
+                                           0.7000000000000001, 0.8, 0.9, 1.0],
+                         'max_depth': [5, 10, 20, 30, None],
+                         'max_iter': [50, 100, 150, 200, 300]},
+             scoring='accuracy')> completed successfully
+2022-08-18 12:32:44.116046 |Log| <function run_tree at 0x7f771f976700> completed successfully
+2022-08-18 13:39:10.900407 |Log| <bound method BaseSearchCV.fit of GridSearchCV(cv=5, estimator=HistGradientBoostingClassifier(), n_jobs=-1,
+             param_grid={'learning_rate': [0.01, 0.05, 0.1, 0.2,
+                                           0.30000000000000004, 0.4, 0.5,
+                                           0.6000000000000001,
+                                           0.7000000000000001, 0.8, 0.9, 1.0],
+                         'max_depth': [5, 10, 20, 30, None],
+                         'max_iter': [50, 100, 150, 200, 300]},
+             scoring='accuracy')> completed successfully
+2022-08-18 13:39:38.210452 |Log| <function run_tree at 0x7f771f976700> completed successfully
+/home/jovyan/data/spatial_signatures/chip_probs/prod_probs/v2_8_slided	### 8_sic ###
+2022-08-18 15:09:06.404945 |Log| <bound method BaseSearchCV.fit of GridSearchCV(cv=5, estimator=HistGradientBoostingClassifier(), n_jobs=-1,
+             param_grid={'learning_rate': [0.01, 0.05, 0.1, 0.2,
+                                           0.30000000000000004, 0.4, 0.5,
+                                           0.6000000000000001,
+                                           0.7000000000000001, 0.8, 0.9, 1.0],
+                         'max_depth': [5, 10, 20, 30, None],
+                         'max_iter': [50, 100, 150, 200, 300]},
+             scoring='accuracy')> completed successfully
+2022-08-18 15:09:59.932114 |Log| <function run_tree at 0x7f771f976700> completed successfully
+2022-08-18 17:25:58.734296 |Log| <bound method BaseSearchCV.fit of GridSearchCV(cv=5, estimator=HistGradientBoostingClassifier(), n_jobs=-1,
+             param_grid={'learning_rate': [0.01, 0.05, 0.1, 0.2,
+                                           0.30000000000000004, 0.4, 0.5,
+                                           0.6000000000000001,
+                                           0.7000000000000001, 0.8, 0.9, 1.0],
+                         'max_depth': [5, 10, 20, 30, None],
+                         'max_iter': [50, 100, 150, 200, 300]},
+             scoring='accuracy')> completed successfully
+2022-08-18 17:27:18.593350 |Log| <function run_tree at 0x7f771f976700> completed successfully
+/home/jovyan/data/spatial_signatures/chip_probs/prod_probs/v2_8_multi	### 8_mor ###
+2022-08-18 17:36:54.406424 |Log| <bound method BaseSearchCV.fit of GridSearchCV(cv=5, estimator=HistGradientBoostingClassifier(), n_jobs=-1,
+             param_grid={'learning_rate': [0.01, 0.05, 0.1, 0.2,
+                                           0.30000000000000004, 0.4, 0.5,
+                                           0.6000000000000001,
+                                           0.7000000000000001, 0.8, 0.9, 1.0],
+                         'max_depth': [5, 10, 20, 30, None],
+                         'max_iter': [50, 100, 150, 200, 300]},
+             scoring='accuracy')> completed successfully
+2022-08-18 17:37:14.900371 |Log| <function run_tree at 0x7f771f976700> completed successfully
+2022-08-18 17:53:29.714708 |Log| <bound method BaseSearchCV.fit of GridSearchCV(cv=5, estimator=HistGradientBoostingClassifier(), n_jobs=-1,
+             param_grid={'learning_rate': [0.01, 0.05, 0.1, 0.2,
+                                           0.30000000000000004, 0.4, 0.5,
+                                           0.6000000000000001,
+                                           0.7000000000000001, 0.8, 0.9, 1.0],
+                         'max_depth': [5, 10, 20, 30, None],
+                         'max_iter': [50, 100, 150, 200, 300]},
+             scoring='accuracy')> completed successfully
+2022-08-18 17:53:43.556368 |Log| <function run_tree at 0x7f771f976700> completed successfully
+/home/jovyan/data/spatial_signatures/chip_probs/prod_probs/v2_16	### 16_bic ###
+2022-08-18 18:19:24.508398 |Log| <bound method BaseSearchCV.fit of GridSearchCV(cv=5, estimator=HistGradientBoostingClassifier(), n_jobs=-1,
+             param_grid={'learning_rate': [0.01, 0.05, 0.1, 0.2,
+                                           0.30000000000000004, 0.4, 0.5,
+                                           0.6000000000000001,
+                                           0.7000000000000001, 0.8, 0.9, 1.0],
+                         'max_depth': [5, 10, 20, 30, None],
+                         'max_iter': [50, 100, 150, 200, 300]},
+             scoring='accuracy')> completed successfully
+2022-08-18 18:19:56.822764 |Log| <function run_tree at 0x7f771f976700> completed successfully
+2022-08-18 19:00:37.085396 |Log| <bound method BaseSearchCV.fit of GridSearchCV(cv=5, estimator=HistGradientBoostingClassifier(), n_jobs=-1,
+             param_grid={'learning_rate': [0.01, 0.05, 0.1, 0.2,
+                                           0.30000000000000004, 0.4, 0.5,
+                                           0.6000000000000001,
+                                           0.7000000000000001, 0.8, 0.9, 1.0],
+                         'max_depth': [5, 10, 20, 30, None],
+                         'max_iter': [50, 100, 150, 200, 300]},
+             scoring='accuracy')> completed successfully
+2022-08-18 19:01:14.651521 |Log| <function run_tree at 0x7f771f976700> completed successfully
+/home/jovyan/data/spatial_signatures/chip_probs/prod_probs/v2_16_slided	### 16_sic ###
+2022-08-18 20:34:14.841316 |Log| <bound method BaseSearchCV.fit of GridSearchCV(cv=5, estimator=HistGradientBoostingClassifier(), n_jobs=-1,
+             param_grid={'learning_rate': [0.01, 0.05, 0.1, 0.2,
+                                           0.30000000000000004, 0.4, 0.5,
+                                           0.6000000000000001,
+                                           0.7000000000000001, 0.8, 0.9, 1.0],
+                         'max_depth': [5, 10, 20, 30, None],
+                         'max_iter': [50, 100, 150, 200, 300]},
+             scoring='accuracy')> completed successfully
+2022-08-18 20:34:47.003375 |Log| <function run_tree at 0x7f771f976700> completed successfully
+2022-08-18 22:44:23.461866 |Log| <bound method BaseSearchCV.fit of GridSearchCV(cv=5, estimator=HistGradientBoostingClassifier(), n_jobs=-1,
+             param_grid={'learning_rate': [0.01, 0.05, 0.1, 0.2,
+                                           0.30000000000000004, 0.4, 0.5,
+                                           0.6000000000000001,
+                                           0.7000000000000001, 0.8, 0.9, 1.0],
+                         'max_depth': [5, 10, 20, 30, None],
+                         'max_iter': [50, 100, 150, 200, 300]},
+             scoring='accuracy')> completed successfully
+2022-08-18 22:45:42.978644 |Log| <function run_tree at 0x7f771f976700> completed successfully
+/home/jovyan/data/spatial_signatures/chip_probs/prod_probs/v2_16_multi	### 16_mor ###
+2022-08-18 22:55:27.119645 |Log| <bound method BaseSearchCV.fit of GridSearchCV(cv=5, estimator=HistGradientBoostingClassifier(), n_jobs=-1,
+             param_grid={'learning_rate': [0.01, 0.05, 0.1, 0.2,
+                                           0.30000000000000004, 0.4, 0.5,
+                                           0.6000000000000001,
+                                           0.7000000000000001, 0.8, 0.9, 1.0],
+                         'max_depth': [5, 10, 20, 30, None],
+                         'max_iter': [50, 100, 150, 200, 300]},
+             scoring='accuracy')> completed successfully
+2022-08-18 22:55:37.571074 |Log| <function run_tree at 0x7f771f976700> completed successfully
+2022-08-18 23:12:58.541622 |Log| <bound method BaseSearchCV.fit of GridSearchCV(cv=5, estimator=HistGradientBoostingClassifier(), n_jobs=-1,
+             param_grid={'learning_rate': [0.01, 0.05, 0.1, 0.2,
+                                           0.30000000000000004, 0.4, 0.5,
+                                           0.6000000000000001,
+                                           0.7000000000000001, 0.8, 0.9, 1.0],
+                         'max_depth': [5, 10, 20, 30, None],
+                         'max_iter': [50, 100, 150, 200, 300]},
+             scoring='accuracy')> completed successfully
+2022-08-18 23:13:19.830295 |Log| <function run_tree at 0x7f771f976700> completed successfully
+/home/jovyan/data/spatial_signatures/chip_probs/prod_probs/v2_32	### 32_bic ###
+2022-08-18 23:24:23.459838 |Log| <bound method BaseSearchCV.fit of GridSearchCV(cv=5, estimator=HistGradientBoostingClassifier(), n_jobs=-1,
+             param_grid={'learning_rate': [0.01, 0.05, 0.1, 0.2,
+                                           0.30000000000000004, 0.4, 0.5,
+                                           0.6000000000000001,
+                                           0.7000000000000001, 0.8, 0.9, 1.0],
+                         'max_depth': [5, 10, 20, 30, None],
+                         'max_iter': [50, 100, 150, 200, 300]},
+             scoring='accuracy')> completed successfully
+2022-08-18 23:24:44.905099 |Log| <function run_tree at 0x7f771f976700> completed successfully
+2022-08-18 23:43:21.551343 |Log| <bound method BaseSearchCV.fit of GridSearchCV(cv=5, estimator=HistGradientBoostingClassifier(), n_jobs=-1,
+             param_grid={'learning_rate': [0.01, 0.05, 0.1, 0.2,
+                                           0.30000000000000004, 0.4, 0.5,
+                                           0.6000000000000001,
+                                           0.7000000000000001, 0.8, 0.9, 1.0],
+                         'max_depth': [5, 10, 20, 30, None],
+                         'max_iter': [50, 100, 150, 200, 300]},
+             scoring='accuracy')> completed successfully
+2022-08-18 23:43:47.394204 |Log| <function run_tree at 0x7f771f976700> completed successfully
+/home/jovyan/data/spatial_signatures/chip_probs/prod_probs/v2_32_slided	### 32_sic ###
+2022-08-19 01:09:45.044039 |Log| <bound method BaseSearchCV.fit of GridSearchCV(cv=5, estimator=HistGradientBoostingClassifier(), n_jobs=-1,
+             param_grid={'learning_rate': [0.01, 0.05, 0.1, 0.2,
+                                           0.30000000000000004, 0.4, 0.5,
+                                           0.6000000000000001,
+                                           0.7000000000000001, 0.8, 0.9, 1.0],
+                         'max_depth': [5, 10, 20, 30, None],
+                         'max_iter': [50, 100, 150, 200, 300]},
+             scoring='accuracy')> completed successfully
+2022-08-19 01:10:47.151139 |Log| <function run_tree at 0x7f771f976700> completed successfully
+2022-08-19 03:00:49.400322 |Log| <bound method BaseSearchCV.fit of GridSearchCV(cv=5, estimator=HistGradientBoostingClassifier(), n_jobs=-1,
+             param_grid={'learning_rate': [0.01, 0.05, 0.1, 0.2,
+                                           0.30000000000000004, 0.4, 0.5,
+                                           0.6000000000000001,
+                                           0.7000000000000001, 0.8, 0.9, 1.0],
+                         'max_depth': [5, 10, 20, 30, None],
+                         'max_iter': [50, 100, 150, 200, 300]},
+             scoring='accuracy')> completed successfully
+2022-08-19 03:02:01.463578 |Log| <function run_tree at 0x7f771f976700> completed successfully
+/home/jovyan/data/spatial_signatures/chip_probs/prod_probs/v2_32_multi	### 32_mor ###
+2022-08-19 03:14:26.712509 |Log| <bound method BaseSearchCV.fit of GridSearchCV(cv=5, estimator=HistGradientBoostingClassifier(), n_jobs=-1,
+             param_grid={'learning_rate': [0.01, 0.05, 0.1, 0.2,
+                                           0.30000000000000004, 0.4, 0.5,
+                                           0.6000000000000001,
+                                           0.7000000000000001, 0.8, 0.9, 1.0],
+                         'max_depth': [5, 10, 20, 30, None],
+                         'max_iter': [50, 100, 150, 200, 300]},
+             scoring='accuracy')> completed successfully
+2022-08-19 03:14:44.919713 |Log| <function run_tree at 0x7f771f976700> completed successfully
+2022-08-19 03:33:55.705268 |Log| <bound method BaseSearchCV.fit of GridSearchCV(cv=5, estimator=HistGradientBoostingClassifier(), n_jobs=-1,
+             param_grid={'learning_rate': [0.01, 0.05, 0.1, 0.2,
+                                           0.30000000000000004, 0.4, 0.5,
+                                           0.6000000000000001,
+                                           0.7000000000000001, 0.8, 0.9, 1.0],
+                         'max_depth': [5, 10, 20, 30, None],
+                         'max_iter': [50, 100, 150, 200, 300]},
+             scoring='accuracy')> completed successfully
+2022-08-19 03:34:09.393421 |Log| <function run_tree at 0x7f771f976700> completed successfully
+/home/jovyan/data/spatial_signatures/chip_probs/prod_probs/v2_64	### 64_bic ###
+2022-08-19 03:41:41.676563 |Log| <bound method BaseSearchCV.fit of GridSearchCV(cv=5, estimator=HistGradientBoostingClassifier(), n_jobs=-1,
+             param_grid={'learning_rate': [0.01, 0.05, 0.1, 0.2,
+                                           0.30000000000000004, 0.4, 0.5,
+                                           0.6000000000000001,
+                                           0.7000000000000001, 0.8, 0.9, 1.0],
+                         'max_depth': [5, 10, 20, 30, None],
+                         'max_iter': [50, 100, 150, 200, 300]},
+             scoring='accuracy')> completed successfully
+2022-08-19 03:41:52.816724 |Log| <function run_tree at 0x7f771f976700> completed successfully
+2022-08-19 03:53:00.818919 |Log| <bound method BaseSearchCV.fit of GridSearchCV(cv=5, estimator=HistGradientBoostingClassifier(), n_jobs=-1,
+             param_grid={'learning_rate': [0.01, 0.05, 0.1, 0.2,
+                                           0.30000000000000004, 0.4, 0.5,
+                                           0.6000000000000001,
+                                           0.7000000000000001, 0.8, 0.9, 1.0],
+                         'max_depth': [5, 10, 20, 30, None],
+                         'max_iter': [50, 100, 150, 200, 300]},
+             scoring='accuracy')> completed successfully
+2022-08-19 03:53:23.872761 |Log| <function run_tree at 0x7f771f976700> completed successfully
+/home/jovyan/data/spatial_signatures/chip_probs/prod_probs/v2_64_slided	### 64_sic ###
+2022-08-19 04:13:11.698430 |Log| <bound method BaseSearchCV.fit of GridSearchCV(cv=5, estimator=HistGradientBoostingClassifier(), n_jobs=-1,
+             param_grid={'learning_rate': [0.01, 0.05, 0.1, 0.2,
+                                           0.30000000000000004, 0.4, 0.5,
+                                           0.6000000000000001,
+                                           0.7000000000000001, 0.8, 0.9, 1.0],
+                         'max_depth': [5, 10, 20, 30, None],
+                         'max_iter': [50, 100, 150, 200, 300]},
+             scoring='accuracy')> completed successfully
+2022-08-19 04:13:31.320176 |Log| <function run_tree at 0x7f771f976700> completed successfully
+2022-08-19 04:39:02.574252 |Log| <bound method BaseSearchCV.fit of GridSearchCV(cv=5, estimator=HistGradientBoostingClassifier(), n_jobs=-1,
+             param_grid={'learning_rate': [0.01, 0.05, 0.1, 0.2,
+                                           0.30000000000000004, 0.4, 0.5,
+                                           0.6000000000000001,
+                                           0.7000000000000001, 0.8, 0.9, 1.0],
+                         'max_depth': [5, 10, 20, 30, None],
+                         'max_iter': [50, 100, 150, 200, 300]},
+             scoring='accuracy')> completed successfully
+2022-08-19 04:39:40.692908 |Log| <function run_tree at 0x7f771f976700> completed successfully
+/home/jovyan/data/spatial_signatures/chip_probs/prod_probs/v2_64_multi	### 64_mor ###
+2022-08-19 04:49:44.280393 |Log| <bound method BaseSearchCV.fit of GridSearchCV(cv=5, estimator=HistGradientBoostingClassifier(), n_jobs=-1,
+             param_grid={'learning_rate': [0.01, 0.05, 0.1, 0.2,
+                                           0.30000000000000004, 0.4, 0.5,
+                                           0.6000000000000001,
+                                           0.7000000000000001, 0.8, 0.9, 1.0],
+                         'max_depth': [5, 10, 20, 30, None],
+                         'max_iter': [50, 100, 150, 200, 300]},
+             scoring='accuracy')> completed successfully
+2022-08-19 04:49:56.717818 |Log| <function run_tree at 0x7f771f976700> completed successfully
+2022-08-19 05:05:23.441994 |Log| <bound method BaseSearchCV.fit of GridSearchCV(cv=5, estimator=HistGradientBoostingClassifier(), n_jobs=-1,
+             param_grid={'learning_rate': [0.01, 0.05, 0.1, 0.2,
+                                           0.30000000000000004, 0.4, 0.5,
+                                           0.6000000000000001,
+                                           0.7000000000000001, 0.8, 0.9, 1.0],
+                         'max_depth': [5, 10, 20, 30, None],
+                         'max_iter': [50, 100, 150, 200, 300]},
+             scoring='accuracy')> completed successfully
+2022-08-19 05:05:43.679324 |Log| <function run_tree at 0x7f771f976700> completed successfully

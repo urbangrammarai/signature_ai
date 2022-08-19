@@ -594,7 +594,7 @@ def build_model_name(base_name, model_name_xtra):
         model_name += '_' + model_name_xtra
     return model_name
 
-def build_cm_plot(cm, maxcount=None, std=False, ax=None):
+def build_cm_plot(cm, maxcount=None, std=False, ax=None, cbar=True):
     cm = pandas.DataFrame(
         cm, class_names, class_names
     )
@@ -604,7 +604,7 @@ def build_cm_plot(cm, maxcount=None, std=False, ax=None):
         cm = cm.div(cm.sum(axis=1), axis='index')
         maxcount = 1
     sns.heatmap(
-        cm, vmin=0, vmax=maxcount, cmap='viridis', ax=ax
+        cm, vmin=0, vmax=maxcount, cmap='viridis', ax=ax, cbar=cbar
     )
     ax.set_axis_off()
     return ax
