@@ -480,6 +480,18 @@ def run_all_models(
                     #################
                     #  Performance  #
                     #################
+
+csa_order = [
+    f'{cs}_{a}' for cs in [8, 16, 32, 64] for a in ['bic', 'sic', 'mor']
+]
+
+models_order = [
+    'maxprob', 
+    'logite_baseline', 
+    'logite_baseline-wx', 
+    'HistGradientBoostingClassifier_baseline', 
+    'HistGradientBoostingClassifier_baseline-wx'
+]
                 
 def parse_path(p):
     _, f = os.path.split(p)
@@ -615,7 +627,7 @@ def build_cm_plot(cm, maxcount=None, std=False, ax=None, cbar=True):
 def spatial_perf(params):
     y, wd, xys, name = params
     sp_res = {
-        'quadrat': {},
+        #'quadrat': {},
         'ripley_g': {},
         'ripley_f': {}
     }
@@ -625,16 +637,24 @@ def spatial_perf(params):
     for c in y.unique():
         b = (y == c).astype(float)
         c_xys = xys[(y == c).values, :]
-        for w in wd:
-            # Moran
-            sp_res[f'moran_{w}'][c] = esda.Moran(b, wd[w], permutations=1).I
-            # Join counts
-            wd[w].transform = 'O'
-            sp_res[f'jc_{w}'][c] = esda.Join_Counts(b, wd[w], permutations=1).bb
-        # Quadrat
-        sp_res['quadrat'][c] = pointpats.QStatistic(
-            c_xys, shape='hexagon', lh=10000
-        ).chi2
+        if len(b.unique()) > 1:
+            for w in wd:
+                # Moran
+                sp_res[f'moran_{w}'][c] = esda.Moran(b, wd[w], permutations=1).I
+                # Join counts
+                wd[w].transform = 'O'
+                sp_res[f'jc_{w}'][c] = esda.Join_Counts(b, wd[w], permutations=1).bb
+            # Quadrat
+            '''
+            sp_res['quadrat'][c] = pointpats.QStatistic(
+                c_xys, shape='hexagon', lh=10#000
+            ).chi2
+            '''
+        else:
+            for w in wd:
+                sp_res[f'moran_{w}'][c] = None
+                sp_res[f'jc_{w}'][c] = None
+                #sp_res['quadrat'][c] = None
         # Ripley's G
         try:
             stat = pointpats.g_test(
@@ -655,4 +675,3 @@ def spatial_perf(params):
         columns={'level_0': 'signature', 'level_1': 'metric', 0: 'value'}
     ).assign(model=name)
     return sp_res
-
