@@ -624,54 +624,133 @@ def build_cm_plot(cm, maxcount=None, std=False, ax=None, cbar=True):
                     #    Spatial    #
                     #################
             
-def spatial_perf(params):
+def sp_process_csa(params):
+    '''
+    Compute all spatial metrics for a geography
+    ...
+    
+    Arguments
+    ---------
+    params : tuple
+             Parameters
+                tab : GeoDataFrame
+                      Geo-Table with columns:
+                          - `geometry`
+                          - `<model_name1>`
+                          - `<model_name2>`
+                          - ...
+                csa : str
+                      f'{chipsize}_{arch}'
+                models : None/list
+                         Models to evaluate spatially (if `None`, all are used)
+                label : str
+                        Column for true labels
+
+    Returns
+    -------
+    sp_res : DataFrame
+             Table with all spatial scores
+    '''
+    tab, csa, models, label = params
+    if models is None:
+        models = tab.drop(columns=['geometry', label]).columns.tolist()
+    if type(models) is str:
+        models = [models]
+    '''
+    # Build Ws
+    with warnings.catch_warnings():
+        warnings.simplefilter('ignore')
+        w_queen = weights.Queen.from_dataframe(tab, ids=range(len(tab)))
+        w_k1 = weights.KNN.from_dataframe(tab, k=1, ids=range(len(tab)))
+        w_union = weights.w_union(w_queen, w_k1)
+        w_union.transform = 'r'
+        #
+        min_thr = weights.min_threshold_distance(
+            np.array([tab.centroid.x, tab.centroid.y]).T
+        )
+        w_thr = weights.DistanceBand.from_dataframe(tab, min_thr)
+    wd = {'union': w_union, 'thr': w_thr}
+    '''
+    # Coords
+    xys = tab.centroid
+    xys = np.array([xys.x, xys.y]).T
+    # Spatial stats
+    sp_res = []
+    for model in models+[label]:
+        sp_res.append(spatial_scores((
+            tab[model], None, xys, f'{csa}_{model}'
+        )))
+    return pandas.concat(sp_res)
+            
+def spatial_scores(params):
     y, wd, xys, name = params
+    support = 5
     sp_res = {
-        #'quadrat': {},
-        'ripley_g': {},
-        'ripley_f': {}
+        f'ripley_{s}_d{i}': {} for s in ['k', 'g'] for i in range(support)
     }
-    for w in wd:
-        sp_res[f'moran_{w}'] = {}
-        sp_res[f'jc_{w}'] = {}
+    if wd is not None:
+        for w in wd:
+            sp_res[f'moran_{w}'] = {}
+            sp_res[f'jc_{w}'] = {}
     for c in y.unique():
         b = (y == c).astype(float)
         c_xys = xys[(y == c).values, :]
-        if len(b.unique()) > 1:
-            for w in wd:
-                # Moran
-                sp_res[f'moran_{w}'][c] = esda.Moran(b, wd[w], permutations=1).I
-                # Join counts
-                wd[w].transform = 'O'
-                sp_res[f'jc_{w}'][c] = esda.Join_Counts(b, wd[w], permutations=1).bb
-            # Quadrat
-            '''
-            sp_res['quadrat'][c] = pointpats.QStatistic(
-                c_xys, shape='hexagon', lh=10#000
-            ).chi2
-            '''
-        else:
-            for w in wd:
-                sp_res[f'moran_{w}'][c] = None
-                sp_res[f'jc_{w}'][c] = None
-                #sp_res['quadrat'][c] = None
+        if wd is not None:
+            # Moran & JC
+            if len(b.unique()) > 1:
+                for w in wd:
+                    # Moran
+                    sp_res[f'moran_{w}'][c] = esda.Moran(b, wd[w], permutations=1).I
+                    # Join counts
+                    wd[w].transform = 'O'
+                    sp_res[f'jc_{w}'][c] = esda.Join_Counts(
+                        b, wd[w], permutations=1
+                    ).bb
+                # Quadrat
+                #sp_res['quadrat'][c] = pointpats.QStatistic(
+                #   c_xys, shape='hexagon', lh=10#000
+                #).chi2
+            else:
+                for w in wd:
+                    sp_res[f'moran_{w}'][c] = None
+                    sp_res[f'jc_{w}'][c] = None
+                    #sp_res['quadrat'][c] = None
         # Ripley's G
         try:
             stat = pointpats.g_test(
-                c_xys, n_simulations=1
-            ).statistic
+                c_xys, support=support, n_simulations=1
+            )
+            for i in range(support):
+                sp_res[f'ripley_g_d{i}'][c] = stat.statistic[i]
         except:
-            stat = None
-        sp_res['ripley_g'][c] = stat
-        # Ripley's F
+            for i in range(support):
+                sp_res[f'ripley_g_d{i}'][c] = None
+        # Ripley's K
         try:
-            stat = pointpats.f_test(
-                c_xys, n_simulations=1
-            ).statistic 
+            stat = pointpats.k_test(
+                c_xys, support=support, n_simulations=1
+            )
+            for i in range(support):
+                sp_res[f'ripley_k_d{i}'][c] = stat.statistic[i]
         except:
-            stat = None
-        sp_res['ripley_f'][c] = stat
+            for i in range(support):
+                sp_res[f'ripley_k_d{i}'][c] = None
+    pieces = name.split('_')
+    cs = pieces[0]
+    arch = pieces[1]
+    model = '_'.join(pieces[2:])
     sp_res = pandas.DataFrame(sp_res).stack().reset_index().rename(
         columns={'level_0': 'signature', 'level_1': 'metric', 0: 'value'}
-    ).assign(model=name)
+    ).assign(csa=f'{cs}_{arch}').assign(model=model)
     return sp_res
+
+def score_distance(tab):
+    out_tab = tab.query('model != "label"')
+    try:
+        label_value = tab.query('model == "label"')['value'].iloc[0]
+        out_tab['value'] = abs(
+            (out_tab['value'] - label_value) * 100 / (label_value + 1e-10)
+        )
+    except:
+        out_tab['value'] = pandas.NA
+    return out_tab[['model', 'value']].rename(columns={'value': 'dist'})
