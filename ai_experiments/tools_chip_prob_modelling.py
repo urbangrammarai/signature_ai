@@ -26,6 +26,7 @@ import matplotlib.pyplot as plt
 import esda
 import pointpats
 from libpysal import weights
+import contextily, xyzservices
 
 TRAIN_FRAC = 0.7
                     #################
@@ -645,40 +646,47 @@ def sp_process_csa(params):
                          Models to evaluate spatially (if `None`, all are used)
                 label : str
                         Column for true labels
+                ws : Boolean
+                     Whether to build Ws
+                xys : Boolean
+                      Whether to build XYs
 
     Returns
     -------
     sp_res : DataFrame
              Table with all spatial scores
     '''
-    tab, csa, models, label = params
+    tab, csa, models, label, ws, xys = params
     if models is None:
         models = tab.drop(columns=['geometry', label]).columns.tolist()
     if type(models) is str:
         models = [models]
-    '''
     # Build Ws
-    with warnings.catch_warnings():
-        warnings.simplefilter('ignore')
-        w_queen = weights.Queen.from_dataframe(tab, ids=range(len(tab)))
-        w_k1 = weights.KNN.from_dataframe(tab, k=1, ids=range(len(tab)))
-        w_union = weights.w_union(w_queen, w_k1)
-        w_union.transform = 'r'
-        #
-        min_thr = weights.min_threshold_distance(
-            np.array([tab.centroid.x, tab.centroid.y]).T
-        )
-        w_thr = weights.DistanceBand.from_dataframe(tab, min_thr)
-    wd = {'union': w_union, 'thr': w_thr}
-    '''
+    if ws is True:
+        with warnings.catch_warnings():
+            warnings.simplefilter('ignore')
+            w_queen = weights.Queen.from_dataframe(tab, ids=range(len(tab)))
+            w_k1 = weights.KNN.from_dataframe(tab, k=1, ids=range(len(tab)))
+            w_union = weights.w_union(w_queen, w_k1)
+            w_union.transform = 'r'
+            #
+            '''
+            min_thr = weights.min_threshold_distance(
+                np.array([tab.centroid.x, tab.centroid.y]).T
+            )
+            w_thr = weights.DistanceBand.from_dataframe(tab, min_thr)
+            '''
+            w_thr = weights.DistanceBand.from_dataframe(tab, 1000) # 1Km
+        wd = {'union': w_union, 'thr': w_thr}
     # Coords
-    xys = tab.centroid
-    xys = np.array([xys.x, xys.y]).T
+    if xys is True:
+        xys = tab.centroid
+        xys = np.array([xys.x, xys.y]).T
     # Spatial stats
     sp_res = []
     for model in models+[label]:
         sp_res.append(spatial_scores((
-            tab[model], None, xys, f'{csa}_{model}'
+            tab[model], wd, xys, f'{csa}_{model}'
         )))
     return pandas.concat(sp_res)
             
@@ -688,53 +696,61 @@ def spatial_scores(params):
     sp_res = {
         f'ripley_{s}_d{i}': {} for s in ['k', 'g'] for i in range(support)
     }
-    if wd is not None:
+    if wd is not False:
         for w in wd:
-            sp_res[f'moran_{w}'] = {}
+            #sp_res[f'moran_{w}'] = {}
             sp_res[f'jc_{w}'] = {}
     for c in y.unique():
         b = (y == c).astype(float)
-        c_xys = xys[(y == c).values, :]
-        if wd is not None:
+        if wd is not False:
             # Moran & JC
             if len(b.unique()) > 1:
                 for w in wd:
                     # Moran
-                    sp_res[f'moran_{w}'][c] = esda.Moran(b, wd[w], permutations=1).I
+                    #sp_res[f'moran_{w}'][c] = esda.Moran(b, wd[w], permutations=1).I
                     # Join counts
                     wd[w].transform = 'O'
-                    sp_res[f'jc_{w}'][c] = esda.Join_Counts(
-                        b, wd[w], permutations=1
-                    ).bb
+                    try:
+                        # % of class in the neighborhood
+                        jc = esda.Join_Counts(
+                            b, wd[w], permutations=1
+                        )
+                        sp_res[f'jc_{w}'][c] = (
+                            jc.bb * 100 / (jc.bb + jc.ww + jc.bw)
+                        )
+                    except:
+                        sp_res[f'jc_{w}'][c] = None
                 # Quadrat
                 #sp_res['quadrat'][c] = pointpats.QStatistic(
                 #   c_xys, shape='hexagon', lh=10#000
                 #).chi2
             else:
                 for w in wd:
-                    sp_res[f'moran_{w}'][c] = None
+                    #sp_res[f'moran_{w}'][c] = None
                     sp_res[f'jc_{w}'][c] = None
                     #sp_res['quadrat'][c] = None
-        # Ripley's G
-        try:
-            stat = pointpats.g_test(
-                c_xys, support=support, n_simulations=1
-            )
-            for i in range(support):
-                sp_res[f'ripley_g_d{i}'][c] = stat.statistic[i]
-        except:
-            for i in range(support):
-                sp_res[f'ripley_g_d{i}'][c] = None
-        # Ripley's K
-        try:
-            stat = pointpats.k_test(
-                c_xys, support=support, n_simulations=1
-            )
-            for i in range(support):
-                sp_res[f'ripley_k_d{i}'][c] = stat.statistic[i]
-        except:
-            for i in range(support):
-                sp_res[f'ripley_k_d{i}'][c] = None
+        if xys is not False:
+            c_xys = xys[(y == c).values, :]
+            # Ripley's G
+            try:
+                stat = pointpats.g_test(
+                    c_xys, support=support, n_simulations=1
+                )
+                for i in range(support):
+                    sp_res[f'ripley_g_d{i}'][c] = stat.statistic[i]
+            except:
+                for i in range(support):
+                    sp_res[f'ripley_g_d{i}'][c] = None
+            # Ripley's K
+            try:
+                stat = pointpats.k_test(
+                    c_xys, support=support, n_simulations=1
+                )
+                for i in range(support):
+                    sp_res[f'ripley_k_d{i}'][c] = stat.statistic[i]
+            except:
+                for i in range(support):
+                    sp_res[f'ripley_k_d{i}'][c] = None
     pieces = name.split('_')
     cs = pieces[0]
     arch = pieces[1]
@@ -744,13 +760,52 @@ def spatial_scores(params):
     ).assign(csa=f'{cs}_{arch}').assign(model=model)
     return sp_res
 
-def score_distance(tab):
+def score_distance(tab, pct=True):
     out_tab = tab.query('model != "label"')
     try:
         label_value = tab.query('model == "label"')['value'].iloc[0]
-        out_tab['value'] = abs(
-            (out_tab['value'] - label_value) * 100 / (label_value + 1e-10)
-        )
+        adiff = abs(out_tab['value'] - label_value)
+        if pct is True:
+            out_tab['value'] = abs(adiff * 100 / (label_value + 1e-10))
+        else:
+            out_tab['value'] = adiff
     except:
-        out_tab['value'] = pandas.NA
+        out_tab['value'] = np.nan
     return out_tab[['model', 'value']].rename(columns={'value': 'dist'})
+
+def render_pp(sig, model, csa, db, split='ml_val'):
+    tab = db.query((
+        f'(chipsize_arch == "{csa}") & '
+        '(split == "ml_val")'
+    )).query(
+        f'(label == "{sig}") | (`{model}` == "{sig}")'
+    )[['geometry', 'label', model]]
+
+    true = (tab['label'] == sig).astype(int)
+    pred = -(tab[model] == sig).astype(int)
+    tmp = geopandas.GeoDataFrame({
+        'geometry': tab.geometry.centroid,
+        'code_n': true + pred
+    })
+    tmp['code'] = tmp['code_n'].map({
+        1: 'True only',
+        -1: 'Pred. only',
+        0: 'Agreement'
+    })
+
+    ax = tmp.plot(
+        column='code', 
+        categorical=True, 
+        legend=True, 
+        markersize=1,
+        cmap='Set1',
+        figsize=(12, 12)
+    )
+    contextily.add_basemap(
+        ax,
+        crs=tmp.crs, 
+        source=xyzservices.providers.CartoDB.DarkMatterNoLabels
+    )
+    ax.set_title(f'Signature: {sig} | Model: {model} | CSA: {csa}')
+    ax.set_axis_off();   
+    return None
