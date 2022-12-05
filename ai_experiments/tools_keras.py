@@ -164,6 +164,126 @@ def fit_phase(
     return h
 
 
+def fit_phase_numpy(
+    model,
+    train_dataset,
+    validation_dataset,
+    log_folder=None,
+    pred_folder=None,
+    model_folder=None,
+    json_folder=None,
+    specs=None,
+    chips_all=None,
+    epochs=250,
+    early_stopping_delta=0.01,
+    patience=3,
+    batch_size=32,
+    verbose=False,
+    **kwargs
+):
+    """
+    Train model with logging, write predicted labels,
+    serialise model, and save metadata
+    ...
+
+    Arguments
+    ---------
+    model : keras.Model
+            Model to fit
+    train_dataset : tf.Dataset
+    validation_dataset  : tf.Dataset
+    log_folder : None/str
+                 [Optional. Default=None] Path to folder to store log files.
+                 A new subfolder will be created with the model name to store
+                 logs
+    pred_folder : None/str
+                  [Optional. Default=None] Path to folder to store predicted
+                  labels. The file with the labels will be named after the
+                  `model.name`
+    model_folder : None/str
+                   [Optional. Default=None] Path to folder to store serialised
+                   version of the model. A subfolder will be created with the
+                   `model.name` attribute to store all components
+    json_folder : None/str
+                  [Optional. Default=None] Path to folder to store metadata
+                  JSON file, named after `model.name`
+    specs : dict
+            [Optional. Default=None] Specs about the run to store as JSON with
+            performance
+    chips_all : None/ndarray/tf.Dataset
+            [Optional. Default=None] Array with full set of features to use
+            to obtain predicted labels from
+    epochs : int
+             [Optional. Default=250] Epochs for fitting
+    early_stopping_delta : float
+        [Optional. Default=0.01]
+        Minimum change in the monitored quantity to qualify as an improvement, 
+        i.e. an absolute change of less than min_delta, will count as no improvement.
+    patience : int
+        [Optional. Default=3]
+        Number of epochs with no improvement after which training will be stopped.
+    batch_sizie : int
+        batch size of ImageDataGenerator
+    verbose : Boolean
+             [Optional. Default=False] If True, print model summary and
+             fitting progress
+
+    Returns
+    -------
+    meta : dict
+           Metadata object (which has also been saved as a json file
+    """
+    if verbose:
+        print(model.summary())
+    callbacks = [EarlyStopping(monitor="val_loss", patience=patience, min_delta=early_stopping_delta, verbose=verbose)]
+    if log_folder is not None:
+        callbacks.append(
+            TensorBoard(log_dir=os.path.join(log_folder, model.name), histogram_freq=1)
+        )
+    if model_folder is not None:
+        callbacks.append(
+            ModelCheckpoint(
+                filepath=f"{model_folder}/{model.name}_best",
+                monitor="val_accuracy",
+                save_best_only=True,
+                mode="max",
+            )
+        )
+    
+    if verbose:
+        print(f"training...")
+    t0 = time.time()
+    h = model.fit(
+        train_dataset,
+        epochs=epochs,
+        shuffle=False,
+        validation_data=validation_dataset,
+        verbose=verbose,
+        callbacks=callbacks,
+        **kwargs
+    )
+    if "class_weights" in kwargs:
+        specs["class_weights"] = kwargs["class_weights"]
+    t1 = time.time()
+    if specs is not None:
+        specs["runtime"] = t1 - t0
+        if verbose:
+            print(f"time elapsed: {(t1 - t0):9.1f}s")
+
+    if model_folder is not None:
+        model.save(f"{model_folder}/{model.name}", save_format="tf")
+    if pred_folder:
+        specs["pred_folder"] = pred_folder
+
+    if json_folder:
+        os.makedirs(json_folder, exist_ok=True)
+        with open(
+            os.path.join(json_folder, model.name + ".json"), "w", encoding="utf-8"
+        ) as f:
+            f.write(json.dumps(specs, indent=4, cls=NumpyEncoder).replace("NaN", "null"))
+    return h
+
+
 def build_meta_json(
     model, specs, train_dataset, validation_dataset, secret_dataset, batch_size, verbose=False
 ):
